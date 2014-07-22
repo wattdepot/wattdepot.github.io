@@ -46,7 +46,7 @@ Looking at the configuration file line by line we see:
 ##### Line 4 - `security = wpa`
 * This stores the type of security the wireless network is using
 * Replace `network_security_type` with one of `wep`, `wpa`, or `none`
-* Note that `wpa` also covers `wpa2`
+* Note that `wpa` also convers `wpa2`
 
 ### Troubleshooting
 * The wifi configuration process creates a file on your usb drive called `wifi-config.log`
