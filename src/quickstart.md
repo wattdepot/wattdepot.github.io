@@ -5,17 +5,20 @@ title: Quick Start
 
 # Quick Start
 
-### Obtain your device
+## Obtain your device
 
 To obtain an OPQ device, [contact us](contact.html).
 
-### Installation
+## Register your device
+To register your device, visit [here]() and complete the following steps:
+
+## Installation
 1. Choose a location near a wireless access point
 2. Place your OPQ device face-up on a flat surface
 3. Plug the device directly into a wall outlet (do not plug into an extension cord or surge protector)
 
-### Connecting to WiFi
-#### Required Information  
+## Connecting to WiFi
+### Required Information  
 * `ssid` - The name of the wireless network you wish to connect to
 * `key` - The password or key required by the network you wish to connect to
 * `security` - The type of security the wireless network is using. Available options include:
@@ -23,7 +26,7 @@ To obtain an OPQ device, [contact us](contact.html).
   * `wpa` (this includes wpa2)
   * `none`
 
-#### Steps to Connect  
+### Steps to Connect  
 1. Create a text file called `wifi-config.txt`
 2. Add wireless configuration information to `wifi-config.txt`
 3. Copy `wifi-config.txt` to a usb drive
@@ -34,7 +37,7 @@ To obtain an OPQ device, [contact us](contact.html).
 7. Remove the usb drive from the OPQ device
 8. Restart the OPQ device (unplug and plug back in)
 
-#### Example wifi-config.txt
+### Example wifi-config.txt
     [wifi_config]
     ssid = name_of_your_network
     key = password_for_your_network
