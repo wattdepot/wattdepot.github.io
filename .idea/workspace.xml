@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="542d5d83-fe9b-4d59-8db8-fd2797ca9c50" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/quickstart-vagrant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/quickstart-vagrant.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/contact.html" afterPath="$PROJECT_DIR$/src/_site/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/default.html" afterPath="$PROJECT_DIR$/src/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/developerguide.html" afterPath="$PROJECT_DIR$/src/_site/developerguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/developerguide.md" afterPath="$PROJECT_DIR$/src/developerguide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/documentation.html" afterPath="$PROJECT_DIR$/src/_layouts/documentation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/index.html" afterPath="$PROJECT_DIR$/src/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/news.html" afterPath="$PROJECT_DIR$/src/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/news.html" afterPath="$PROJECT_DIR$/src/_site/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/post.html" afterPath="$PROJECT_DIR$/src/_layouts/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/quickstart.html" afterPath="$PROJECT_DIR$/src/_site/quickstart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/quickstart.md" afterPath="$PROJECT_DIR$/src/quickstart.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/userguide.html" afterPath="$PROJECT_DIR$/src/_layouts/userguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/userguide.html" afterPath="$PROJECT_DIR$/src/_site/userguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/userguide.md" afterPath="$PROJECT_DIR$/src/userguide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2014/07/16/vagrant.html" afterPath="$PROJECT_DIR$/src/_site/2014/07/16/vagrant.html" />
-    </list>
+    <list default="true" id="542d5d83-fe9b-4d59-8db8-fd2797ca9c50" name="Default" comment="" />
     <ignored path="OPQ.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -460,7 +440,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="23" width="1261" height="828" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -476,7 +456,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
