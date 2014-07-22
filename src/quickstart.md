@@ -10,8 +10,9 @@ title: Quick Start
 To obtain an OPQ device, [contact us](contact.html).
 
 ### Installation
-
-(Instructions here)
+1. Choose a location near a wireless access point
+2. Place your OPQ device face-up on a flat surface
+3. Plug the device directly into a wall outlet (do not plug into an extension cord or surge protector)
 
 ### Connecting to WiFi
 #### Required Information  
