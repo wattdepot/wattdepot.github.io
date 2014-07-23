@@ -18,6 +18,9 @@ To register your device, visit [here]() and complete the following steps:
 3. Plug the device directly into a wall outlet (do not plug into an extension cord or surge protector)
 
 ## Connecting to WiFi
+### Screencast
+<iframe width="640" height="360" src="//www.youtube.com/embed/rSb7kvgfjk4?rel=0" frameborder="0" allowfullscreen></iframe>
+
 ### Prerequisites
 * usb flash drive  
 * `ssid` - The name of the wireless network you wish to connect to
