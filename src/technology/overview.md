@@ -3,7 +3,7 @@ layout: userguide
 title: Technology Overview
 ---
 
-# Technology overview
+# Introduction
 
 We develop OPQ hardware and software technology as a series of "generations", each informally given the name of an Oahu surf spot by one of the developers. 
 
