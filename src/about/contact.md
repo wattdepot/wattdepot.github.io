@@ -2,9 +2,9 @@
 layout: documentation
 ---
 
-# Contact
+# Contact us
 
-For more information about the Open Power Quality project, please contact:
+For more information about the Open Power Quality project, and to learn about opportunities to participate, please contact:
 
 <address>
   Professor Philip Johnson<br>

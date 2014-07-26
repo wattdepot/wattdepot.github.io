@@ -12,7 +12,7 @@ An article in the September 6, 2013 issue of the Honolulu Star-Advertiser ([Sola
 
 On October 14, 2013, Hawaii News Now reported on a hearing convened by legislators regarding HECO's solar policy changes.  According to the report, "*The Hawaiian Electric Company answered to lawmakers Monday afternoon about a new policy requiring its approval before solar photovoltaic installations. HECO says the change, which went into effect, September 6, ensures its circuits have the capacity to remain reliable as PV growth skyrockets in Hawaii. Critics say the new policy has crippled the industry and left hundreds of customers who were at various stages in the transition to solar in limbo.*" The full news article is available [here](http://www.hawaiinewsnow.com/story/23689275/lawmakers-call-hearing-to-discuss-hecos-solar-policy-changes).
 
-The goal of the Open Power Quality initiative is to support the continued growth in use of renewable energy sources in Hawaii and elsewhere through a novel "triple open" combination of open-source hardware, software, and power quality data. We are designing and implementing a  low cost, consumer-grade hardware device for power quality whose specifications are available through an open source license.  This device can capture power quality data and send it to our cloud-based, software service, whose source code is also available as open source.  Finally, the collected information will be available as “open data”, facilitating analysis and innovation.
+The goal of Open Power Quality is to support the continued growth in use of renewable energy sources in Hawaii and elsewhere through a novel "triple open source" combination of hardware, software, and power quality data. We are designing and implementing a  low cost, consumer-grade hardware device called OPQBox for power quality whose specifications are available through an open source license.  Each OPQBox can capture power quality data and send it to an instance of OPQHub, our cloud-based, software service, whose source code is also available as open source.  Finally, the collected information will be available as “open data”, facilitating analysis and innovation.
 
 Our major project goals include:
 
@@ -20,7 +20,6 @@ Our major project goals include:
   
   * Point-of-use power quality data.  Traditionally, utilities were responsible for all power generation, and so they were also responsible for power quality monitoring.  Such monitoring traditionally occurs at the substation, with the assumption that this reflects the quality of power experienced by the hundreds or thousands of end-users serviced by the substation.  As end-users become both consumers and producers of power, the "substation assumption" is no longer valid, and it becomes important to know power quality as experienced by the end-user.
   
-
   * Crowd-sourced grid-level acquisition of power quality data.  A key feature of our approach is to upload power quality data from end-users to a cloud-based service. Such crowd-sourcing can reveal trends and explanations for power quality not available to individuals.
 
   * Crowd-sourced analysis of power quality data.  The creation of open data and its availability through an API to our cloud-based service creates an open-ended opportunity for analyses and combination with other data sources (such as cloud-cover and weather data).
