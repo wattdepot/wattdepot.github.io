@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542d5d83-fe9b-4d59-8db8-fd2797ca9c50" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_layouts/container.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/technology/overview.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/case-studies.html" afterPath="$PROJECT_DIR$/src/_site/technology/case-studies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/about/contact.html" afterPath="$PROJECT_DIR$/src/_site/about/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/default.html" afterPath="$PROJECT_DIR$/src/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/developerguide.html" afterPath="$PROJECT_DIR$/src/_site/technology/developerguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2014/02/04/excelerator.html" afterPath="$PROJECT_DIR$/src/_site/2014/02/04/excelerator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/index.html" afterPath="$PROJECT_DIR$/src/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/about/motivation.html" afterPath="$PROJECT_DIR$/src/_site/about/motivation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/about/news.html" afterPath="$PROJECT_DIR$/src/_site/about/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/quickstart.html" afterPath="$PROJECT_DIR$/src/_site/technology/quickstart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/about/team.html" afterPath="$PROJECT_DIR$/src/_site/about/team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2014/04/02/techreport.html" afterPath="$PROJECT_DIR$/src/_site/2014/04/02/techreport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/userguide.html" afterPath="$PROJECT_DIR$/src/_site/technology/userguide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/overview.html" afterPath="$PROJECT_DIR$/src/_site/technology/overview.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/technology/overview.md" afterPath="$PROJECT_DIR$/src/technology/overview.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OPQ.iws" />
@@ -189,8 +177,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78500706" vertical-offset="195" max-vertical-offset="1005">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.55445546" vertical-offset="1198" max-vertical-offset="1920">
+              <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -782,8 +770,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78500706" vertical-offset="195" max-vertical-offset="1005">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.55445546" vertical-offset="1198" max-vertical-offset="1920">
+          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
           <folding />
         </state>
       </provider>
