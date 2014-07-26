@@ -5,7 +5,7 @@ title: Technology Overview
 
 # Introduction
 
-We develop OPQ hardware and software technology as a series of "generations", each informally given the name of an Oahu surf spot by one of the developers. 
+We develop OPQ hardware and software technology as a series of "generations", each named by an Oahu surf spot. 
 
 # G1: Pipeline
 
@@ -70,19 +70,26 @@ As of July, 2014, we are in the early stages of requirements development and des
  
 ## OPQBox
 
-Proposed requirements for the second generation of OPQBox include:
+Proposed enhancements for OPQBox include:
 
   1. Upgrade sampling to support IEEE PQ standards, including 256 samples per waveform and locking to 60Hz input.
   2. Internally fused UL listed dual secondary transformer.
-  3. Improvements to enclosure (Add "Open Power Quality" to box top, provide screws to secure box.)
+  3. Improvements to enclosure design, including: add "Open Power Quality" to box top; provide screws to secure box; provide gasket through box for AC wire.
+  4. Incorporate Li-Po battery and update firmware/software to write out waveform when power to device is cut.
   
 ## OPQHub
 
-Proposed requirements for the second generation of OPQHub include:
+Proposed enhancements for OPQHub include:
 
   1. Update to Bootstrap 3.x.
   2. Update to Play 2.3.
-  3. Additional analytics.
+  3. API for external access to public data
+  
+## Communication protocol
+
+Proposed enhancements for the communication protocol include:
+
+  1. Support bi-directional communication so that OPQHub can control data sent from OPQBox based upon characteristics of alert.
   
   
   
