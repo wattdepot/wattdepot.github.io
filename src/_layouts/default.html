@@ -37,12 +37,24 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><a href="/index.html">Home</a></li>
-        <li><a href="/quickstart.html">Quick Start</a></li>
-        <li><a href="/userguide.html">Users</a></li>
-        <li><a href="/developerguide.html">Developers</a></li>
-        <li><a href="/case-studies.html">Studies</a></li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ site.baseurl }}/documentation/quickstart.html">Quick Start</a></li>
+            <li><a href="{{ site.baseurl }}/documentation/userguide.html">User Guide</a></li>
+            <li><a href="{{ site.baseurl }}/documentation/developerguide.html">Developer Guide</a></li>
+            <li><a href="{{ site.baseurl }}/documentation/case-studies.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">About OPQ<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ site.baseurl }}/about/motivation.html">Motivation</a></li>
+            <li><a href="{{ site.baseurl }}/about/team.html">Team</a></li>
+            <li><a href="{{ site.baseurl }}/about/news.html">News</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -50,7 +62,7 @@
 
 <div class="github-fork-ribbon-wrapper right">
   <div class="github-fork-ribbon">
-    <a href="https://github.com/openpowerquality">Find me on GitHub</a>
+    <a href="https://github.com/openpowerquality">Find OPQ on GitHub</a>
   </div>
 </div>
 

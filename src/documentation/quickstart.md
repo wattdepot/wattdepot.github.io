@@ -3,15 +3,15 @@ layout: userguide
 title: Quick Start
 ---
 
-# Obtain device
+# Obtain an OPQBox
 
-The first step in getting started is to obtain an OPQ hardware device. 
+The first step in getting started is to obtain an OPQBox. 
 
-We are currently manufacturing devices on an as-needed basis.  To obtain cost and availability information, please [contact us](contact.html).
+We are currently manufacturing OPQBoxes on an as-needed basis.  To obtain cost and availability information, please [contact us](contact.html).
 
-# Configure device
+# OPQBox configuration
 
-Once you have obtained your OPQ device, you begin the configuration process by providing it with information about your WiFi network and the location of the OPQ cloud service using the provided USB stick.   Once your OPQ device is communicating with the OPQ service, you will use the service to complete the configuration process.
+Once you have obtained your OPQBox, you begin the configuration process by providing it with information about your WiFi network and the location of your chosen OPQHub using the provided USB stick.   Once your OPQBox is communicating with the OPQHub, you will use the OPQHub to complete the configuration process.
 
 ## Edit config.txt
 
@@ -28,7 +28,7 @@ Looking at the configuration file line by line we see:
 
 ##### Line 1 - `[wifi_config]`
 * This line never changes. 
-* It tells the OPQ device that this file is meant to configure the wireless network.
+* It tells the OPQBox that this file is meant to configure the wireless network.
 
 ##### Line 2 - `ssid = name_of_your_network`
 * This stores the name of the wireless network you wish to connect to
@@ -47,16 +47,16 @@ Looking at the configuration file line by line we see:
 * The wifi configuration process creates a file on your usb drive called `wifi-config.log`
 * This file lists all steps taken while setting up the wireless interface and should also include all error messages
 
-## Power up device
+## Power up OPQBox
 
 (Explanation of what should happen after device is plugged in. Do LEDs indicate anything?  If not, they should.  How
 can the user know that the device has successfully connected to WiFi?)
 
-# Configure user account
+# OPQHub accounts
 
 ## Device registration
 
-(Explain how to login to the OPQ service and verify that the device is communicating successfully.)
+(Explain how to login to the OPQHub and verify that the device is communicating successfully.)
 
 ## Location configuration
 
