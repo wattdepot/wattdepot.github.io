@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542d5d83-fe9b-4d59-8db8-fd2797ca9c50" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_includes/community-image.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/technology/overview.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/organization/community.html" afterPath="$PROJECT_DIR$/src/_site/organization/community.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/organization/contact.html" afterPath="$PROJECT_DIR$/src/_site/organization/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/developerguide.html" afterPath="$PROJECT_DIR$/src/_site/technology/developerguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2014/02/04/excelerator.html" afterPath="$PROJECT_DIR$/src/_site/2014/02/04/excelerator.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/index.html" afterPath="$PROJECT_DIR$/src/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/organization/motivation.html" afterPath="$PROJECT_DIR$/src/_site/organization/motivation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/organization/news.html" afterPath="$PROJECT_DIR$/src/_site/organization/news.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/pilot-studies.html" afterPath="$PROJECT_DIR$/src/_site/technology/pilot-studies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/quickstart.html" afterPath="$PROJECT_DIR$/src/_site/technology/quickstart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/organization/team.html" afterPath="$PROJECT_DIR$/src/_site/organization/team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2014/04/02/techreport.html" afterPath="$PROJECT_DIR$/src/_site/2014/04/02/techreport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/technology/userguide.html" afterPath="$PROJECT_DIR$/src/_site/technology/userguide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OPQ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,8 +67,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28169015" vertical-offset="1270" max-vertical-offset="1980">
-              <caret line="84" column="219" selection-start-line="84" selection-start-column="219" selection-end-line="84" selection-end-column="219" />
+            <state vertical-scroll-proportion="0.7394366" vertical-offset="1245" max-vertical-offset="1980">
+              <caret line="103" column="49" selection-start-line="103" selection-start-column="49" selection-end-line="103" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -795,8 +780,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28169015" vertical-offset="1270" max-vertical-offset="1980">
-          <caret line="84" column="219" selection-start-line="84" selection-start-column="219" selection-end-line="84" selection-end-column="219" />
+        <state vertical-scroll-proportion="0.7394366" vertical-offset="1245" max-vertical-offset="1980">
+          <caret line="103" column="49" selection-start-line="103" selection-start-column="49" selection-end-line="103" selection-end-column="49" />
           <folding />
         </state>
       </provider>
