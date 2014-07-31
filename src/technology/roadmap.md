@@ -20,7 +20,7 @@ As our first generation hardware, Pipeline's OPQBox has modest design goals:
   1. Unit price below $75
   2. Easy to install and safe to operate
   3. 16/24 bit resolution and 50+ samples per grid cycle
-  4. Support for frequency, voltage, and THD measurement
+  4. Support for frequency and voltage measurement
   5. Onboard processing and local storage
   6. Inter-device synchronization via NTP
 
@@ -76,6 +76,10 @@ Proposed enhancements for OPQBox include:
   2. Internally fused UL listed dual secondary transformer.
   3. Improvements to enclosure design, including: add "Open Power Quality" to box top; provide screws to secure box; provide gasket through box for AC wire.
   4. Incorporate Li-Po battery and update firmware/software to write out waveform when power to device is cut.
+  5. Measure THD
+  6. Replace Raspberry PI by TI CC3200 (dev kit)
+  7. Add 64K EEPROM for nonvolatile memory
+  8. Use [KiCad](http://www.kicad-pcb.org/display/KICAD/KiCad+EDA+Software+Suite) for design
   
 ## OPQHub
 
@@ -84,6 +88,7 @@ Proposed enhancements for OPQHub include:
   1. Update to Bootstrap 3.x.
   2. Update to Play 2.3.
   3. API for external access to public data
+  4. Remodularize to separate acquisition from analysis from storage. 
   
 ## Communication protocol
 
