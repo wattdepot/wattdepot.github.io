@@ -3,13 +3,14 @@ layout: userguide
 title: Quick Start
 ---
 
-# Step 1: Obtain an OPQBox
+# 1. Obtain an OPQBox
 
 The first step in getting started is to obtain an OPQBox.
 
 We are currently manufacturing OPQBoxes on an as-needed basis.  To obtain cost and availability information, please [contact us](contact.html).
 
-# Step 2: Create an account on OPQHub
+# 2. Create an OPQHub account
+
 Once you have your OPQBox, you are ready to create an account on OPQHub.
 
 1. Visit [http://emilia.ics.hawaii.edu:8194](http://emilia.ics.hawaii.edu:8194).
@@ -21,7 +22,8 @@ Once you have your OPQBox, you are ready to create an account on OPQHub.
 
 _* If you would prefer to not get alerts, you can leave wither the alert e-mail field or the SMS number field blank._
 
-# Step 3 - Register your OPQBox.
+# 3. Register your OPQBox
+
 After you have created your account, you can register your OPQBox (or OPQBoxes) with your account.
 
 1. Make sure you are on the [device administration page](http://emilia.hawaii.edu:8194/admin/device).
@@ -37,7 +39,7 @@ After you have created your account, you can register your OPQBox (or OPQBoxes) 
 
 _* By zooming in and out on the map, it is possible to select a square that is more accurate or less accurate. This makes it possible to share your power quality data while also remaining anonymous. You might select a square that has you and your neighbors homes in it. Or you might select a square that has your entire neighborhood in it. Play around with the map until you find a square that you are comfortable with._
 
-# Step 4 - OPQBox Configuration
+# 4. OPQBox Configuration
 
 Once you have obtained your OPQBox, you begin the configuration process by providing it with information about your WiFi network and the location of your chosen OPQHub using the provided USB stick.  Once your OPQBox is communicating with the OPQHub, the setup process is complete.
 
@@ -118,12 +120,13 @@ The rest of the fields under `# Default values` generally do not need to be chan
 * This value specifies how often the OPQBox should send a heartbeat to the OPQHub.
 * The value of this field is in seconds.
 
-# Step 5 - Power up OPQBox
+# 5. Power up OPQBox
 
 1. Place your OPQBox on a flat surface.
 2. Make sure the USB drive is inserted into the device.
 3. Turn on the device.
-4. If you have configured e-mail or text message alerts, you should receive an alert telling you when the device comes online.
+4. If you have configured e-mail or text message alerts, you should receive an alert telling you when the device comes online. This should happen within 3 minutes. 
+5. If you do not receive an alert (or do not see data in your OPQHub account), then cut power to the device, take out the USB Drive, and check for a log file which should indicate the configuration problem.
 
 
 
