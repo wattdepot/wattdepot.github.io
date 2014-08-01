@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="542d5d83-fe9b-4d59-8db8-fd2797ca9c50" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2014-08-01-g1-pilot.md" afterPath="$PROJECT_DIR$/src/_posts/2014-08-01-g1-pilot.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
     </list>
     <ignored path="OPQ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.875" vertical-offset="1290" max-vertical-offset="1980">
-              <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.41925466" vertical-offset="915" max-vertical-offset="1995">
+              <caret line="72" column="109" selection-start-line="72" selection-start-column="109" selection-end-line="72" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -87,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2014-08-01-g1-pilot.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2014-08-01-g1-pilot.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_posts/2014-08-01-g1-pilot.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21060842" vertical-offset="0" max-vertical-offset="641">
-              <caret line="8" column="101" selection-start-line="8" selection-start-column="101" selection-end-line="8" selection-end-column="101" />
+            <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="300">
+              <caret line="8" column="117" selection-start-line="8" selection-start-column="114" selection-end-line="8" selection-end-column="165" />
               <folding />
             </state>
           </provider>
@@ -219,10 +219,10 @@
         <option value="$PROJECT_DIR$/src/_includes/team-member.html" />
         <option value="$PROJECT_DIR$/src/organization/team.md" />
         <option value="$PROJECT_DIR$/src/technology/roadmap.md" />
-        <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/technology/pilot-studies.md" />
         <option value="$PROJECT_DIR$/src/_layouts/default.html" />
         <option value="$PROJECT_DIR$/src/_posts/2014-08-01-g1-pilot.md" />
+        <option value="$PROJECT_DIR$/src/index.html" />
       </list>
     </option>
   </component>
@@ -913,14 +913,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.875" vertical-offset="1290" max-vertical-offset="1980">
-          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2014-04-02-techreport.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="330">
@@ -953,13 +945,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2014-08-01-g1-pilot.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21060842" vertical-offset="0" max-vertical-offset="641">
-          <caret line="8" column="101" selection-start-line="8" selection-start-column="101" selection-end-line="8" selection-end-column="101" />
+        <state vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="300">
+          <caret line="8" column="117" selection-start-line="8" selection-start-column="114" selection-end-line="8" selection-end-column="165" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41925466" vertical-offset="915" max-vertical-offset="1995">
+          <caret line="72" column="109" selection-start-line="72" selection-start-column="109" selection-end-line="72" selection-end-column="109" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
