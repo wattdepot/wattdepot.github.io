@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>  | WattDepot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.0/cerulean/bootstrap.min.css">
+
+  <!--  Load site-specific customizations after bootstrap. -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/gh-fork-ribbon.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:normal,italic,bold">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">WattDepot</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/overview/goals.html">Goals</a></li>
+            <li><a href="/overview/domainmodel.html">Domain model</a></li>
+            <li><a href="/overview/architecture.html">Architecture</a></li>
+            <li><a href="/overview/publications.html">Publications</a></li>
+            <li><a href="/overview/news.html">News</a></li>
+            <li><a href="/overview/history.html">History</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Installation<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/installationguide/prerequisites.html">Environment Prerequisites</a></li>
+            <li><a href="/installationguide/installation.html">Basic installation</a></li>
+            <li><a href="/installationguide/deploy-local.html">Deploying locally</a></li>
+            <li><a href="/installationguide/deploy-heroku.html">Deploying to Heroku</a></li>
+            <li><a href="/installationguide/administration.html">Administration</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/userguide/definitions.html">Defining the domain model</a></li>
+            <li><a href="/userguide/retrieval.html">Retrieving data</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">Developers <b class="caret"></b></span><span class="visible-md visible-lg">Developer Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/developerguide/prerequisites.html">Environment prerequisites</a></li>
+            <li><a href="/developerguide/downloading.html">Downloading WattDepot sources</a></li>
+            <li><a href="/developerguide/building.html">Building the system</a></li>
+            <li><a href="/developerguide/branching.html">WattDepot branching model</a></li>
+            <li><a href="/developerguide/release.html">Making a release</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/writing-sensors.html">Writing sensors</a></li>
+            <li><a href="/developerguide/writing-clients.html">Writing clients</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/persistence.html">Implementing persistence</a></li>
+            <li><a href="/developerguide/evaluating-performance.html">Evaluating WattDepot performance</a></li>
+            <li><a href="/developerguide/documentation.html">Documenting the system</a></li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">APIs <b class="caret"></b></span><span class="visible-md visible-lg">API Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/api/http.html">HTTP</a></li>
+            <li><a href="/api/java.html">Java</a></li>
+            <li><a href="/api/javascript.html">Javascript</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="github-fork-ribbon-wrapper right">
+  <div class="github-fork-ribbon">
+    <a href="https://github.com/wattdepot">WattDepot on GitHub</a>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Deploying WattDepot to Heroku</h1>
+
+<p>This document explains how to deploy the WattDepot server to Heroku.</p>
+
+<h2>Requirements</h2>
+
+<p>You will need to install Heroku toolbelt and set up your Heroku account.</p>
+
+<p>If you have not use Heroku before, sign up for an account and install the Heroku toolbelt 
+following the instructions in the <a href="http://devcenter.heroku.com/articles/quickstart">Heroku Cheat Sheet</a>.
+This involves:
+  * Signing up with the Heroku service
+  * Install the Heroku Toolbelt (provides the &quot;git&quot; and &quot;heroku&quot; commands).
+  * Logging in to Heroku.</p>
+
+<p>You must tell Heroku about your SSH keys. Follow
+https://devcenter.heroku.com/articles/keys to upload your keys to Heroku.</p>
+
+<h2>Download the Wattdepot source</h2>
+
+<p>To download the Wattdepot source, type the following::</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git clone git://github.com/wattdepot/wattdepot.git
+</code></pre></div>
+<p>This will create a directory called &quot;wattdepot&quot; containing the source code
+for the system.</p>
+
+<h2>Create the Heroku application</h2>
+
+<p>Once the wattdepot source is downloaded, you can create a Heroku app for wattdepot:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cd wattdepot
+$ heroku create &lt;wattdepot_app_name&gt;
+</code></pre></div>
+<h2>Setup environment variables</h2>
+
+<p>To deploy Wattdepot on Heroku, you must define several environment variables that will be
+used by the instance on Heroku:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ heroku config:set WATTDEPOT_ADMIN_NAME=&lt;admin name&gt;
+$ heroku config:set WATTDEPOT_ADMIN_PASSWORD=&lt;admin password&gt;
+</code></pre></div>
+<h2>Deploy to Heroku</h2>
+
+<p>Here is the command to deploy to Heroku:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git push heroku master
+</code></pre></div>
+<p>This step will deploy the wattdepot system to Heroku and initialize the wattdepot system. After the initialization, you need to set the following Heroku environment variable to prevent the system
+to run initialization again (This step may be removed in the future release):</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ heroku config:set WATTDEPOT_DB_UPDATE=update
+</code></pre></div>
+<h2>Access the server admin interface</h2>
+
+<p>You can access the server by using your browser to open the url of your Heroku app: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://[wattdepot_app_name].herokuapp.com/wattdepot/admin
+</code></pre></div>
+<h2>Update the Heroku instance</h2>
+
+<p>You can update the deployed Heroku instance by running the following command:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git push heroku
+</code></pre></div>
+</div>
+
+<div class="dark-blue-background">
+  <footer>
+    <div class="container page-footer">
+      <p>WattDepot is sponsored by:<br>
+         Department of Information and Computer Sciences<br>
+         University of Hawaii, Honolulu, HI USA</p>
+      <p>Last update on: <span>06 Aug 2014</span></p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
