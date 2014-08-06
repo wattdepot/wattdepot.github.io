@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Home | Open Power Quality</title>
+  <title> Home | WattDepot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.0/cerulean/bootstrap.min.css">
 
@@ -32,30 +32,66 @@
         <!--  Display three horizontal lines when navbar collapsed. -->
         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand">Open Power Quality</a>
+      <a class="navbar-brand">WattDepot</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><a href="/index.html">Home</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Technology<b class="caret"></b></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/technology/roadmap.html">Roadmap</a></li>
-            <li><a href="/technology/quickstart.html">Quick Start</a></li>
-            <li><a href="/technology/userguide.html">User Guide</a></li>
-            <li><a href="/technology/developerguide.html">Developer Guide</a></li>
-            <li><a href="/technology/pilot-studies.html">Pilot Studies</a></li>
+            <li><a href="/overview/goals.html">Goals</a></li>
+            <li><a href="/overview/domainmodel.html">Domain model</a></li>
+            <li><a href="/overview/architecture.html">Architecture</a></li>
+            <li><a href="/overview/publications.html">Publications</a></li>
+            <li><a href="/overview/news.html">News</a></li>
+            <li><a href="/overview/history.html">History</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Organization<b class="caret"></b></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Installation<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/organization/motivation.html">Why OPQ?</a></li>
-            <li><a href="/organization/team.html">Design Team</a></li>
-            <li><a href="/organization/community.html">User Communities</a></li>
-            <li><a href="/organization/news.html">News</a></li>
-            <li><a href="http://emilia.ics.hawaii.edu:8194/">Public OPQHub</a></li>
-            <li><a href="/organization/contact.html">Contact us</a></li>
+            <li><a href="/installationguide/prerequisites.html">Environment Prerequisites</a></li>
+            <li><a href="/installationguide/installation.html">Basic installation</a></li>
+            <li><a href="/installationguide/deploy-local.html">Deploying locally</a></li>
+            <li><a href="/installationguide/deploy-heroku.html">Deploying to Heroku</a></li>
+            <li><a href="/installationguide/administration.html">Administration</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/userguide/definitions.html">Defining the domain model</a></li>
+            <li><a href="/userguide/retrieval.html">Retrieving data</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">Developers <b class="caret"></b></span><span class="visible-md visible-lg">Developer Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/developerguide/prerequisites.html">Environment prerequisites</a></li>
+            <li><a href="/developerguide/downloading.html">Downloading WattDepot sources</a></li>
+            <li><a href="/developerguide/building.html">Building the system</a></li>
+            <li><a href="/developerguide/branching.html">WattDepot branching model</a></li>
+            <li><a href="/developerguide/release.html">Making a release</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/writing-sensors.html">Writing sensors</a></li>
+            <li><a href="/developerguide/writing-clients.html">Writing clients</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/persistence.html">Implementing persistence</a></li>
+            <li><a href="/developerguide/evaluating-performance.html">Evaluating WattDepot performance</a></li>
+            <li><a href="/developerguide/documentation.html">Documenting the system</a></li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">APIs <b class="caret"></b></span><span class="visible-md visible-lg">API Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/api/http.html">HTTP</a></li>
+            <li><a href="/api/java.html">Java</a></li>
+            <li><a href="/api/javascript.html">Javascript</a></li>
           </ul>
         </li>
       </ul>
@@ -65,13 +101,13 @@
 
 <div class="github-fork-ribbon-wrapper right">
   <div class="github-fork-ribbon">
-    <a href="https://github.com/openpowerquality">Find OPQ on GitHub</a>
+    <a href="https://github.com/wattdepot">WattDepot on GitHub</a>
   </div>
 </div>
 
 <div class="jumbotron">
   <div class="container">
-    <h2><strong>Welcome to Open Power Quality</strong></h2>
+    <h2><strong>Welcome to WattDepot</strong></h2>
 
     <p><strong>Open source hardware, software, and data for low cost, crowd-sourced power quality monitoring and analysis</strong>
     </p>
@@ -84,11 +120,12 @@
     <div class="row">
 
       <div class="col-sm-8">
-        <h3><strong>Designed for utilities, campuses, renewable energy providers, power specialists, and consumers</strong></h3>
+        <h3><strong>Designed for utilities, campuses, renewable energy providers, power specialists, consumers, and anyone else who wants increased use of renewable energy sources.</strong></h3>
 
         <p>
           Our target users include macro-grid providers (electrical utilities), micro-grid providers (military, academia, and large corporations), renewable energy providers, power quality specialists, and even everyday consumers interested in their power quality.</p>
-        <p>See the <a href="/organization/community.html">community</a> page for more details.</p>
+        <p>See the <a href="/organization/community.html">community</a> page for more details on these user groups.</p>
+        <p><strong>Our ultimate goal is to help society move from reliance on fossil fuels to more efficient, robust, and renewable energy sources.</strong></p>
       </div>
       <div class="col-sm-4">
         <div class="row">
@@ -129,7 +166,7 @@
       <div class="col-sm-8">
         <h3><strong>OPQBox: Low cost, open source hardware</strong></h3>
 
-        <p>Our first generation OPQBox costs less than US$75, and the schematics are available if you want to do it yourself.
+        <p>Our first generation OPQBox costs less than US$75, and the schematics are published under an open source hardware license if you want to build it yourself.
         </p>
 
         <p>We want to create and support an ecosystem of hardware developers that accelerate the development of new designs to satisfy different needs.
@@ -152,6 +189,7 @@
         <p>For consumers, this means that you can easily determine if a power quality problem is local to your own house or is more widespread in your neighborhood or city.</p>
         <p>For organizations, this means you can deploy OPQBoxes throughout your facility, and install an OPQHub if you want to keep your power quality information private.</p>
         <p>An OPQHub installed can be installed and run locally, or deployed to a hosting environment such as <a href="http://www.cloudbees.com/">CloudBees</a> or <a href="https://www.heroku.com/">Heroku</a></p>
+        <p>We also maintain a <a href="http://emilia.ics.hawaii.edu:8194/">public OPQHub</a> for testing and evaluation.</p>
       </div>
       <div class="col-sm-4">
         <img style="margin-top: 20px; margin-bottom: 20px" src="images/opq-events-square.png" class="img-circle img-responsive">
@@ -197,11 +235,10 @@
 <div class="dark-blue-background">
   <footer>
     <div class="container page-footer">
-      <p>OPQ is sponsored by:<br>
+      <p>WattDepot is sponsored by:<br>
          Department of Information and Computer Sciences<br>
-         Department of Electrical Engineering<br>
          University of Hawaii, Honolulu, HI USA</p>
-      <p>Last update on: <span>01 Aug 2014</span></p>
+      <p>Last update on: <span>06 Aug 2014</span></p>
     </div>
   </footer>
 </div>

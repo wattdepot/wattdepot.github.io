@@ -1,4 +1,4 @@
-openpowerquality.github.io
-==========================
+wattdepot.github.io
+===================
 
-Home site for open power quality organization.
+Home site for wattdepot.org

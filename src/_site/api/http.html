@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>  | WattDepot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.1.0/cerulean/bootstrap.min.css">
+
+  <!--  Load site-specific customizations after bootstrap. -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/gh-fork-ribbon.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:normal,italic,bold">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">WattDepot</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/overview/goals.html">Goals</a></li>
+            <li><a href="/overview/domainmodel.html">Domain model</a></li>
+            <li><a href="/overview/architecture.html">Architecture</a></li>
+            <li><a href="/overview/publications.html">Publications</a></li>
+            <li><a href="/overview/news.html">News</a></li>
+            <li><a href="/overview/history.html">History</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Installation<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/installationguide/prerequisites.html">Environment Prerequisites</a></li>
+            <li><a href="/installationguide/installation.html">Basic installation</a></li>
+            <li><a href="/installationguide/deploy-local.html">Deploying locally</a></li>
+            <li><a href="/installationguide/deploy-heroku.html">Deploying to Heroku</a></li>
+            <li><a href="/installationguide/administration.html">Administration</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/userguide/definitions.html">Defining the domain model</a></li>
+            <li><a href="/userguide/retrieval.html">Retrieving data</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">Developers <b class="caret"></b></span><span class="visible-md visible-lg">Developer Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/developerguide/prerequisites.html">Environment prerequisites</a></li>
+            <li><a href="/developerguide/downloading.html">Downloading WattDepot sources</a></li>
+            <li><a href="/developerguide/building.html">Building the system</a></li>
+            <li><a href="/developerguide/branching.html">WattDepot branching model</a></li>
+            <li><a href="/developerguide/release.html">Making a release</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/writing-sensors.html">Writing sensors</a></li>
+            <li><a href="/developerguide/writing-clients.html">Writing clients</a></li>
+            <li class="divider"></li>
+            <li><a href="/developerguide/persistence.html">Implementing persistence</a></li>
+            <li><a href="/developerguide/evaluating-performance.html">Evaluating WattDepot performance</a></li>
+            <li><a href="/developerguide/documentation.html">Documenting the system</a></li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">APIs <b class="caret"></b></span><span class="visible-md visible-lg">API Guide <b class="caret"></b></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/api/http.html">HTTP</a></li>
+            <li><a href="/api/java.html">Java</a></li>
+            <li><a href="/api/javascript.html">Javascript</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="github-fork-ribbon-wrapper right">
+  <div class="github-fork-ribbon">
+    <a href="https://github.com/wattdepot">WattDepot on GitHub</a>
+  </div>
+</div>
+
+<div class="container">
+  <h1>HTTP API</h1>
+
+<p>WattDepot provides a language-independent interface to its server using HTTP. To understand this interface,
+it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot/overview/domainmodel">WattDepot Domain Model</a>.</p>
+
+<p>Path elements that have &#39;{}&#39; surrounding them are variables.  They are generally substituted with an ID for the type. For example {org-id} should be replaced with a valid organization id. The URLs below do not include the WattDepot server&#39;s address.</p>
+
+<p><em>(We need to figure out how to document the arguments and return values from these calls. One possibility is to provide more complete documentation in the JavaDocs, and then provide a (stable) link to the latest released JavaDoc on this page.)</em></p>
+
+<p><em>(Also, it might be useful to compare this API with the <a href="https://code.google.com/p/wattdepot/wiki/RestApi">WattDepot 2.0 API</a>, to ensure that we are not missing anything important, and that we are documenting the appropriate features. Some things I notice are missing from this page: (1) Access control info. (Admin vs. regular user); (2) health API call; (3) sample return values; (4) HTTP status codes.)</em></p>
+
+<hr>
+
+<h2>Organization</h2>
+
+<p>See the <a href="overview/domainmodel#organization">Organization domain model description</a> for details about this concept.</p>
+
+<p>Organization operations require administrator credentials.</p>
+
+<h3>GET /wattdepot/admin/</h3>
+
+<p>Retrieve the web interface for managing Organizations and Users associated with a WattDepot server. Only administrators can do this.</p>
+
+<h3>GET /wattdepot/admin/organizations/</h3>
+
+<p>Retrieve the list of defined organizations in a WattDepot server as a JSON string.</p>
+
+<h3>GET /wattdepot/{org-id}/organization/{org-id}</h3>
+
+<p>Retrieve the Organization with the given {org-id} as a JSON string. This call allows members of the organization to retrieve their own organization.</p>
+
+<h3>PUT /wattdepot/admin/organization/</h3>
+
+<p>Create a new organization. The request entity must be a valid JSON string representation of the new Organization. Only administrators can do this.</p>
+
+<h3>POST /wattdepot/admin/organization/{org-id}</h3>
+
+<p>Update the organization with the given {org-id}. The request entity must be a valid JSON string representation of the updated Organization.  Only administrators can do this. The <em>id</em> of the organization is fixed and cannot be changed after it is created.</p>
+
+<h3>DELETE /wattdepot/admin/organization/{org-id}</h3>
+
+<p>Delete the organization. Only administrators can do this. <strong>WARNING</strong>, this operation deletes all Users, Sensors, Collector Process Definitions, Depositories and Measurements belonging to this organization.</p>
+
+<h3>GET /wattdepot/{org-id}/</h3>
+
+<p>Retrieve the web interface for managing an organization associated with a WattDepot server. </p>
+
+<hr>
+
+<h2>User</h2>
+
+<p>See the <a href="overview/domainmodel#user">User domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/admin/users/</h3>
+
+<p>Retrieve a representation of all the users associated with a WattDepot server as a JSON string. Only the administrator can do this.</p>
+
+<h3>GET /wattdepot/{org-id}/user/{user-id}</h3>
+
+<p>Retrieve a representation of a user as a JSON string. Members of the organization can do this.</p>
+
+<h3>GET /wattdepot/{org-id}/users/</h3>
+
+<p>Retrieve a representation of all users associated with this group as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/user/</h3>
+
+<p>Create a new user. The request entity must be a valid JSON string representation of the User. Only administrators can do this.</p>
+
+<h3>POST /wattdepot/{org-id}/user/{user-id}</h3>
+
+<p>Update this representation of a user. The request entity must be a valid JSON string representation of the updated User. Only administrators can do this. The <em>id</em> and <em>organization</em> of the User are fixed and cannot be changed.</p>
+
+<h3>DELETE /wattdepot/{org-id}/user/{user-id}</h3>
+
+<p>Delete this representation of a user. Only administrators can do this. Deleting a user just removes them from the organization. No data is associated with an individual user, just their organization.</p>
+
+<hr>
+
+<h2>Sensor</h2>
+
+<p>See the <a href="overview/domainmodel#sensor">Sensor domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/{org-id}/sensor/{sensor-id}</h3>
+
+<p>Retrieve a representation of this sensor as a JSON string. Members of the organization may do this.</p>
+
+<h3>GET /wattdepot/{org-id}/sensors/</h3>
+
+<p>Retrieve a representation of all sensors associated with this group as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/sensor/</h3>
+
+<p>Create a new sensor. The request entity must be a valid JSON string representation of the Sensor. Members of the organization can do this.</p>
+
+<h3>POST /wattdepot/{org-id}/sensor/{sensor-id}</h3>
+
+<p>Update this representation of a sensor. The request entity must be a valid JSON string representation of the updated Sensor. Members of the organization can do this. The <em>id</em> and <em>organization</em> of the Sensor are fixed and cannot be changed.</p>
+
+<h3>DELETE /wattdepot/{org-id}/sensor/{sensor-id}</h3>
+
+<p>Delete this sensor. Members of the organization can do this. All measurements created by the sensor are deleted.</p>
+
+<hr>
+
+<h2>Sensor Group</h2>
+
+<p>See the <a href="overview/domainmodel#sensor-group">Sensor Group domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/{org-id}/sensor-group/{sensor-group-id}</h3>
+
+<p>Retrieve a representation of this sensor group as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/sensor-group/</h3>
+
+<p>Create a new sensor group. The request entity must be a valid JSON string representation of the sensor group. Members of the organization can do this.</p>
+
+<h3>POST /wattdepot/{org-id}/sensor-group/{sensor-group-id}</h3>
+
+<p>Update the representation of this sensor group. The request entity must be a valid JSON string representation of the updated sensor group. Members of the organization can do this. The <em>id</em> and <em>organization</em> of the sensor group are fixed and cannot be changed.</p>
+
+<h3>DELETE /wattdepot/{org-id}/sensor-group/{sensor-group-id}</h3>
+
+<p>Delete this sensor group. Members of the organization may do this. Deleting a sensor group has no affect on other objects in the WattDepot server.</p>
+
+<hr>
+
+<h2>Sensor Model</h2>
+
+<p>See the <a href="overview/domainmodel#sensor">Sensor domain model description</a> for details about sensor models, which are part of the Sensor description.</p>
+
+<p>Note that Sensor Models are always defined in the <em>public</em> group.</p>
+
+<p><em>(Are these calls restricted to the admin user?)</em></p>
+
+<h3>GET /wattdepot/public/sensor-model/{sensor-model-id}</h3>
+
+<p>Retrieve a representation of a sensor model.</p>
+
+<h3>GET /wattdepot/public/sensor-models/</h3>
+
+<p>Retrieve a representation of all sensor models.</p>
+
+<h3>PUT /wattdepot/public/sensor-model/</h3>
+
+<p>Create a new sensor model.</p>
+
+<h3>POST /wattdepot/public/sensor-model/{sensor-model-id}</h3>
+
+<p>Update this representation of a sensor model.</p>
+
+<h3>DELETE /wattdepot/public/sensor-model/{sensor-model-id}</h3>
+
+<p>Delete this representation of a sensor model.</p>
+
+<hr>
+
+<h2>Collector</h2>
+
+<p>See the <a href="overview/domainmodel#collector">Collector domain model description</a> for details about this concept.</p>
+
+<p><em>(Do we want to call this &quot;collector-process-definition&quot;, or just &quot;collector&quot;? Which is less confusing?)</em></p>
+
+<h3>GET /wattdepot/{org-id}/collector-process-definition/{collector-process-definition-id}</h3>
+
+<p>Retrieve the representation of this Collector process definition instance as a JSON string. Members of the organization may do this.</p>
+
+<h3>GET /wattdepot/{org-id}/collector-process-definitions/</h3>
+
+<p>Retrieve a list of representations of all Collector process definition instances associated with this group as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/collector-process-definition/</h3>
+
+<p>Create a new representation of a collector&#39;s process definition. The request entity must be a valid JSON string representation of the collector&#39;s process definition. Members of the organization can do this.</p>
+
+<h3>POST /wattdepot/{org-id}/collector-process-definition/{collector-process-definition-id}</h3>
+
+<p>Update a pre-existing collector&#39;s process definition. The request entity must be a valid JSON string representation of the updated collector&#39;s process definition. Members of the organization can do this.</p>
+
+<h3>DELETE /wattdepot/{org-id}/collector-process-definition/{collector-process-definition-id}</h3>
+
+<p>Delete this process definition representation. Members of the organization can do this.</p>
+
+<hr>
+
+<h2>Depository</h2>
+
+<p>See the <a href="overview/domainmodel#depository">Depository domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}</h3>
+
+<p>Retrieve a representation of this depository as a JSON string. Members of the organization may do this.</p>
+
+<h3>GET /wattdepot/{org-id}/depositories/</h3>
+
+<p>Retrieve a list of representations of all depositories associated with this group as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/depository/</h3>
+
+<p>Create a new depository.  The request entity must be a valid JSON string representation of the depository. Members of the organization can do this.</p>
+
+<h3>DELETE /wattdepot/{org-id}/depository/{depository-id}</h3>
+
+<p>Delete this repository. Members of the organization can do this. All measurements in this depository are deleted.</p>
+
+<hr>
+
+<h2>Measurement</h2>
+
+<p>See the <a href="overview/domainmodel#measurement">Measurement domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/measurement/{measurement-id}</h3>
+
+<p>Retrieve a representation of a single measurement in the depository as a JSON string. Members of the organization may do this.</p>
+
+<p><em>(Question: shouldn&#39;t measurement-id be a timestamp?)</em> That doesn&#39;t provide enough information to get a single measurement.</p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/measurements/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}</h3>
+
+<p>Retrieve a representation of the measurements in the depository for the given sensor from start to end. Can return an empty list. If the {sensor-id} is a sensor group id, it will return all the measurements made by the sensors in the group. </p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/measurements/gviz/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}</h3>
+
+<p>Retrieve a representation (in Google Visualization format) for the measurements in the depository between start and end with the given sensor.</p>
+
+<p><em>(Provide link to gviz format?)</em></p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/sensors/</h3>
+
+<p>Retrieve a representation of all the sensors that have stored measurements in this depository as a JSON string. Members of the organization may do this.</p>
+
+<h3>PUT /wattdepot/{org-id}/depository/{depository-id}/measurement/</h3>
+
+<p>Store a new measurement in this depository. The request entity must be a valid JSON string representation of the measurement. Members of the organization can do this.</p>
+
+<h3>DELETE /wattdepot/{org-id}/depository/{depository-id}/measurement/{measurement-id}</h3>
+
+<p>Delete this measurement. Members of the organization can do this.</p>
+
+<hr>
+
+<h2>Interpolated Value</h2>
+
+<p>See the <a href="overview/domainmodel#interpolated-value">Interpolated Value domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/value/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;timestamp={timestamp}&amp;gap={gapSeconds}</h3>
+
+<p>Calculate and return the interpolated value for the given sensor or sensor group. If {sensor-id} is a sensor group id then the values are summed for all the sensors in the group. This is a complicated call there are several different valid calls.</p>
+
+<ul>
+<li>If timestamp is supplied then returns the interpolated value at the given time.</li>
+<li>If start and end are supplied then returns the difference between the interpolated value at end and the interpolated value at start.</li>
+<li>If gap is supplied, then the call checks to see that the measurements used to interpolate the value(s) are less than gap seconds apart. If they are not then an HTTP Status of 417 Client Error is return with the text explaining what the problem is.</li>
+</ul>
+
+<h3>GET /wattdepot/{org-id}/depository/{depository-id}/value/gviz/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;timestamp={timestamp}&amp;gap={gapSeconds}</h3>
+
+<p>Retrieve the measured value in Google Visualization format. This is a complicated call there are several different valid calls.</p>
+
+<ul>
+<li>If timestamp is supplied then returns the interpolated value at the given time.</li>
+<li>If start and end are supplied then returns the difference between the interpolated value at end and the interpolated value at start.</li>
+<li>If gap is supplied, then the call checks to see that the measurements used to interpolate the value(s) are less than gap seconds apart. If they are not then an HTTP Status of 417 Client Error is return with the text explaining what the problem is.</li>
+</ul>
+
+<hr>
+
+<h2>Measurement Type</h2>
+
+<p>See the <a href="overview/domainmodel#measurement-type">Measurement Type domain model description</a> for details about this concept.</p>
+
+<h3>GET /wattdepot/public/measurement-type/{measurement-type-id}</h3>
+
+<p>Retrieve a representation of this measurement type.</p>
+
+<h3>GET /wattdepot/public/measurement-types/</h3>
+
+<p>Retrieve a representation of all defined measurement types.</p>
+
+<h3>PUT /wattdepot/public/measurement-type/</h3>
+
+<p>Store a new measurement type.</p>
+
+<p><em>(Is this even possible? I thought measurement types were implemented in code?)</em></p>
+
+<h3>POST /wattdepot/public/measurement-type/{measurement-type-id}</h3>
+
+<p><em>(Is this even possible? I thought measurement types were implemented in code?)</em></p>
+
+<h3>DELETE /wattdepot/public/measurement-type/{measurement-type-id}</h3>
+
+<p><em>(Is this even possible? I thought measurement types were implemented in code?)</em></p>
+
+</div>
+
+<div class="dark-blue-background">
+  <footer>
+    <div class="container page-footer">
+      <p>WattDepot is sponsored by:<br>
+         Department of Information and Computer Sciences<br>
+         University of Hawaii, Honolulu, HI USA</p>
+      <p>Last update on: <span>06 Aug 2014</span></p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

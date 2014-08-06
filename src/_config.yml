@@ -1,5 +1,5 @@
-name: Open Power Quality
+name: WattDepot
 markdown: redcarpet
 highlighter: pygments
-url: http://openpowerquality.github.io
+url: http://wattdepot.github.io
 baseurl:
