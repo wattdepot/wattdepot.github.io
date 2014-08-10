@@ -108,57 +108,33 @@
   </div>
 </div>
 
+<!-- Load tocify css and js -->
+<link type="text/css" rel="stylesheet" href="/css/jquery.tocify.css" />
+
+<!-- Load tocify Javascript components -->
+<script src="/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/js/jquery.tocify.js"></script>
+
 <div class="container">
-  <h1>Installing the system</h1>
+<div class="row">
+  <div class="hidden-xs col-sm-3" >
+    <!-- Our table of contents will be here !-->
+    <div id="nav"></div>
+  </div>
+  <div class="col-xs-12 col-sm-9">
+     <h1>Domain Model</h1>
 
-<p>This document explains how to install the WattDepot server on a local computer server.</p>
+<h1>Administration</h1>
 
-<h2>Requirements</h2>
+<h1>Data Visualization</h1>
 
-<p>To run the WattDepot server, you just need a computer running Java 1.7 or later. If you do not
-already have Java installed, you can download it. Java is not included on Mac OS X 10.7 (Lion), so
-you will be prompted to download it after trying to run a Java program for the first time. You can
-initiate this by typing <code>java -version</code> in a Terminal window.</p>
-
-<p>You can run the WattDepot server from your own account, but you may want to create a separate
-wattdepot account and run it from that, to keep things separate.</p>
-
-<h2>Download WattDepot</h2>
-
-<p>Download the latest release of WattDepot from the <a href="https://github.com/wattdepot/wattdepot/releases">releases</a> page.</p>
-
-<h2>Set up WattDepot server home directory</h2>
-
-<p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em>
-directory in your home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set
-the <code>wattdepot.user.home</code> Java property to the desired parent directory. The name <em>.wattdepot3</em>
-directory name itself is not configurable.</p>
-
-<p>Within the server home directory are subdirectories that store all the data for a particular server
-instance. The default subdirectory is server, but this can be changed on the command line with the
--d argument. This allows multiple WattDepot server instances to run in parallel, each writing to a
-different subdirectory. Create this directory:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">mkdir ~/.wattdepot3
-mkdir ~/.wattdepot3/server
-</code></pre></div>
-<h2>Customize the wattdepot-server.properties</h2>
-
-<p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server
-subdirectory. A default properties file can be found in the wattdepot files you downloaded as
-<code>src/main/resources/wattdepot-server.properties</code>. Copy that file to your new server
-subdirectory (~/.wattdepot3/server if you are using the defaults), and rename it to
-<code>wattdepot-server.properties</code>.</p>
-
-<p>After the file is copied into place, open it in your favorite text editor and change or uncomment
-any lines you want. At a minimum, you will want to change the default administrator username and
-password.</p>
-
-<h2>Run the server</h2>
-
-<p>Change to the top level of the wattdepot distribution you downloaded. Run the server:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ java -cp wattdepot-*version*.jar org.wattdepot.server.WattDepotServer
-</code></pre></div>
+  </div>
 </div>
+</div>
+
+<script>
+  $("#nav").tocify({theme: "bootstrap3", scrollTo: "40"});
+</script>
 
 <div class="dark-blue-background">
   <footer>

@@ -21,7 +21,11 @@
   <!-- Load Bootstrap JavaScript components -->
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
+  <style>
+      .dark-blue-background a {
+          color: white;
+      }
+  </style>
 </head>
 <body>
 <!-- Responsive navbar -->
@@ -40,14 +44,21 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/overview/goals.html">Goals</a></li>
-            <li><a href="/overview/domainmodel.html">Domain model</a></li>
             <li><a href="/overview/architecture.html">Architecture</a></li>
             <li><a href="/overview/publications.html">Publications</a></li>
             <li><a href="/overview/news.html">News</a></li>
             <li><a href="/overview/history.html">History</a></li>
             <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
           </ul>
+        </li>
+        <li><a href="/quick_start/quickstart.html">Quick Start</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/overview/domainmodel.html">Domain model</a></li>
+                <li><a href="/installationguide/administration.html">Administration</a></li>
+                <li><a href="/">Data visualization</a></li>
+            </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Installation<b class="caret"></b></a>
@@ -59,14 +70,6 @@
             <li><a href="/installationguide/administration.html">Administration</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/userguide/definitions.html">Defining the domain model</a></li>
-            <li><a href="/userguide/retrieval.html">Retrieving data</a></li>
-          </ul>
-        </li>
-
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">Developers <b class="caret"></b></span><span class="visible-md visible-lg">Developer Guide <b class="caret"></b></span></a>
           <ul class="dropdown-menu">
@@ -119,41 +122,52 @@
     <div id="nav"></div>
   </div>
   <div class="col-xs-12 col-sm-9">
-     <h1>Domain model</h1>
+     <h1> Domain model</h1>
 
 <p>A WattDepot server implements its capabilities through the following domain model.</p>
 
 <h1>Administrator</h1>
 
-<p>Every WattDepot server installation requires the definition of a single administrator (whose name by default is &quot;root&quot; but which can be changed by the installer) and associated password (with no default value, and which must be specified by the installer). This administrator is automatically placed in the predefined organization named &quot;admin&quot;, which grants the administrator special capabilities not available to users.  These capabilities include the ability to:</p>
+<p>Every WattDepot server installation requires the definition of a single administrator (whose name by default is &quot;root&quot; 
+but which can be changed by the installer or when the server is run) and associated password (with no default value, and 
+which must be specified by the installer). This administrator is automatically placed in the predefined organization 
+named &quot;admin&quot;, which grants the administrator special capabilities not available to users.  These capabilities include 
+the ability to:</p>
 
 <ul>
 <li>add and delete organizations</li>
 <li>add and delete users</li>
-<li>add and delete entities in the &quot;public&quot; organization (measurement types, sensor models)</li>
-<li>login as any user</li>
 </ul>
 
 <h1>Organization</h1>
 
-<p>Users, sensors, sensor groups, collectors, depositories, and measurements all belong to a single &quot;organization&quot;.  Organizations create a namespace for WattDepot entities. For example, a single WattDepot server might hold data from two organizations, &quot;University of Hawaii&quot; and &quot;Hawaii Pacific University&quot;. Organizations are defined with an id, which is a short alphabetic abbreviation suitable for identifying the organization in URLs. The organization &quot;University of Hawaii&quot; might have the id &quot;uh&quot;.</p>
+<p>Users, sensors, sensor groups, collectors, depositories, and measurements all belong to a single &quot;organization&quot;.<br>
+Organizations create a namespace for WattDepot entities. For example, a single WattDepot server might hold data from two 
+organizations, &quot;University of Hawaii&quot; and &quot;Hawaii Pacific University&quot;. Organizations are defined with an id, which is a 
+short alphabetic abbreviation suitable for identifying the organization in URLs. The organization &quot;University of Hawaii&quot; 
+might have the id &quot;uh&quot; and &quot;Hawaii Pacific University&quot; might have the id &quot;hpu&quot;.</p>
 
-<p>The organization id is generally the first element of a WattDepot API call. For example, to retrieve information about the University of Hawaii repositories, you might invoke:</p>
+<p>The organization id is generally the first element of a WattDepot API call. For example, to retrieve information about 
+the University of Hawaii repositories, you might invoke:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">GET http://server.wattdepot.org/wattdepot/uh/depositories
 </code></pre></div>
-<p>In general, you can only manipulate entities created within your organization. There is one exception: the pre-defined organization with the id &quot;public&quot; which defines &quot;global&quot; entities such as measurement types and sensor models. </p>
+<p>In general, you can only manipulate entities created within your organization. There is one exception: the pre-defined 
+organization with the id &quot;public&quot; which defines &quot;global&quot; entities such as measurement types and sensor models. </p>
 
 <h1>User</h1>
 
-<p>To use a WattDepot server, begin by requesting a user name and password from the server&#39;s administrator. You must also indicate if you are joining an existing organization or if you wish a new organization to be created on the server. Once you have obtained these credentials, you can:</p>
+<p>To use a WattDepot server, begin by requesting a user name and password from the server&#39;s administrator. You must also 
+indicate if you are joining an existing organization or if you wish a new organization to be created on the server. Once 
+you have obtained these credentials, you can:</p>
 
 <ul>
 <li>Add and delete depositories</li>
-<li>Add and delete sensors (and their associated locations, models, and properties)</li>
+<li>Add and delete sensors (and their associated models, and properties)</li>
 <li>Add and delete sensor groups</li>
 <li>Add and delete collector process definitions</li>
-<li>Add and delete measurements (if you are doing this manually).</li>
-<li>Query the server for measurements and measured values in a variety of ways.</li>
+<li>Add and delete measurements (if you are doing this manually)</li>
+<li>Add and delete measurement pruning definitions</li>
+<li>Query the server for measurements and measured values in a variety of ways</li>
 </ul>
 
 <p>All of these manipulations occur within your organization.</p>
@@ -163,18 +177,22 @@
 <p>Sensors represent a device that measures (or predicts) a physical phenomena. Sensors have the following properties:</p>
 
 <ul>
-<li>URL: If available for this meter, the URL represents an IP address where a collector can programmatically access measurement(s) made by this sensor. </li>
+<li>URL: If available for this meter, the URL represents an IP address where a collector can programmatically access 
+measurement(s) made by this sensor. </li>
 <li>Sensor Model: A description of the sensor. This can potentially include its protocol, version, etc.</li>
 <li>Properties: A potentially empty list of key-value pairs that provide additional information about this sensor.</li>
 </ul>
 
-<p>Note that some physical devices can measure multiple phenomena (such as energy from multiple floors, or both energy and power, or energy and temperature).  In these cases, the physical device will be represented by multiple Sensors. </p>
+<p>Note that some physical devices can measure multiple phenomena (such as energy from multiple floors, or both energy and 
+power, or energy and temperature).  In these cases, the physical device will be represented by multiple Sensors. </p>
 
 <h1>Sensor Group</h1>
 
-<p>Clients often find it convenient to request aggregations of sensor data. For example, a client might wish to know the energy consumed by a building, which might involve aggregating the energy measurements associated with Sensors located on each floor of the building.</p>
+<p>Users often find it convenient to request aggregations of sensor data. For example, a user might wish to know the 
+energy consumed by a building, which might involve aggregating the energy measurements associated with Sensors located 
+on each floor of the building.</p>
 
-<p>By defining a Sensor Group and associating individual Sensors with it, clients can obtain aggregate measurements.</p>
+<p>By defining a Sensor Group and associating individual Sensors with it, users can obtain aggregate measurements.</p>
 
 <p>All Sensors in a Sensor Group must collect data of the same Measurement Type.</p>
 
@@ -182,27 +200,41 @@
 
 <p>Collectors are processes that contact a Sensor, obtain Measurements from it, then store this data in a WattDepot server.</p>
 
-<p>One implementation of a Collector might be a software program that uses the IP address of a Sensor to contact it and request a measurement value.  After obtaining that value, it then contacts a WattDepot server and uses the HTTP API to store that value in the server.</p>
+<p>One implementation of a Collector might be a software program that uses the IP address of a Sensor to contact it and 
+request a measurement value.  After obtaining that value, it then contacts a WattDepot server and uses the HTTP API to 
+store that value in the server.</p>
 
-<p>An alternative implementation of a Collector is a person who reads a meter manually to obtain a measurement, then uses a GUI interface to a WattDepot server to store that value.</p>
+<p>An alternative implementation of a Collector is a person who reads a meter manually to obtain a measurement, then uses a 
+GUI interface to a WattDepot server to store that value.</p>
 
-<p>In order for a Collector to do its job, it must be able to obtain information about the Sensor it is supposed to contact. It is also useful for the Collector to know how often it should collect data, what data to collect, and where to store it in the server. WattDepot represents this information with the &quot;Collector Process Definition&quot; entity.</p>
+<p>In order for a Collector to do its job, it must be able to obtain information about the Sensor it is supposed to 
+contact. It is also useful for the Collector to know how often it should collect data, what data to collect, and where 
+to store it in the server. WattDepot represents this information with the &quot;Collector Process Definition&quot; entity.</p>
 
-<p>In prior versions of WattDepot, the collector software programs hard-wired information about when, where, and how often to collect data into their source code. In this version, we expect Collector programs to first query the WattDepot server to obtain their process definition, and use that definition to determine what to do.  By representing the task associated with a Collector in the server explicitly as process definition, the server can provide significant new capabilities to users. For example, a server can now understand how frequently to receive data from a Collector, and signal the user if data is not being received as expected.</p>
+<p>In prior versions of WattDepot, the collector software programs hard-wired information about when, where, and how often 
+to collect data into their source code. In this version, we expect Collector programs to first query the WattDepot 
+server to obtain their process definition, and use that definition to determine what to do.  By representing the task 
+associated with a Collector in the server explicitly as process definition, the server can provide significant new 
+capabilities to users. For example, a server can now understand how frequently to receive data from a Collector, and 
+signal the user if data is not being received as expected.</p>
+
+<h1>Measurement Type</h1>
+
+<p>WattDepot provides all the units of measurement provided by the <a href="http://www.unitsofmeasurement.org/">JScience API</a>. 
+Supported units include both <a href="http://jscience.org/api/javax/measure/unit/SI.html">SI Units</a> and 
+<a href="http://jscience.org/api/javax/measure/unit/NonSI.html">Non-SI Units</a>.</p>
+
+<p>In addition, it is possible in WattDepot to define new Measurement Types. Adding a new Measurement Type requires changes 
+to the source code and rebuilding of the system.</p>
+
+<p>Measurement Types are members of the &quot;public&quot; organization, which makes them visible to all users of a server.</p>
 
 <h1>Depository</h1>
 
 <p>Depositories store measurements made by Sensors and collected by Collectors.</p>
 
-<p>Depositories can store Measurements made by different Sensors and different Collectors, but all Measurements must be of one and only one Measurement Type.</p>
-
-<h1>Measurement Type</h1>
-
-<p>WattDepot provides all the units of measurement provided by the <a href="http://www.unitsofmeasurement.org/">JScience API</a>. Supported units include both <a href="http://jscience.org/api/javax/measure/unit/SI.html">SI Units</a> and <a href="http://jscience.org/api/javax/measure/unit/NonSI.html">Non-SI Units</a>.</p>
-
-<p>In addition, it is possible in WattDepot to define new Measurement Types. Adding a new Measurement Type requires changes to the source code and rebuilding of the system.</p>
-
-<p>Measurement Types are members of the &quot;public&quot; organization, which makes them visible to all users of a server.</p>
+<p>Depositories can store Measurements made by different Sensors and different Collectors, but all Measurements must be of 
+one and only one Measurement Type.</p>
 
 <h1>Measurement</h1>
 
@@ -210,30 +242,64 @@
 
 <ul>
 <li>the Sensor that made the Measurement,</li>
-<li>the Collector that collected the Measurement</li>
-<li>a timestamp indicating when the Measurement was made by the Sensor</li>
-<li>the numeric value of the Measurement</li>
-<li>the Measurement Type</li>
+<li>a timestamp indicating when the Measurement was made by the Sensor,</li>
+<li>the numeric value of the Measurement,</li>
+<li>the Measurement Type.</li>
 </ul>
 
-<p>Sensors can either measure phenomena as they occur, or predict phenomena that may or may not occur.  Sensors can provide measurements for phenomena with a timestamp in the future.  It is the responsibility of clients to check the sensor associated with a measurement to determine its validity and meaning.</p>
+<p>Sensors can either measure phenomena as they occur, or predict phenomena that may or may not occur.  Sensors can provide 
+measurements for phenomena with a timestamp in the future.  It is the responsibility of users to check the sensor 
+associated with a measurement to determine its validity and meaning.</p>
 
 <h1>Interpolated Value</h1>
 
-<p>Interpolated Values are different from Measurements. Measurements are the &quot;raw data&quot; in WattDepot.  For example, a Collector may obtain a power measurement from a Sensor every 10 seconds.</p>
+<p>Interpolated Values are different from Measurements. Measurements are the &quot;raw data&quot; in WattDepot.  For example, a 
+Collector may obtain a power measurement from a Sensor every 10 seconds.</p>
 
-<p>Unfortunately, WattDepot clients often want to know a value at a specific timestamp regardless of whether or not a Collector has obtained a Measurement at that timestamp.  For example, a client might want a visualization that shows the power being consumed by a building every hour on the hour.</p>
+<p>Unfortunately, WattDepot users often want to know a value at a specific timestamp regardless of whether or not a 
+Collector has obtained a Measurement at that timestamp.  For example, a user might want a visualization that shows the 
+power being consumed by a building every hour on the hour.</p>
 
-<p>For this use case, WattDepot provides Interpolated Values.  Interpolated Values differ from Measurements in that WattDepot will interpolate in the cases where there does not exist a Measurement corresponding to the precise timestamp requested by the client. (In real life, this is the case virtually all of the time).</p>
+<p>For this use case, WattDepot provides Interpolated Values.  Interpolated Values differ from Measurements in that 
+WattDepot will interpolate in the cases where there does not exist a Measurement corresponding to the precise timestamp 
+requested by the user. (In real life, this is the case virtually all of the time).</p>
+
+<h2>Kinds of Interpolated Values</h2>
 
 <p>WattDepot supports two kinds of Interpolated Values: point values and difference values. </p>
 
-<p>Point values are calculated for a single timestamp. If there exists a Measurement corresponding to the timestamp, WattDepot will return that value. If the timestamp is between two Measurements, WattDepot
-calculates the linear interpolated value and returns it.  If the timestamp is not bounded by two Measurements, then WattDepot will return an error.</p>
+<p>Point values are calculated for a single timestamp. If there exists a Measurement corresponding to the timestamp, 
+WattDepot will return that value. If the timestamp is between two Measurements, WattDepot
+calculates the linear interpolated value and returns it.  If the timestamp is not bounded by two Measurements, then 
+WattDepot will return an error.</p>
 
-<p>For difference values, WattDepot gets the point values for the starting timestamp and the ending timestamp and returns the difference.</p>
+<p>For difference values, WattDepot gets the point values for the starting timestamp and the ending timestamp and returns 
+the difference.</p>
 
-<p>It is the responsibility of the client to assess the validity of Interpolated Values returned by WattDepot.</p>
+<p>It is the responsibility of the user to assess the validity of Interpolated Values returned by WattDepot. WattDepot will 
+return the type of Interpolated Value the user requests even if it makes no physical sense.</p>
+
+<h1>Measurement Pruning Definitions</h1>
+
+<p>WattDepot will store all the measurements collected. However the number of measurements can grow quickly. It is often 
+the case that the user is not interested in old fine grained data, so we created the concept of Measurement Pruning. 
+Measurement Pruning Definitions (MPD)s allow the user to define the desired frequency of measurements for old data.  </p>
+
+<p>For example, in the Kukui Cup, we want energy and power data every 15 seconds, but only desire a five minute frequency 
+for data that is older than 1 day. This greatly reduces the number of measurements WattDepot needs to store.  </p>
+
+<p>MPDs have:</p>
+
+<ul>
+<li>A depository id. This tells the pruning process which depository to select the measurements from.</li>
+<li>A sensor id. This tell the pruning process which sensor created the measurements. The sensor id can be a sensor group
+id.</li>
+<li>An ignore window. This tell the pruning process to ignore measurement less than window days old.</li>
+<li>A collection window. This tell the pruning process to only consider measurements older than the ignore window in days, 
+but younger than ignore window + collection window days old.</li>
+<li>A minimum gap in seconds. The minimum gap tells the pruning process to remove measurements that have a gap less than
+the minimum.</li>
+</ul>
 
   </div>
 </div>
@@ -246,10 +312,13 @@ calculates the linear interpolated value and returns it.  If the timestamp is no
 <div class="dark-blue-background">
   <footer>
     <div class="container page-footer">
+      <p>Continuous Integration:&nbsp;&nbsp; <a href="https://travis-ci.org/wattdepot/wattdepot/"><img src="https://api.travis-ci.org/wattdepot/wattdepot.png?branch=master"> (master)
+          &nbsp;&nbsp;<img src="https://api.travis-ci.org/wattdepot/wattdepot.png?branch=develop"> (develop)</a>
+      </p>
       <p>WattDepot is sponsored by:<br>
          Department of Information and Computer Sciences<br>
          University of Hawaii, Honolulu, HI USA</p>
-      <p>Last update on: <span>06 Aug 2014</span></p>
+      <p>Last update on: <span>10 Aug 2014</span></p>
     </div>
   </footer>
 </div>
