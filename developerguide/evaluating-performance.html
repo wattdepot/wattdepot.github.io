@@ -21,7 +21,11 @@
   <!-- Load Bootstrap JavaScript components -->
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
+  <style>
+      .dark-blue-background a {
+          color: white;
+      }
+  </style>
 </head>
 <body>
 <!-- Responsive navbar -->
@@ -40,14 +44,21 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Overview<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/overview/goals.html">Goals</a></li>
-            <li><a href="/overview/domainmodel.html">Domain model</a></li>
             <li><a href="/overview/architecture.html">Architecture</a></li>
             <li><a href="/overview/publications.html">Publications</a></li>
             <li><a href="/overview/news.html">News</a></li>
             <li><a href="/overview/history.html">History</a></li>
             <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
           </ul>
+        </li>
+        <li><a href="/quick_start/quickstart.html">Quick Start</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/overview/domainmodel.html">Domain model</a></li>
+                <li><a href="/installationguide/administration.html">Administration</a></li>
+                <li><a href="/">Data visualization</a></li>
+            </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Installation<b class="caret"></b></a>
@@ -59,14 +70,6 @@
             <li><a href="/installationguide/administration.html">Administration</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Guide<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/userguide/definitions.html">Defining the domain model</a></li>
-            <li><a href="/userguide/retrieval.html">Retrieving data</a></li>
-          </ul>
-        </li>
-
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="visible-xs visible-sm">Developers <b class="caret"></b></span><span class="visible-md visible-lg">Developer Guide <b class="caret"></b></span></a>
           <ul class="dropdown-menu">
@@ -250,10 +253,13 @@ PowerMeter calls <em>server_url + &quot;/depository/power/value/gviz/?sensor=&qu
 <div class="dark-blue-background">
   <footer>
     <div class="container page-footer">
+      <p>Continuous Integration:&nbsp;&nbsp; <a href="https://travis-ci.org/wattdepot/wattdepot/"><img src="https://api.travis-ci.org/wattdepot/wattdepot.png?branch=master"> (master)
+          &nbsp;&nbsp;<img src="https://api.travis-ci.org/wattdepot/wattdepot.png?branch=develop"> (develop)</a>
+      </p>
       <p>WattDepot is sponsored by:<br>
          Department of Information and Computer Sciences<br>
          University of Hawaii, Honolulu, HI USA</p>
-      <p>Last update on: <span>06 Aug 2014</span></p>
+      <p>Last update on: <span>10 Aug 2014</span></p>
     </div>
   </footer>
 </div>

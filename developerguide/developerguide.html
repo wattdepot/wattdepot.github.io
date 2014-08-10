@@ -108,16 +108,34 @@
   </div>
 </div>
 
+<!-- Load tocify css and js -->
+<link type="text/css" rel="stylesheet" href="/css/jquery.tocify.css" />
+
+<!-- Load tocify Javascript components -->
+<script src="/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/js/jquery.tocify.js"></script>
+
 <div class="container">
-  <h1>Prerequisites</h1>
+<div class="row">
+  <div class="hidden-xs col-sm-3" >
+    <!-- Our table of contents will be here !-->
+    <div id="nav"></div>
+  </div>
+  <div class="col-xs-12 col-sm-9">
+     <h1>Prerequisites</h1>
 
 <h2>Operating System</h2>
 
-<p>The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms should be fine for development.</p>
+<p>The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms 
+should be fine for development. We do not recommend Windows, instead use <a href="http://www.vagrantup.com/">Vagrant</a> to provide 
+a good development environment.</p>
 
 <h2>Java</h2>
 
-<p>WattDepot requires <a href="http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html">Java Platform Standard Edition</a> version 1.7 or above. If do not have Java installed you can get it from the previous link. Note that you will want the JDK (Java Development Kit) rather than the JRE (Java Runtime Environment) since you will be developing. To check the version of Java installed on your computer type <code>java -version</code> from the command line.</p>
+<p>WattDepot requires <a href="http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html">Java Platform Standard Edition</a> 
+version 1.7 or above. If do not have Java installed you can get it from the previous link. Note that you will want the 
+JDK (Java Development Kit) rather than the JRE (Java Runtime Environment) since you will be developing. To check the 
+version of Java installed on your computer type <code>java -version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ java -version
 java version &quot;1.7.0_40&quot;
 Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
@@ -125,7 +143,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)
 </code></pre></div>
 <h2>Maven</h2>
 
-<p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven3</a> as the build system. If you don&#39;t have Maven installed you can download it from the previous link. To check the version of Maven installed type <code>mvn -version</code> from the command line.</p>
+<p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven3</a> as the build system. If you don&#39;t have Maven installed you 
+can download it from the previous link. To check the version of Maven installed type <code>mvn -version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn -version
 Apache Maven 3.1.1 (0728685237757ffbf44136acec0402957f723d9a; 2013-09-17 05:22:22-1000)
 Maven home: /usr/local/Cellar/maven/3.1.1/libexec
@@ -134,13 +153,16 @@ Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: &quot;mac os x&quot;, version: &quot;10.9&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;
 </code></pre></div>
-<h2>Eclipse</h2>
+<h2>Integrated Development Environment</h2>
 
-<p>We strongly recommend you use the Eclipse IDE for WattDepot development. You can install it from <a href="http://www.eclipse.org/">www.eclipse.org</a>. You should get the Eclipse IDE for Java EE Developers since it has support for JPA and Web applications. You could also use the Eclipse Standard Edition.</p>
+<p>It is strongly recommended that you have a good Java IDE.</p>
 
 <h2>PostgreSQL</h2>
 
-<p>Currently, WattDepot is using Hibernate for the persistence layer and the <a href="http://www.postgresql.org/">PostgreSQL</a> database for storage. We recommend version 9.1 or higher. You can configure Hibernate to use other database backends, but we do not have experience with other backends at this time. To check the version of PostgreSQL type <code>psql -version</code> at the command line.</p>
+<p>Currently, WattDepot is using Hibernate for the persistence layer and the <a href="http://www.postgresql.org/">PostgreSQL</a> 
+database for storage. We recommend version 9.1 or higher. You can configure Hibernate to use other database backends, 
+but we do not have experience with other backends at this time. To check the version of PostgreSQL type <code>psql -version</code> 
+at the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ psql --version
 psql (9.2.4)
 </code></pre></div>
@@ -148,13 +170,106 @@ psql (9.2.4)
 
 <h2>Git</h2>
 
-<p>WattDepot uses Git and GitHub for our version control. You can install Git from <a href="http://git-scm.com/downloads">git-scm.com</a>. To check the version of git you have installed type <code>git --version</code> from the command line.</p>
+<p>WattDepot uses Git and GitHub for our version control. You can install Git from <a href="http://git-scm.com/downloads">git-scm.com</a>. 
+To check the version of git you have installed type <code>git --version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git --version
 git version 1.8.3.4 (Apple Git-47)
 </code></pre></div>
-<p>If you prefer a graphical interface to Git, GitHub has nice Git clients for <a href="http://mac.github.com/">OS X</a> and <a href="http://windows.github.com/">Windows</a> that can make your life easier. Since WattDepot is hosted at GitHub, the graphical GitHub client makes it very easy to work with Git and is highly recommended.</p>
+<p>If you prefer a graphical interface to Git, GitHub has nice Git clients for <a href="http://mac.github.com/">OS X</a> and 
+<a href="http://windows.github.com/">Windows</a> that can make your life easier. Since WattDepot is hosted at GitHub, the graphical 
+GitHub client makes it very easy to work with Git and is highly recommended.</p>
 
+<h1>Downloading Sources</h1>
+
+<p>The WattDepot source code and documentation are hosted on <a href="http://github.com/">GitHub</a>, and are managed using 
+<a href="http://git-scm.com/">Git</a>, which you should have installed as part of the <a href="#Prerequisites">Prerequisites</a>. 
+You can clone the repository to your local system using either the command line or a GUI tool:</p>
+
+<h2>Command line</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git clone git@github.com:wattdepot/wattdepot.git
+</code></pre></div>
+<h2>GUI and IDE</h2>
+
+<p>WattDepot&#39;s Git repository may be accessed using many different <a href="http://git-scm.com/downloads">client programs and plug-ins</a>. As mentioned above, we like the free clients provided by GitHub: 
+<a href="http://mac.github.com/">GitHub for OS X</a> and <a href="http://windows.github.com/">GitHub for Windows</a>. 
+On the <a href="http://github.com/wattdepot/wattdepot">WattDepot project page</a> there is a button labeled &quot;Clone in 
+Desktop&quot; that will automatically launch your GitHub client and start the clone operation.</p>
+
+<h2>Contributing to WattDepot</h2>
+
+<p>If you plan to submit changes back to WattDepot, rather than cloning the WattDepot repository, you should first fork the 
+repository on GitHub, and then clone it to your local system. This way, you can submit pull requests for bugs or new 
+features that you add. First you will need to <a href="https://github.com/signup">create a GitHub account</a> if you don&#39;t have one 
+already, and then follow the wonderful <a href="https://help.github.com/articles/fork-a-repo">GitHub forking tutorial</a>. You can 
+read more about <a href="https://help.github.com/articles/using-pull-requests">pull requests at GitHub</a>.</p>
+
+<h1>Building the System</h1>
+
+<p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven 3</a> as a build system. Maven is configured with the pom.xml 
+file found at the root of the WattDepot source directory. Maven has a number of lifecycle phases - the most useful in 
+this project are clean, compile, test, package, verify, and site.</p>
+
+<ul>
+<li><code>mvn clean</code> will delete the target directory.</li>
+<li><code>mvn compile</code> will compile the project.</li>
+<li><code>mvn test</code> will compile the project, then run JUnit and QA tests. (Note: the postgres storage implementation 
+requires you to setup the wattdepot-server.properties file in order to supply the wattdepot-server.db.username 
+property.)
+
+<ul>
+<li>FindBugs</li>
+<li>Checkstyle </li>
+<li>PMD</li>
+<li>JavaDocs are created</li>
+</ul></li>
+<li><code>mvn package</code> will compile the project, run the tests, and then create .jar for a distribution
+
+<ul>
+<li>The .jar file</li>
+<li>The POM zips everything into a distribution</li>
+</ul></li>
+<li><code>mvn verify</code> runs the compile, test and package phases and ensures the result is valid</li>
+<li><code>mvn site</code> executes FindBugs, Checkstyle, PMD, and JavaDocs, then presents the results in an easy to read website 
+(located in target/site)</li>
+</ul>
+
+<p>Rather than executing a whole phase, you can also run an individual goal. For example, to run FindBugs without doing 
+anything else, use:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn findbugs:check
+</code></pre></div>
+<p>The same works for <code>mvn pmd:check</code> and <code>mvn checkstyle:check</code>. However, note that this does not recompile the project. 
+If you make changes to the source code, you should run <code>mvn compile</code> before running any other checks. </p>
+
+<p>Another useful tip is adding properties to Maven calls with the <code>-D</code> argument. For example, to run the package phase 
+without running JUnit tests, use:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$mvn package -DskipTests
+</code></pre></div>
+<p>This can be a great time saver if you&#39;ve just run the test phase and now want to package. These properties can also 
+affect the running of WattDepot. Say you want to test multiple configurations without changing the 
+wattdepot-server.properties file between each test. Try:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn test -Dwattdepot-server.db.username=test
+</code></pre></div>
+<h1>WattDepot Branching Model</h1>
+
+<h1>Making a Release</h1>
+
+<h1>Deploying to Heroku</h1>
+
+<h1>Writing Collector Processes</h1>
+
+<h1>Writing Clients</h1>
+
+<h2>Developing an HTML Dashboard</h2>
+
+<h1>Implementing Persistence</h1>
+
+  </div>
 </div>
+</div>
+
+<script>
+  $("#nav").tocify({theme: "bootstrap3", scrollTo: "40"});
+</script>
 
 <div class="dark-blue-background">
   <footer>
