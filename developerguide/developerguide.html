@@ -49,6 +49,8 @@
             <li><a href="/overview/news.html">News</a></li>
             <li><a href="/overview/history.html">History</a></li>
             <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
           </ul>
         </li>
         <li><a href="/quick_start/quickstart.html">Quick Start</a></li>
@@ -85,8 +87,6 @@
             <li><a href="/developerguide/persistence.html">Implementing persistence</a></li>
             <li><a href="/developerguide/evaluating-performance.html">Evaluating WattDepot performance</a></li>
             <li><a href="/developerguide/documentation.html">Documenting the system</a></li>
-            <li class="divider"></li>
-            <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -251,17 +251,194 @@ wattdepot-server.properties file between each test. Try:</p>
 </code></pre></div>
 <h1>WattDepot Branching Model</h1>
 
+<h2>Centralized &quot;truth&quot; repository</h2>
+
+<p>There is one central &quot;truth&quot; repository, origin, which is located at <a href="http://github.com/wattdepot/wattdepot">http://github.com/wattdepot/wattdepot</a>. It is the central push-pull location. Developers can of course clone their 
+own repository and do whatever they want locally, but our model controls the structure of this repo. </p>
+
+<h2>Two main branches: master and develop</h2>
+
+<p>There are two main branches:</p>
+
+<ul>
+<li><p><a href="https://github.com/wattdepot/wattdepot/tree/master">master</a>. The HEAD of master always reflects a 
+production-ready state. </p></li>
+<li><p><a href="https://github.com/wattdepot/wattdepot/tree/develop">develop</a>. The HEAD of develop always reflects a state with 
+the latest delivered development changes for the next release.</p></li>
+</ul>
+
+<p>When the source code in the develop branch reaches a stable point and is ready to be released, 
+all of the changes should be merged back into master somehow and then tagged with a release number.</p>
+
+<p>See <a href="branching.html">Branching Details</a> for more information.</p>
+
 <h1>Making a Release</h1>
+
+<p>Most implementation effort should be committed to the develop branch.  When appropriate, 
+the develop branch will be merged into master and a release will be made.  This procedure is documented <a href="release.html">here</a>.  For the time being, Cam is the only one who will make releases. </p>
 
 <h1>Deploying to Heroku</h1>
 
+<p>We are thinking about using the <a href="https://blog.heroku.com/archives/2014/8/7/heroku-button">Heroku Button</a> for 
+deploying to Heroku. This should be implemented soon. Check back often to see when we complete this work.  </p>
+
 <h1>Writing Collector Processes</h1>
+
+<p>TBW</p>
 
 <h1>Writing Clients</h1>
 
+<p>TBW</p>
+
 <h2>Developing an HTML Dashboard</h2>
 
+<p>TBW</p>
+
 <h1>Implementing Persistence</h1>
+
+<p>TBW</p>
+
+<h1>Evaluating Performance</h1>
+
+<h2>Goals</h2>
+
+<p>There are several goals for WattDepot performance evaluation. We want to answer the following questions.</p>
+
+<ol>
+<li><p>What is the maximal throughput for Measurements?</p></li>
+<li><p>What is the responsiveness, providing information about the Measurements and defined objects?</p></li>
+<li><p>What happens to the system (throughput, responsiveness) after 24 hours, 7 days, ... of load?</p></li>
+<li><p>What is the performance under a variety of simulated &quot;real world&quot; mixtures of puts and gets?</p></li>
+<li><p>What are the answers to all of these questions on different platform installations (local machine, Mopsa, Heroku, ...)?</p></li>
+</ol>
+
+<h2>Performance Evaluation Tools</h2>
+
+<p>We have provided several tools to help evaluate WattDepot&#39;s performance for several low level operations. These operations are:</p>
+
+<ul>
+<li>Put a measurement. Storing data in WattDepot.</li>
+<li>Get the earliest value. Information about the measurements in WattDepot.</li>
+<li>Get the latest value. This is typically how you would get the current power.</li>
+<li>Get a value at a given time. This is generally how you would get the power or temperature at a given time.</li>
+<li>Get a value from a start time to an end time. This is generally how you would calculate the Energy used.</li>
+</ul>
+
+<p>In the package</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">org.wattdepot.client.http.api.performance
+</code></pre></div>
+<p>you will find five programs:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">FindMeasurementThroughput    
+FindGetEarliestValueThroughput
+FindGetLatestValueThroughput
+FindGetValueDateThroughput
+FindGetValueDateDateThroughput
+</code></pre></div>
+<p>Each of the programs have the same command line arguments.</p>
+
+<ul>
+<li><p>-s <server URI>
+: The URI to the WattDepot server. e.g. http://server.wattdepot.org:8192/</p></li>
+<li><p>-u <username>
+: The User Id of a defined WattDepot user.</p></li>
+<li><p>-p <password>
+: The User&#39;s password, used to connect to the WattDepot server.</p></li>
+<li><p>-o <organizationId>
+: The User&#39;s organization id.</p></li>
+<li><p>-n <numSeconds>
+: The number of seconds to run before checking the performance rates. We recommend values between 15 and 90. Shorter doesn&#39;t let the threads run often enough for a good average. Longer an you have to wait too long to see results.</p></li>
+</ul>
+
+<p>The programs start a monitoring thread that wakes up every <em>numSeconds</em> and checks the average time it took to perform the operation. The monitoring thread then calculates a new rate for the number of operations per second. The new rate is the average of the previous average times. Since it is an average of averages, the rate should slowly converge on the maximum rate possible. The monitoring thread then starts up the new rate worker threads that perform the operation once a second.</p>
+
+<h3>Using the tools</h3>
+
+<ol>
+<li>Install WattDepot following the <a href="installationguide/installation">installation instructions</a>. You need to install version 3.0.0-M9 or above.</li>
+<li>For performance testing we recommend you reduce the logging to a minimum. In the wattdepot-server.properties file change the <em>wattdepot-server.loggin.level</em> to SEVERE.</li>
+<li><a href="installationguide/installation#Run%20the%20server">Start the WattDepot server</a>. </li>
+<li>Define an Organization and User to use in the performance testing. Remember the User&#39;s password, we&#39;ll use it later.</li>
+<li>Choose the performance evaluation(s) you want to run, Measurements, Earliest value, Latest value, Value at a given time, or Value from one time to another. 
+
+<ul>
+<li>We do not recommend running more than three of these tools at the same time. They can overload your WattDepot server.</li>
+<li>We recommend you run the Measurements with the Get Values. This simulates a more realistic scenario, getting values while measurements are being added to the Server.<br></li>
+</ul></li>
+</ol>
+
+<p>For example if you run the following:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ java -cp wattdepot-3.0.0-M9.jar org.wattdepot.client.http.api.performance.FindGetValueDateThroughput -s http://localhost:8192/ -u cmoore -p secret -o uh -n 15
+</code></pre></div>
+<p>You should see something like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Starting the Apache HTTP client
+Stopping the HTTP client
+Ave get value (date) time = 0.04042766666666667 =&gt; 25 gets/sec.
+Setting rate to 25
+Ave get value (date) time = 0.016198 =&gt; 62 gets/sec.
+Setting rate to 35
+Ave get value (date) time = 0.012042333333333334 =&gt; 83 gets/sec.
+Setting rate to 44
+Ave get value (date) time = 0.011197 =&gt; 89 gets/sec.
+Setting rate to 50
+Ave get value (date) time = 0.011237909090909092 =&gt; 89 gets/sec.
+Setting rate to 55
+Ave get value (date) time = 0.010520545454545454 =&gt; 95 gets/sec.
+Setting rate to 59
+</code></pre></div>
+<p>Every 15 second two more lines are added to the output.  The output tells you what the average time it to perform the operation was and how many operations/second this results in. The second line tells you what the rate the tool is setting to get the next set of performance data. </p>
+
+<p>The above data shows that we can perform about 90 get value at a given time operations per second.</p>
+
+<p>Record your results.</p>
+
+<h2>Real World Scenarios</h2>
+
+<p>We&#39;ve used WattDepot in two distinct real world situations.  Supporting the Kukui Cup at University of Hawaii, Manoa and Hawaii Pacific University. <link to documentation?></p>
+
+<h3>Kukui Cup: University of Hawaii, Manoa</h3>
+
+<h4>Measurement Generation</h4>
+
+<p>40 Sensors producing two measurements, power and energy, every 15 seconds (20 measurements/second).</p>
+
+<h4>WattDepot Queries</h4>
+
+<p>Makahiki status page generates queries about the latest measurement for each Lounge every 10 seconds. There are 20 Lounges (3.333 queries/second). The JavaScript calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?sensor=&quot; + source + &quot;&amp;latest=true&quot;;</em> for each lounge.</p>
+
+<p>Additionally, there are several activities that ask the players to explore the energy and power information stored in WattDepot.</p>
+
+<p>Heat Map, Hot Spot, and Visualizer calls   <em>host_uri + &#39;/depository/&#39; + dataType + &#39;/values/gviz/?sensor=&#39; + source[i] +&#39;&amp;start=&#39; + startTime + &#39;&amp;end=&#39; + endTime + &#39;&amp;interval=&#39;+interval</em>
+PowerMeter calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?sensor=&quot; + source + &quot;&amp;latest=true&quot;;</em></p>
+
+<p>Approximately 350 players times X % who do the activities equals N queries in a typical two week challenge. Based upon the 2014 Kukui Cup there were 61, 22, 21, 44 = 148 players who completed the activities.</p>
+
+<h3>Kukui Cup: Hawaii Pacific University</h3>
+
+<h4>Measurement Generation</h4>
+
+<p>6 Sensors producing two measurements, power and energy, every 10 seconds (2 measurements/second).</p>
+
+<h4>WattDepot Queries</h4>
+
+<p>Makahiki status page generates queries about the latest measurement for each Team every 10 seconds. There are 6 teams (1 query/second). </p>
+
+<p>Additionally, there are several activities that ask the players to explore the energy and power information stored in WattDepot.</p>
+
+<p>Heat Map, Hot Spot, and Visualizer calls   </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;server_url&gt;/depository/&lt;depository_id&gt;/values/gviz/?sensor=&lt;sensor_id&gt;&amp;amp;start=&lt;startTime&gt;&amp;end=&lt;endTime&gt;&amp;interval=&lt;interval&gt;
+</code></pre></div>
+<p>PowerMeter calls </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;server_url&gt;/depository/&lt;depository_id&gt;/value/gviz/?sensor=&lt;sensor_id&gt;&amp;latest=true
+</code></pre></div>
+<h3>Aarhus University</h3>
+
+<h4>Measurement Generation</h4>
+
+<h4>WattDepot Queries</h4>
+
+<h2>Results</h2>
+
+<p><a href="results-mopsa.html">Feb 12th 2014 Mopsa Server</a></p>
 
   </div>
 </div>
@@ -280,7 +457,7 @@ wattdepot-server.properties file between each test. Try:</p>
       <p>WattDepot is sponsored by:<br>
          Department of Information and Computer Sciences<br>
          University of Hawaii, Honolulu, HI USA</p>
-      <p>Last update on: <span>10 Aug 2014</span></p>
+      <p>Last update on: <span>11 Aug 2014</span></p>
     </div>
   </footer>
 </div>
