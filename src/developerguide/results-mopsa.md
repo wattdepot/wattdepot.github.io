@@ -4,7 +4,9 @@ layout: documentation
 # WattDepot 3.0.0-M9 Running on Mopsa Performance Evaluation
 
 ## MacBook Pro Laptop at University of Hawaii, Manoa
-On February 12th 2014 I started WattDepot server version 3.0.0-M9 on Mopsa.ics.hawaii.edu with out any logging. I then started the performance tools on my laptop, a MacBook Pro with a 2.7 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 memory. My laptop was connected to the UHM wireless network.
+On February 12th 2014 I started WattDepot server version 3.0.0-M9 on Mopsa.ics.hawaii.edu with out any logging. I then 
+started the performance tools on my laptop, a MacBook Pro with a 2.7 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 
+memory. My laptop was connected to the UHM wireless network.
 
 The first runs were just a single performance tool running alone.
 
@@ -29,7 +31,8 @@ The second runs were with the Put Measurements running and a single Get tool run
 
 ## Windows 7 desktop at Kailua Hawaii.
 
-The second set of tests were run from my Windows PC at home in Kailua. It is a Windows 7 Home Premium machine with a Intel Core i7-3770 3.4 GHz CPU with 16 GB Ram. My desktop is connected to RoadRunner cable Internet.
+The second set of tests were run from my Windows PC at home in Kailua. It is a Windows 7 Home Premium machine with a 
+Intel Core i7-3770 3.4 GHz CPU with 16 GB Ram. My desktop is connected to RoadRunner cable Internet.
 
 The test I ran were just single performance tools running alone.
 
@@ -42,7 +45,8 @@ The test I ran were just single performance tools running alone.
 | Get Latest Value       | 15.4 gets / second.         |
 
 
-On February 16th 2014 I started collecting the power and energy data from Hale Aloha, 80 collector processes running at 15 second sample intervals. This results in approximately 20 measurement puts per second.
+On February 16th 2014 I started collecting the power and energy data from Hale Aloha, 80 collector processes running at 
+15 second sample intervals. This results in approximately 20 measurement puts per second.
 
 | Run | Date | Operation | Number of Measurements in DB |
 | --- | ----- | --------- | ---------------------------- |
