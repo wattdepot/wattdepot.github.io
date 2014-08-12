@@ -87,15 +87,66 @@ Change to the top level of the wattdepot distribution you downloaded. Run the se
 
 ## A. Log in to WattDepot as administrator
 
+Once the WattDepot Server is running, point your browser to the Wattdepot administration page.
+
+    http://<WattDepot_server_url>/wattdepot/admin/
+
+The browser will ask you for a username and password. Use the Administrator's username and password.
+
+{% include responsive-img.html photo="admin-password.png" %}
+
+Log in as the administrator and you will see the following "admin interface". Here you can create the organizations 
+and users.
+
+{% include responsive-img.html photo="wattdepot-admin-start.png" %}
+
 ### I. Create an Organization
+
+To create a new organization click the plus button on the right side of the screen. You will see the Add Organization
+ dialog box.
+ 
+{% include responsive-img.html photo="add-org-dialog.png" %}
+
+Clicking on "Save Changes" will create the organization.
+
+{% include responsive-img.html photo="uhm-defined.png" %}
 
 ### II. Create a User
 
+Switch over to the Users tab to start defining users.
+
+{% include responsive-img.html photo="user-admin.png" %}
+
+To create a new user click the plus button on the right side of the screen. You will see the Add User dialog box.
+ 
+{% include responsive-img.html photo="add-user.png" %}
+
+Remember to select the organization for your new user and hit "Save Changes".
+
+{% include responsive-img.html photo="cmoore-defined.png" %}
+
 ### III. Log out as adminstrator
+
+Close your browser to log out from WattDepot. 
 
 ## B. Log in as User
 
+Restart your browser and go to your organizations administration page.
+
+    http://<WattDepot_server_url>/wattdepot/<organization_id>/
+    
+The browser will ask you for your username and password. Use the user's id and password you just created.
+
+{% include responsive-img.html photo="org-admin.png" %}
+
+The organization id is in the upper right-hand corner. You have tabs for defining Depositories, Sensors, 
+SensorGroups, Collection Process Definitions, and Measurement Pruning Definitions.
+
 ### I. Create a Depository
+
+Depositories hold measurements of a given [Measurement Type](measurementtypes.html). To create a depository click the
+ blue plus symbol.
+ 
 
 ### II. Create a Sensor
 

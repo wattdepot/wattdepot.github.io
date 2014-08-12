@@ -201,7 +201,34 @@ http://server.wattdepot.org/wattdepot/uh/
 The browser will ask you for your username and password. Once you've logged in you will see your organization's 
 administration page.
 
-{% include ui-image.html photo="GroupUHAdminUI.png" %}
+{% include responsive-img.html photo="admin-password.png" %}
+
+Log in as the administrator and you will see the following "admin interface". Here you can create the organizations 
+and users.
+
+{% include responsive-img.html photo="admin-start.png" %}
+
+To create a new organization click the plus button on the right side of the screen. You will see the Add Organization
+ dialog box.
+ 
+{% include responsive-img.html photo="add-org-dialog.png" %}
+
+Clicking on "Save Changes" will create the organization.
+
+{% include responsive-img.html photo="uhm-defined.png" %}
+
+Switch over to the Users tab to start defining users.
+
+{% include responsive-img.html photo="user-admin.png" %}
+
+To create a new user click the plus button on the right side of the screen. You will see the Add User dialog box.
+ 
+{% include responsive-img.html photo="add-user.png" %}
+
+Remember to select the organization for your new user and hit "Save Changes".
+
+{% include responsive-img.html photo="cmoore-defined.png" %}
+
 
 
 
