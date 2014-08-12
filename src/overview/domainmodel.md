@@ -2,7 +2,7 @@
 layout: userguide
 ---
 
-<h1> Domain model</h1>
+# Domain model
 
 A WattDepot server implements its capabilities through the following domain model.
 
