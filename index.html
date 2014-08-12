@@ -36,7 +36,7 @@
         <!--  Display three horizontal lines when navbar collapsed. -->
         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand">WattDepot</a>
+      <a class="navbar-brand"><img style="max-width:50px; margin-top: -15px;" src="http://www.gravatar.com/avatar/db86ef42cc64f51e6e53171e24faa9e2.png"></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -73,9 +73,8 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h2><strong><img height="75" src="http://www.gravatar.com/avatar/db86ef42cc64f51e6e53171e24faa9e2.png"> Welcome
-      to WattDepot</strong></h2>
-    <p><strong>Enterprise-level collection, storage, retrieval, and analysis of energy data</strong></p>
+    <h2><strong>Welcome to WattDepot</strong></h2>
+    <p><strong>Open source collection, storage, retrieval, and analysis of energy for the enterprise</strong></p>
   </div>
 </div>
 
@@ -83,12 +82,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <h3><strong>Open source energy analysis for the enterprise</strong></h3>
+        <h3><strong>Above the home, below the grid</strong></h3>
 
-        (Add text about how WattDepot provides energy management above the level of individuals and below the level of the grid.)
+        <p>Most energy measurement systems are either "personal-scale" or "utility-scale". WattDepot is designed to help those of us in the middle: organizations who want to better manage their energy use, typically across multiple buildings. </p>
+
+        <p>To accomplish this, WattDepot provides data aggregation. For example, a building might have multiple meters monitoring energy consumption, one per floor. WattDepot can represent the power consumed by individual floors, as well as an aggregate source representing the building as a whole. Aggregations can be nested, so that floors can be aggregated into buildings, and buildings into campuses.</p>
       </div>
       <div class="col-sm-4">
-        <img style="margin-top: 20px; margin-bottom: 20px" src="images/enterprise.jpg" class="img-circle img-responsive">
+        <img style="margin-top: 20px; margin-bottom: 20px" src="images/enterprise.jpg" class="img-circle img-responsive center-block">
       </div>
     </div>
   </div>
@@ -126,7 +127,12 @@
       <div class="col-sm-8">
         <h3><strong>Device and technology agnostic</strong></h3>
 
-        <p>(Add text about how we are language and technology agnostic.)</p>
+        <p>WattDepot will run on all major operating systems. We provide an HTTP API which can be used by any modern programming language or environment to communicate with WattDepot servers. To simply development, we provide client libraries for popular languages including Java, Javascript, and Python.</p>
+
+        <p>WattDepot can support any meter that implements an HTTP-based protocol for data transmission. We provide bindings for the Shark 200s and Egauge meters.</p>
+
+        <p>WattDepot is architecturally decoupled from its back-end storage system, allowing it to support both relational and NOSQL repositories.</p>
+        <p>Finally, WattDepot can run both locally and in the cloud (using a provider such as Heroku).</p>
       </div>
     </div>
   </div>
@@ -137,13 +143,15 @@
     <div class="row">
 
       <div class="col-sm-8">
-        <h3><strong>Tailored time scales</strong></h3>
+        <h3><strong>Data interpolation and tailored time scales</strong></h3>
 
         <p>
-         (Write text about how we can collect data at a variety of time intervals and store them at other intervals.</p>
+          WattDepot simplifies energy analysis through data interpolation. For example, a meter might provide a snapshot of energy usage once per hour for a given device. Clients can request the power consumed by this device at any time instant, and WattDepot will automatically provide interpolation when the requested time does not match a time for which actual sensor data is available.</p>
+        <p>This becomes particularly important and useful when data from multiple meters is aggregated. For example, the meters on individual floors of a building will rarely send their data at exactly the same time instant, so providing an aggregate value for power consumed by the entire building requires combining individual data values obtained at different times.</p>
+        <p>Finally, WattDepot supports "tailored time scales", allowing users to store fine-grained data (say, every 10 seconds) for the mosts recent 24 hours, but coarser-grained data (say, every 10 minutes) thereafter. This reduces your back-end storage requirements.</p>
       </div>
       <div class="col-sm-4">
-        <img style="margin-top: 20px; margin-bottom: 20px" src="images/timescale.jpg" class="img-circle img-responsive">
+        <img style="margin-top: 20px; margin-bottom: 20px" src="images/timescale.jpg" class="img-circle img-responsive center-block">
       </div>
     </div>
   </div>
@@ -153,13 +161,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <img style="margin-top: 20px; margin-bottom: 20px" src="images/insolation.jpg" class="img-circle img-responsive">
+        <img style="margin-top: 20px; margin-bottom: 20px" src="images/insolation.jpg" class="img-circle img-responsive center-block">
       </div>
       <div class="col-sm-8">
         <h3><strong>Support for related environmental data</strong></h3>
 
         <p>
-         (Add text about how we can store other kinds of data as well as energy data.)</p>
+          While WattDepot's origins are in energy data, it is clear that understanding energy usually requires knowledge of other environmental factors. For example, energy consumption might vary with the temperature, humidity, or sunlight.  To simplify the discovery of these relationships, WattDepot can store and manipulate other data types in addition to energy.</p>
       </div>
     </div>
   </div>
@@ -171,32 +179,32 @@
   <div class="container">
     <h3><strong>Ready to learn more?</strong></h3>
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
           <div class="thumbnail">
             <p style="text-align: center; padding-top: 10px">
                 <a href="/quick_start/quickstart.html" class="btn btn-primary btn-lg" role="button">Quick Start
                     <span class="glyphicon glyphicon-chevron-right"></span> </a>
             </p>
-              <div class="caption">Install software and get started with WattDepot</div>
+              <div class="caption">Install WattDepot and get started!</div>
           </div>
       </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="thumbnail">
                 <p style="text-align: center; padding-top: 10px">
                     <a href="/userguide/userguide.html" class="btn btn-primary btn-lg" role="button">User Guide
                         <span class="glyphicon glyphicon-chevron-right"></span> </a>
                 </p>
-                <div class="caption">Details on administering WattDepot.</div>
+                <div class="caption">More details on using your WattDepot installation.</div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="thumbnail">
                 <p style="text-align: center; padding-top: 10px">
                     <a href="/developerguide/developerguide.html" class="btn btn-primary btn-lg"
                        role="button">Developer Guide
                         <span class="glyphicon glyphicon-chevron-right"></span> </a>
                 </p>
-                <div class="caption">Don't like how WattDepot works? Here's how its designed and how you can modify
+                <div class="caption">Don't like how WattDepot works? Here's how it's designed and how you can modify
                   it</div>
             </div>
         </div>
@@ -217,7 +225,7 @@
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>11 Aug 2014</span></p>
+      <p>Last update on: <span>12 Aug 2014</span></p>
     </div>
   </footer>
 </div>
