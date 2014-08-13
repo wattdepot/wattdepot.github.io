@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Javascript API
 ---
 # Javascript API
 

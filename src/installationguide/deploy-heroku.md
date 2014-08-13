@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Heroku deployment
 ---
 # Deploying WattDepot to Heroku
 

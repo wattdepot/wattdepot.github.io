@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Java API
 ---
 # Java API
 

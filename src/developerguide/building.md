@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Building WattDepot
 ---
 # Building WattDepot
 

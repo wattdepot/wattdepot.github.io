@@ -1,5 +1,6 @@
 ---
 layout: userguide
+title: Domain model
 ---
 
 # Domain model

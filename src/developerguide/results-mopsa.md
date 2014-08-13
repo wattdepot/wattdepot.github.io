@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Performance evaluation
 ---
 # WattDepot 3.0.0-M9 Running on Mopsa Performance Evaluation
 

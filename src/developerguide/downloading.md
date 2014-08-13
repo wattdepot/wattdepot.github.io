@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Downloading sources
 ---
 # Downloading sources
 

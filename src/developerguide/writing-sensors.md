@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Writing sensors
 ---
 # Writing sensors
 

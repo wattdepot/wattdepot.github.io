@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Release process
 ---
 # Release process
 

@@ -1,5 +1,7 @@
 ---
 layout: documentation
+title: Prerequisites
+title: Prerequisites
 ---
 # Environment prerequisites
 

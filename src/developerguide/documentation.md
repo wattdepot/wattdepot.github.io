@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Creating documentation
 ---
 # Creating WattDepot documentation
 
