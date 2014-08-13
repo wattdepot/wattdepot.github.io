@@ -36,7 +36,7 @@
         <!--  Display three horizontal lines when navbar collapsed. -->
         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand"><img style="max-width:50px; margin-top: -15px;" src="http://www.gravatar.com/avatar/db86ef42cc64f51e6e53171e24faa9e2.png"></a>
+      <a class="navbar-brand"><img style="max-width: 50px; margin-top: -15px;" src="http://www.gravatar.com/avatar/db86ef42cc64f51e6e53171e24faa9e2.png"></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -44,13 +44,14 @@
         <li><a href="/quick_start/quickstart.html">Quick Start</a></li>
         <li><a href="/userguide/userguide.html">Users</a></li>
         <li><a href="/developerguide/developerguide.html">Developers</a> </li>
+        <li><a href="/news/index.html">News</a> </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Misc<b class="caret"></b></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<b class="caret"></b></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/overview/architecture.html">Architecture</a></li>
             <li><a href="/overview/publications.html">Publications</a></li>
-            <li><a href="/overview/news.html">News</a></li>
             <li><a href="/overview/history.html">History</a></li>
+            <li><a href="/overview/contact.html">Contact us</a></li>
             <li><a href="https://groups.google.com/forum/#!forum/wattdepot-users">Discussion Group</a></li>
             <li class="divider"></li>
             <li><a href="/api/http.html">HTTP API</a></li>
@@ -81,16 +82,17 @@
 <div class="white-background">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-4 col-sm-push-8">
+        <img style="margin-top: 20px; margin-bottom: 20px" src="images/enterprise.jpg" class="img-circle img-responsive center-block">
+      </div>
+      <div class="col-sm-8 col-sm-pull-4">
         <h3><strong>Above the home, below the grid</strong></h3>
 
         <p>Most energy measurement systems are either "personal-scale" or "utility-scale". WattDepot is designed to help those of us in the middle: organizations who want to better manage their energy use, typically across multiple buildings. </p>
 
         <p>To accomplish this, WattDepot provides data aggregation. For example, a building might have multiple meters monitoring energy consumption, one per floor. WattDepot can represent the power consumed by individual floors, as well as an aggregate source representing the building as a whole. Aggregations can be nested, so that floors can be aggregated into buildings, and buildings into campuses.</p>
       </div>
-      <div class="col-sm-4">
-        <img style="margin-top: 20px; margin-bottom: 20px" src="images/enterprise.jpg" class="img-circle img-responsive center-block">
-      </div>
+
     </div>
   </div>
 </div>
@@ -141,8 +143,11 @@
 <div class="white-background">
   <div class="container">
     <div class="row">
+      <div class="col-sm-4 col-sm-push-8">
+        <img style="margin-top: 20px; margin-bottom: 20px" src="images/timescale.jpg" class="img-circle img-responsive center-block">
+      </div>
 
-      <div class="col-sm-8">
+      <div class="col-sm-8 col-sm-pull-4">
         <h3><strong>Data interpolation and tailored time scales</strong></h3>
 
         <p>
@@ -150,9 +155,7 @@
         <p>This becomes particularly important and useful when data from multiple meters is aggregated. For example, the meters on individual floors of a building will rarely send their data at exactly the same time instant, so providing an aggregate value for power consumed by the entire building requires combining individual data values obtained at different times.</p>
         <p>Finally, WattDepot supports "tailored time scales", allowing users to store fine-grained data (say, every 10 seconds) for the mosts recent 24 hours, but coarser-grained data (say, every 10 minutes) thereafter. This reduces your back-end storage requirements.</p>
       </div>
-      <div class="col-sm-4">
-        <img style="margin-top: 20px; margin-bottom: 20px" src="images/timescale.jpg" class="img-circle img-responsive center-block">
-      </div>
+
     </div>
   </div>
 </div>
