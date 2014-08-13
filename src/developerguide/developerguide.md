@@ -1,5 +1,6 @@
 ---
 layout: userguide
+title: Developer Guide
 ---
 
 # Prerequisites

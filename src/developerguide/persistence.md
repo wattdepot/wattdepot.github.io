@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Persistence
 ---
 # Implementing persistence
 

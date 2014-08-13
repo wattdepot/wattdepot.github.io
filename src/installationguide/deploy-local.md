@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Local deployment
 ---
 # Deploying WattDepot locally
 

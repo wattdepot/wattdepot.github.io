@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Administration
 ---
 # Administering a WattDepot system
 

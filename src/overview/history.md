@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: History
 ---
 # A brief history of WattDepot
 
