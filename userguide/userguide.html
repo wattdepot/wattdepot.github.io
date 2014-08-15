@@ -273,44 +273,134 @@ the minimum.</li>
 
 <h1>Administration</h1>
 
-<p>Once the administrator has created your user account, navigate to your organization&#39;s administration site in your 
-favorite browser: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">http://&lt;server_url&gt;/wattdepot/&lt;organization&gt;/
+<p>See the <a href="/quick_start/quickstart.html#3.Administration">Quick Start</a> guide for information about 
+adding Depositories, Sensors, and Collector Process Definitions.</p>
+
+<h2>Sensor Groups</h2>
+
+<h2>Measurement Pruning Definitions</h2>
+
+<h2>Loading From CSV File</h2>
+
+<p>The administration UI is fine for adding a few items. If you want to add many sensors you should use the Organization
+Domain tool.  WattDepot provides a tool for defining an organization&#39;s domain model in a CSV file.  Then you can 
+upload the file to the WattDepot Server, thus saving you lots of tedious web clicking and typing.</p>
+
+<p>The CSV file has the following format.</p>
+
+<h3>A section for Depositories</h3>
+
+<p>The Depositories section should start with a comment showing the structure of each line defining the depositories. 
+The example comment is:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # Depositories: &#39;Depository&#39;, Name, MeasurementType Name, MeasurementType Unit, OrgId
 </code></pre></div>
-<p>For example:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">http://server.wattdepot.org/wattdepot/uh/
+<p>The lines defining the depositories must have the following information in the given order:</p>
+
+<ul>
+<li>The String &quot;Depository&quot; followed by a comma</li>
+<li>The Name of the depository followed by a comma</li>
+<li>The MeasurementType Name followed by a comma</li>
+<li>The MeasurementType Unit followed by a comma</li>
+<li><p>The Organization Id</p>
+
+<p>Depository,Power,Power (W),W,uhm</p></li>
+</ul>
+
+<p>Defines the &#39;Power&#39; depository with the MeasurementType Power (W), the unit is W and the organization id is uhm.</p>
+
+<p>We recommend you use the Organization Administration UI to create your Depositories since the MeasurementType Unit is
+ often a non-standard character like the degree symbol.</p>
+
+<h3>A section for Sensors</h3>
+
+<p>The Sensors section should start with a comment showing the structure of the lines.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # Sensors: &#39;Sensor&#39;, Name, URI, ModelId, OrgId, num properties, prop1.key, prop1,value, ...,
 </code></pre></div>
-<p>The browser will ask you for your username and password. Once you&#39;ve logged in you will see your organization&#39;s 
-administration page.</p>
+<p>The lines defining the sensors must have the following information in the given order:</p>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/admin-password.png"  class="center-block img-responsive"></p>
+<ul>
+<li>The String &quot;Sensor&quot; followed by a comma</li>
+<li>The name of the sensor followed by a comma</li>
+<li>The URI for the sensor followed by a comma</li>
+<li>The Sensor Model Id followed by a comma</li>
+<li>The Organization Id followed by a comma</li>
+<li>The number of properties for the sensor followed by a comma</li>
+<li>Property, Key Value pairs for the number of properties</li>
+</ul>
 
-<p>Log in as the administrator and you will see the following &quot;admin interface&quot;. Here you can create the organizations 
-and users.</p>
+<pre>  
+Sensor,Honolulu NOAA,http://w1.weather.gov/xml/current_obs/display.php?stid=PHNL,noaa-weather,uh,0,
+</pre>
+    
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/admin-start.png"  class="center-block img-responsive"></p>
+<p>Defines the Honolulu NOAA sensor of type noaa-weather and 0 properties</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Sensor,Lokelani 10th Telco,http://192.168.105.39,shark,uh,1,registerName,Student_Lounge
+</code></pre></div>
+<p>Defines the Lokelani 10th Telco sensor of type shark with 1 property, whose key is &#39;registerName&#39;, 
+value of &#39;Student_Lounge&#39;.</p>
 
-<p>To create a new organization click the plus button on the right side of the screen. You will see the Add Organization
- dialog box.</p>
+<h3>A section for Sensor Groups</h3>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-org-dialog.png"  class="center-block img-responsive"></p>
+<p>The Sensor Groups should start with a comment showing the definition of the Sensor Group lines.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # SensorGroups: &#39;SensorGroup&#39;, Name, OrgId, num sensors, sensorId1, sensorId2, ...,
+</code></pre></div>
+<p>The lines defining the sensor groups must have the following information in the given order:</p>
 
-<p>Clicking on &quot;Save Changes&quot; will create the organization.</p>
+<ul>
+<li>The String &quot;SensorGroup&quot; followed by a comma</li>
+<li>The Name of the SensorGroup followed by a comma</li>
+<li>The Organization Id followed by a comma</li>
+<li>The number of sensors in the group followed by a comma</li>
+<li>The Sensor Ids for the members of the group followed by a comma</li>
+</ul>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/uhm-defined.png"  class="center-block img-responsive"></p>
+<pre>
+SensorGroup,Ilima A,uh,2,ilima-4th-telco,ilima-4th-lounge,
+</pre>
 
-<p>Switch over to the Users tab to start defining users.</p>
+<p>Defines the &#39;Ilima A&#39; Sensor group consisting of two sensors on the fourth floor.</p>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/user-admin.png"  class="center-block img-responsive"></p>
+<pre>
+SensorGroup,Ilima Total,uh,10,ilima-4th-telco,ilima-4th-lounge,ilima-6th-telco,ilima-6th-lounge,ilima-8th-telco,ilima-8th-lounge,ilima-10th-telco,ilima-10th-lounge,ilima-12th-telco,ilima-12th-lounge,
+</pre>
 
-<p>To create a new user click the plus button on the right side of the screen. You will see the Add User dialog box.</p>
+<p>Defines the &#39;Ilima Total&#39; group with 10 sensors. </p>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-user.png"  class="center-block img-responsive"></p>
+<h3>A section for Collector Process Definitions</h3>
 
-<p>Remember to select the organization for your new user and hit &quot;Save Changes&quot;.</p>
+<p>The Collector Process Definitions section should start with a comment showing the format of the CPD lines.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # CollectorProcessDefinitions: &#39;CollectorProcessDefinition&#39;, Name, SensorId, Polling, DepositoryId, OrgId, num properties, prop1.key, prop1.value, ...,
+</code></pre></div>
+<p>The CPD definition lines have the following format:</p>
 
-<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/cmoore-defined.png"  class="center-block img-responsive"></p>
+<ul>
+<li>The String &quot;CollectorProcessDefinition&quot; followed by a comma</li>
+<li>The name of the CPD followed by a comma</li>
+<li>The Sensor Id to poll followed by a comma</li>
+<li>The polling interval in seconds followed by a comma</li>
+<li>The Depository Id to send the measurements to followed by a comma</li>
+<li>The Organization Id followed by a comma</li>
+<li>The number of properties followed by a comma</li>
+<li>Property, Key Value pairs for the number of properties</li>
+</ul>
 
+<pre>
+CollectorProcessDefinition,Ilima 4th Telco Energy,ilima-4th-telco,15,energy,uh,0,
+</pre>
+
+<p>Defines the &#39;Ilima 4th Telco Energy&#39; collector using the ilima-4th-telco sensor and the energy depository with a 
+polling interval of 15 seconds with no properties.</p>
+
+<pre>
+CollectorProcessDefinition,Honolulu Temperature,honolulu-noaa,3600,temperature,uh,1,registerName,temp_f
+</pre>
+
+<p>Defines the &#39;Honolulu Temperature&#39; collector using the honolulu-noaa sensor and the temperature depository with a 
+polling interval of one hour or 3600 seconds. It also has one Property key = &#39;registerName&#39;, value = &#39;temp_f&#39;.</p>
+
+<h3>A section for Measurement Pruning Definitions</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # MeasurementPruningDefinitions: &#39;MeasurementPruningDefinition&#39;, Name, DepositoryId, SensorId, OrgId, ignore window days, collect window days, minimum gap seconds
+</code></pre></div>
 <h1>Data Visualization</h1>
 
   </div>
@@ -333,7 +423,7 @@ and users.</p>
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>13 Aug 2014</span></p>
+      <p>Last update on: <span>14 Aug 2014</span></p>
     </div>
   </footer>
 </div>

@@ -198,7 +198,8 @@ and users.</p>
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-user.png"  class="center-block img-responsive"></p>
 
-<p>Remember to select the organization for your new user and hit &quot;Save Changes&quot;.</p>
+<p>Fill out the information. Only the administrator can change the users&#39; passwords. The administrator will have to tell 
+the users their passwords. Remember to select the organization for your new user and hit &quot;Save Changes&quot;.</p>
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/cmoore-defined.png"  class="center-block img-responsive"></p>
 
@@ -211,6 +212,9 @@ and users.</p>
 <p>Restart your browser and go to your organizations administration page.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">http://&lt;WattDepot_server_url&gt;/wattdepot/&lt;organization_id&gt;/
 </code></pre></div>
+<p>In our example the University of Hawaii, Manoa organization&#39;s administration page is:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://wattdepot-test-deploy.herokuapp.com/wattdepot/uhm/
+</code></pre></div>
 <p>The browser will ask you for your username and password. Use the user&#39;s id and password you just created.</p>
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/org-admin.png"  class="center-block img-responsive"></p>
@@ -218,18 +222,191 @@ and users.</p>
 <p>The organization id is in the upper right-hand corner. You have tabs for defining Depositories, Sensors, 
 SensorGroups, Collection Process Definitions, and Measurement Pruning Definitions.</p>
 
+<p>Even though WattDepot is focused on energy and power, we are going to show you how to create a temperature 
+depository, National Oceanic and Atmospheric Administration web sensor, and a Collector Process Definition to gather 
+temperature data. The reason for this is you can follow the steps for your own installation and start collecting data
+ without having your own smart meters installed. </p>
+
 <h3>I. Create a Depository</h3>
 
 <p>Depositories hold measurements of a given <a href="measurementtypes.html">Measurement Type</a>. To create a depository click the
- blue plus symbol.</p>
+ blue plus symbol. </p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-depository-dialog.png"  class="center-block img-responsive"></p>
+
+<p>We gave the depository a descriptive id and name and selected the Measurement Type &quot;Temperature (F)&quot; for this 
+depository. Once you hit &quot;Save Changes&quot; you will see the defined depository.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/temperature-defined.png"  class="center-block img-responsive"></p>
 
 <h3>II. Create a Sensor</h3>
 
+<p>Switch to the &quot;Sensors&quot; tab to define our NOAA Weather Sensor.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/sensor-admin.png"  class="center-block img-responsive"></p>
+
+<p>Press the blue plus sign to bring up the Add Sensor Dialog Box.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-sensor-dialog.png"  class="center-block img-responsive"></p>
+
+<p>The url for the sensor is the current observation XML page for the Honolulu Airport. If you go to <a href="http://w1.weather.gov/xml/current_obs/">w1.weather
+.gov/xml/current_obs/</a> you can select the state and weather station you are 
+interested in.
+We choose the NOAA Weather sensor model. For this sensor we do not need to supply any properties.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/noaa-sensor-defined.png"  class="center-block img-responsive"></p>
+
+<p>In this guide we will not be creating any Sensor Groups. Sensor Groups are used to aggregate measurements together.</p>
+
 <h3>III. Create a Collection Process Definition</h3>
+
+<p>We need to create a Collector Process Definition to tell our collectors:</p>
+
+<ul>
+<li>what measurements we want to collect, </li>
+<li>how often to collect the measurements and </li>
+<li>where to store the measurements.</li>
+</ul>
+
+<p>Switch to the Collector Process Definitions tab.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/cpd-admin.png"  class="center-block img-responsive"></p>
+
+<p>And press the blue plus sign to open the Add Collector Process Definition dialog.</p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/add-cpd-dialog.png"  class="center-block img-responsive"></p>
+
+<ul>
+<li>We provide a descriptive id and name. </li>
+<li>Choose the sensor that we are going to collect from. In this example there is only one choice in our selection box. </li>
+<li>Enter the polling interval in seconds. NOAA updates their current observations once an hour so we will poll their 
+website once an hour or every 3600 seconds.</li>
+<li>Choose the depository to store the measurements in. In this example there is only one choice in our selection box.</li>
+<li>Finally, provide the property name and value that we want to collect from. The property &quot;registerName&quot; tells the 
+collector process that we are interested in values from that XML field in the XML data.</li>
+</ul>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/hono-temp-defined.png"  class="center-block img-responsive"></p>
 
 <h3>IV. Start the collector</h3>
 
+<p>We now need to start the collector process.  WattDepot comes with a Java program that will query a WattDepot server 
+and start all the Collectors for a given Organization.</p>
+
+<p>Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see
+ the command line options for the AllOrganizationCollectors program.</p>
+
+<div class="highlight"><pre><code class="bash">10:59 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
+usage: AllOrganizationCollectors
+ -d,--debug                  Displays debugging information.
+ -h                          Usage: AllOrganizationCollectors -s &lt;server uri&gt; -u
+                             &lt;username&gt; -p &lt;password&gt; -o &lt;orgId&gt; <span class="o">[</span>-d<span class="o">]</span>
+ -o,--organizationId &lt;arg&gt;   User<span class="err">&#39;</span>s Organization id.
+ -p,--password &lt;arg&gt;         Password
+ -s,--server &lt;arg&gt;           WattDepot Server URI.
+                             <span class="o">(</span>http://server.wattdepot.org<span class="o">)</span>
+ -u,--username &lt;arg&gt;         Username
+11:00 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="err">$</span></code></pre></div>
+
+<p>To start the collector processes we need to supply:</p>
+
+<ul>
+<li>The WattDepot Server&#39;s URL, in our example it is http://wattdepot-test-deploy.herokuapp.com/.</li>
+<li>The user&#39;s id, in this case cmoore.</li>
+<li>The user&#39;s password, hidden.</li>
+<li>The user&#39;s organization id, in this case uhm</li>
+</ul>
+
+<p>The following is an example of starting the processes.</p>
+
+<div class="highlight"><pre><code class="bash">11:08 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
+All Organization Collectors:
+    WattDepotServer: http://wattdepot-test-deploy.herokuapp.com/
+    Username: cmoore
+    OrganizationId: uhm
+    Password: ********
+Aug 14, 2014 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
+INFO: Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting honolulu-temperature
+Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Started polling Weather in Honolulu sensor at 2014-08-14T11:08:25.425-10:00
+Starting the Apache HTTP client
+Stopping the HTTP client
+Measurement <span class="o">[</span><span class="nv">id</span><span class="o">=</span> honolulu-noaa1408050505868°f, <span class="nv">sensorId</span><span class="o">=</span>honolulu-noaa, <span class="nv">timestamp</span><span class="o">=</span>2014-08-14T11:08:25.868-10:00, <span class="nv">value</span><span class="o">=</span>87.0, <span class="nv">units</span><span class="o">=</span>°F<span class="o">]</span>
+<span class="o">[</span>clip<span class="o">]</span></code></pre></div>
+
+<p>As long as you are running this Java program it will collect measurements from all the organization&#39;s defined 
+collector process definitions and send those measurements to the WattDepot Server.</p>
+
 <h3>V. View the data</h3>
+
+<p>There are two ways to see if WattDepot is collecting measurements.</p>
+
+<ol>
+<li>Go to the summary page. It shows a row for each Depository, Sensor combination that is reporting data. The top 
+line of the page shows the number of depositories and sensors that are collecting measurements. It also shows the 
+total number of measurements stored in WattDepot.</li>
+</ol>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/summary-page.png"  class="center-block img-responsive"></p>
+
+<p>Pressing the &quot;Show Details&quot; button will update the current statistics for the Depository-Sensor pair.</p>
+
+<ol>
+<li>Go to the chart page. On this page, you can request to see graphs of the data stored in WattDepot.</li>
+</ol>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/chart-page.png"  class="center-block img-responsive"></p>
+
+<ul>
+<li>Select the depository then the sensor. This will update the start time and end time choices indicating the 
+earliest and latest data available for that depository-sensor combination.</li>
+<li>Choose the start time and end time.</li>
+<li><p>Choose the type if interpreted value you want to view.</p>
+
+<ul>
+<li><strong>Point Values</strong>: Give you the interpolated value at the sample times.</li>
+<li><strong>Interval Values</strong>: Give you the change in value at the sample times. (e.g. The end of sample interval value -
+start of sample interval value)</li>
+</ul></li>
+<li><p>Choose the sample frequency. The sample frequency determines the number of samples to take. Be careful, 
+large time windows with small sample frequency can lead to very many samples and very slow performance.</p></li>
+</ul>
+
+<p>Press the Visualize button to see the graph. If you want to graph more than one set of measurements press the blue 
+  plus sign. This will give you another row to select the measurements, time range, type of value, 
+  and sample frequency. </p>
+
+<p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/temperature-graph.png"  class="center-block img-responsive"></p>
 
   </div>
 </div>
@@ -251,7 +428,7 @@ SensorGroups, Collection Process Definitions, and Measurement Pruning Definition
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>13 Aug 2014</span></p>
+      <p>Last update on: <span>14 Aug 2014</span></p>
     </div>
   </footer>
 </div>
