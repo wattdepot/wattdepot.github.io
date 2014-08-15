@@ -121,7 +121,8 @@ To create a new user click the plus button on the right side of the screen. You 
  
 {% include responsive-img.html photo="add-user.png" %}
 
-Remember to select the organization for your new user and hit "Save Changes".
+Fill out the information. Only the administrator can change the users' passwords. The administrator will have to tell 
+the users their passwords. Remember to select the organization for your new user and hit "Save Changes".
 
 {% include responsive-img.html photo="cmoore-defined.png" %}
 
@@ -135,6 +136,10 @@ Restart your browser and go to your organizations administration page.
 
     http://<WattDepot_server_url>/wattdepot/<organization_id>/
     
+In our example the University of Hawaii, Manoa organization's administration page is:
+
+    http://wattdepot-test-deploy.herokuapp.com/wattdepot/uhm/
+
 The browser will ask you for your username and password. Use the user's id and password you just created.
 
 {% include responsive-img.html photo="org-admin.png" %}
@@ -142,16 +147,181 @@ The browser will ask you for your username and password. Use the user's id and p
 The organization id is in the upper right-hand corner. You have tabs for defining Depositories, Sensors, 
 SensorGroups, Collection Process Definitions, and Measurement Pruning Definitions.
 
+Even though WattDepot is focused on energy and power, we are going to show you how to create a temperature 
+depository, National Oceanic and Atmospheric Administration web sensor, and a Collector Process Definition to gather 
+temperature data. The reason for this is you can follow the steps for your own installation and start collecting data
+ without having your own smart meters installed. 
+
 ### I. Create a Depository
 
 Depositories hold measurements of a given [Measurement Type](measurementtypes.html). To create a depository click the
- blue plus symbol.
+ blue plus symbol. 
  
+{% include responsive-img.html photo="add-depository-dialog.png" %}
+ 
+We gave the depository a descriptive id and name and selected the Measurement Type "Temperature (F)" for this 
+depository. Once you hit "Save Changes" you will see the defined depository.
+
+{% include responsive-img.html photo="temperature-defined.png" %}
 
 ### II. Create a Sensor
 
+Switch to the "Sensors" tab to define our NOAA Weather Sensor.
+
+{% include responsive-img.html photo="sensor-admin.png" %}
+
+Press the blue plus sign to bring up the Add Sensor Dialog Box.
+
+{% include responsive-img.html photo="add-sensor-dialog.png" %}
+
+The url for the sensor is the current observation XML page for the Honolulu Airport. If you go to [w1.weather
+.gov/xml/current_obs/](http://w1.weather.gov/xml/current_obs/) you can select the state and weather station you are 
+interested in.
+We choose the NOAA Weather sensor model. For this sensor we do not need to supply any properties.
+
+{% include responsive-img.html photo="noaa-sensor-defined.png" %}
+
+In this guide we will not be creating any Sensor Groups. Sensor Groups are used to aggregate measurements together.
+
 ### III. Create a Collection Process Definition
+
+We need to create a Collector Process Definition to tell our collectors:
+ 
+ * what measurements we want to collect, 
+ * how often to collect the measurements and 
+ * where to store the measurements.
+
+Switch to the Collector Process Definitions tab.
+
+{% include responsive-img.html photo="cpd-admin.png" %}
+
+And press the blue plus sign to open the Add Collector Process Definition dialog.
+
+{% include responsive-img.html photo="add-cpd-dialog.png" %}
+
+* We provide a descriptive id and name. 
+* Choose the sensor that we are going to collect from. In this example there is only one choice in our selection box. 
+* Enter the polling interval in seconds. NOAA updates their current observations once an hour so we will poll their 
+website once an hour or every 3600 seconds.
+* Choose the depository to store the measurements in. In this example there is only one choice in our selection box.
+* Finally, provide the property name and value that we want to collect from. The property "registerName" tells the 
+collector process that we are interested in values from that XML field in the XML data.
+  
+{% include responsive-img.html photo="hono-temp-defined.png" %}
+
 
 ### IV. Start the collector
 
+We now need to start the collector process.  WattDepot comes with a Java program that will query a WattDepot server 
+and start all the Collectors for a given Organization.
+
+Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see
+ the command line options for the AllOrganizationCollectors program.
+
+{% highlight bash %}
+10:59 [~/wattdepot] $ java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
+usage: AllOrganizationCollectors
+ -d,--debug                  Displays debugging information.
+ -h                          Usage: AllOrganizationCollectors -s <server uri> -u
+                             <username> -p <password> -o <orgId> [-d]
+ -o,--organizationId <arg>   User's Organization id.
+ -p,--password <arg>         Password
+ -s,--server <arg>           WattDepot Server URI.
+                             (http://server.wattdepot.org)
+ -u,--username <arg>         Username
+11:00 [~/wattdepot] $ 
+{% endhighlight %}
+
+To start the collector processes we need to supply:
+ 
+ * The WattDepot Server's URL, in our example it is http://wattdepot-test-deploy.herokuapp.com/.
+ * The user's id, in this case cmoore.
+ * The user's password, hidden.
+ * The user's organization id, in this case uhm
+
+The following is an example of starting the processes.
+
+{% highlight bash %}
+11:08 [~/wattdepot] $ java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
+All Organization Collectors:
+    WattDepotServer: http://wattdepot-test-deploy.herokuapp.com/
+    Username: cmoore
+    OrganizationId: uhm
+    Password: ********
+Aug 14, 2014 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
+INFO: Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting honolulu-temperature
+Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Starting the Apache HTTP client
+Stopping the HTTP client
+Started polling Weather in Honolulu sensor at 2014-08-14T11:08:25.425-10:00
+Starting the Apache HTTP client
+Stopping the HTTP client
+Measurement [id= honolulu-noaa1408050505868°f, sensorId=honolulu-noaa, timestamp=2014-08-14T11:08:25.868-10:00, value=87.0, units=°F]
+[clip]
+
+{% endhighlight %}
+
+As long as you are running this Java program it will collect measurements from all the organization's defined 
+collector process definitions and send those measurements to the WattDepot Server.
+
 ### V. View the data
+
+There are two ways to see if WattDepot is collecting measurements.
+
+1. Go to the summary page. It shows a row for each Depository, Sensor combination that is reporting data. The top 
+line of the page shows the number of depositories and sensors that are collecting measurements. It also shows the 
+total number of measurements stored in WattDepot.
+
+{% include responsive-img.html photo="summary-page.png" %}
+
+  Pressing the "Show Details" button will update the current statistics for the Depository-Sensor pair.
+  
+2. Go to the chart page. On this page, you can request to see graphs of the data stored in WattDepot.
+
+{% include responsive-img.html photo="chart-page.png" %}
+
+  * Select the depository then the sensor. This will update the start time and end time choices indicating the 
+  earliest and latest data available for that depository-sensor combination.
+  * Choose the start time and end time.
+  * Choose the type if interpreted value you want to view.
+  
+    * **Point Values**: Give you the interpolated value at the sample times.
+    * **Interval Values**: Give you the change in value at the sample times. (e.g. The end of sample interval value -
+     start of sample interval value)
+  * Choose the sample frequency. The sample frequency determines the number of samples to take. Be careful, 
+  large time windows with small sample frequency can lead to very many samples and very slow performance.
+  
+  Press the Visualize button to see the graph. If you want to graph more than one set of measurements press the blue 
+  plus sign. This will give you another row to select the measurements, time range, type of value, 
+  and sample frequency. 
+  
+{% include responsive-img.html photo="temperature-graph.png" %}
+

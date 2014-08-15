@@ -186,53 +186,131 @@ MPDs have:
 
 # Administration
 
-Once the administrator has created your user account, navigate to your organization's administration site in your 
-favorite browser: 
+See the [Quick Start]({{ site.baseurl }}/quick_start/quickstart.html#3.Administration) guide for information about 
+adding Depositories, Sensors, and Collector Process Definitions.
 
-```
-http://<server_url>/wattdepot/<organization>/
-```
+## Sensor Groups
 
-For example:
+## Measurement Pruning Definitions
 
-```
-http://server.wattdepot.org/wattdepot/uh/
-```
+## Loading From CSV File
 
-The browser will ask you for your username and password. Once you've logged in you will see your organization's 
-administration page.
-
-{% include responsive-img.html photo="admin-password.png" %}
-
-Log in as the administrator and you will see the following "admin interface". Here you can create the organizations 
-and users.
-
-{% include responsive-img.html photo="admin-start.png" %}
-
-To create a new organization click the plus button on the right side of the screen. You will see the Add Organization
- dialog box.
+The administration UI is fine for adding a few items. If you want to add many sensors you should use the Organization
+Domain tool.  WattDepot provides a tool for defining an organization's domain model in a CSV file.  Then you can 
+upload the file to the WattDepot Server, thus saving you lots of tedious web clicking and typing.
  
-{% include responsive-img.html photo="add-org-dialog.png" %}
-
-Clicking on "Save Changes" will create the organization.
-
-{% include responsive-img.html photo="uhm-defined.png" %}
-
-Switch over to the Users tab to start defining users.
-
-{% include responsive-img.html photo="user-admin.png" %}
-
-To create a new user click the plus button on the right side of the screen. You will see the Add User dialog box.
+The CSV file has the following format.
  
-{% include responsive-img.html photo="add-user.png" %}
+### A section for Depositories
 
-Remember to select the organization for your new user and hit "Save Changes".
+The Depositories section should start with a comment showing the structure of each line defining the depositories. 
+The example comment is:
+  
+     # Depositories: 'Depository', Name, MeasurementType Name, MeasurementType Unit, OrgId
 
-{% include responsive-img.html photo="cmoore-defined.png" %}
+The lines defining the depositories must have the following information in the given order:
 
+* The String "Depository" followed by a comma
+* The Name of the depository followed by a comma
+* The MeasurementType Name followed by a comma
+* The MeasurementType Unit followed by a comma
+* The Organization Id
+  
 
+    Depository,Power,Power (W),W,uhm
+ 
+Defines the 'Power' depository with the MeasurementType Power (W), the unit is W and the organization id is uhm.
 
+We recommend you use the Organization Administration UI to create your Depositories since the MeasurementType Unit is
+ often a non-standard character like the degree symbol.
+ 
+### A section for Sensors
 
+The Sensors section should start with a comment showing the structure of the lines.
+
+     # Sensors: 'Sensor', Name, URI, ModelId, OrgId, num properties, prop1.key, prop1,value, ...,
+ 
+The lines defining the sensors must have the following information in the given order:
+
+* The String "Sensor" followed by a comma
+* The name of the sensor followed by a comma
+* The URI for the sensor followed by a comma
+* The Sensor Model Id followed by a comma
+* The Organization Id followed by a comma
+* The number of properties for the sensor followed by a comma
+* Property, Key Value pairs for the number of properties
+
+<pre>  
+Sensor,Honolulu NOAA,http://w1.weather.gov/xml/current_obs/display.php?stid=PHNL,noaa-weather,uh,0,
+</pre>
+    
+Defines the Honolulu NOAA sensor of type noaa-weather and 0 properties
+
+    Sensor,Lokelani 10th Telco,http://192.168.105.39,shark,uh,1,registerName,Student_Lounge
+     
+Defines the Lokelani 10th Telco sensor of type shark with 1 property, whose key is 'registerName', 
+value of 'Student_Lounge'.
+
+### A section for Sensor Groups
+
+The Sensor Groups should start with a comment showing the definition of the Sensor Group lines.
+
+     # SensorGroups: 'SensorGroup', Name, OrgId, num sensors, sensorId1, sensorId2, ...,
+
+The lines defining the sensor groups must have the following information in the given order:
+
+* The String "SensorGroup" followed by a comma
+* The Name of the SensorGroup followed by a comma
+* The Organization Id followed by a comma
+* The number of sensors in the group followed by a comma
+* The Sensor Ids for the members of the group followed by a comma
+
+<pre>
+SensorGroup,Ilima A,uh,2,ilima-4th-telco,ilima-4th-lounge,
+</pre>
+
+Defines the 'Ilima A' Sensor group consisting of two sensors on the fourth floor.
+
+<pre>
+SensorGroup,Ilima Total,uh,10,ilima-4th-telco,ilima-4th-lounge,ilima-6th-telco,ilima-6th-lounge,ilima-8th-telco,ilima-8th-lounge,ilima-10th-telco,ilima-10th-lounge,ilima-12th-telco,ilima-12th-lounge,
+</pre>
+
+Defines the 'Ilima Total' group with 10 sensors. 
+     
+### A section for Collector Process Definitions
+
+The Collector Process Definitions section should start with a comment showing the format of the CPD lines.
+
+     # CollectorProcessDefinitions: 'CollectorProcessDefinition', Name, SensorId, Polling, DepositoryId, OrgId, num properties, prop1.key, prop1.value, ...,
+
+The CPD definition lines have the following format:
+     
+* The String "CollectorProcessDefinition" followed by a comma
+* The name of the CPD followed by a comma
+* The Sensor Id to poll followed by a comma
+* The polling interval in seconds followed by a comma
+* The Depository Id to send the measurements to followed by a comma
+* The Organization Id followed by a comma
+* The number of properties followed by a comma
+* Property, Key Value pairs for the number of properties
+
+<pre>
+CollectorProcessDefinition,Ilima 4th Telco Energy,ilima-4th-telco,15,energy,uh,0,
+</pre>
+
+Defines the 'Ilima 4th Telco Energy' collector using the ilima-4th-telco sensor and the energy depository with a 
+polling interval of 15 seconds with no properties.
+
+<pre>
+CollectorProcessDefinition,Honolulu Temperature,honolulu-noaa,3600,temperature,uh,1,registerName,temp_f
+</pre>
+
+Defines the 'Honolulu Temperature' collector using the honolulu-noaa sensor and the temperature depository with a 
+polling interval of one hour or 3600 seconds. It also has one Property key = 'registerName', value = 'temp_f'.
+     
+### A section for Measurement Pruning Definitions
+ 
+     # MeasurementPruningDefinitions: 'MeasurementPruningDefinition', Name, DepositoryId, SensorId, OrgId, ignore window days, collect window days, minimum gap seconds
 
 # Data Visualization
 
