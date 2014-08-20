@@ -2,19 +2,23 @@
 layout: userguide
 title: Quick Start
 ---
+# 0. Introduction
+
+This Quick Start guide will lead you through the process of downloading, configuring, and running WattDepot to collect sensor data. If you are interested in modifying or extending WattDepot, check out the [Developer Guide](/developerguide/developerguide.html).
+
 # 1. Prerequisites
 
 ## Operating System
 
-The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms 
-should be fine for development.
+The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms should be able to run WattDepot.
 
 ## Java
 
 WattDepot requires [Java Platform Standard Edition] (http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html) 
-version 1.7 or above. If do not have Java installed you can get it from the previous link. Note that you will want the 
-JDK (Java Development Kit) rather than the JRE (Java Runtime Environment) since you will be developing. To check the 
-version of Java installed on your computer type `java -version` from the command line.
+version 1.7 or above. If do not have Java installed, you can get it from the previous link. Oracle provides both a JRE (Java Runtime Environment) and a
+JDK (Java Development Kit). If you only want to run WattDepot, you can download the JRE. If you plan to do development on WattDepot, download the JDK.
+
+To check the version of Java installed on your computer type `java -version` from the command line. You should see something like this (but the version number will probably be higher):
 
     $ java -version
     java version "1.7.0_40"
@@ -29,7 +33,7 @@ backends, but we do not have experience with other backends at this time.
 
 If you do not have PostgreSQL installed already, you will have to 
 [download and install it](http://www.postgresql.org/download/) before running WattDepot. We recommend version 9.1 or 
-higher.
+higher. If you only plan to use PostgreSQL with WattDepot, you might find the graphical installer to be the easiest option.
 
 If you already have PostgreSQL, one way to check the version is using the command line client tool `psql`:
 
@@ -45,6 +49,48 @@ Mountain Lion). In that case you might see an error like the following:
 	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
 
 In this case, you should [download PostgreSQL](http://www.postgresql.org/download/) to get the server as well.
+
+### Creating WattDepot PostgreSQL user and database
+
+Once you have PostgreSQL installed, you will need to create a `wattdepot` user and database so that WattDepot can store things in PostgreSQL. You can do this by connecting to the database as the `postgres` superuser with the `psql` command line tool:
+
+    $ psql -U postgres
+
+    psql (9.3.4)
+    Type "help" for help.
+
+    postgres=# CREATE USER wattdepot WITH PASSWORD 'put-your-password-here';
+    CREATE ROLE
+    postgres=# CREATE DATABASE wattdepot;
+    CREATE DATABASE
+    postgres=# GRANT ALL PRIVILEGES ON DATABASE wattdepot to wattdepot;
+    GRANT
+    postgres=# \q
+
+Note that by default, PostgreSQL will only allow connections from the local host, but will allow connections to any PostgreSQL user without a password (`trust` authentication mode). This is probably acceptable for experimenting with WattDepot, but for a production instance you would probably want to turn on password authentication.
+
+You can test that the `wattdepot` user and database has been created properly by connecting to it. Note that we do not need to specify a password since we are using trust authentication from the local system:
+
+    $ psql -U wattdepot
+
+    psql (9.3.4)
+    Type "help" for help.
+
+    postgres=# \l
+                                   List of databases
+       Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges    
+    -----------+----------+----------+-------------+-------------+------------------------
+     postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+     template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres           +
+               |          |          |             |             | postgres=CTc/postgres
+     template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres           +
+               |          |          |             |             | postgres=CTc/postgres
+     wattdepot | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres          +
+               |          |          |             |             | postgres=CTc/postgres +
+               |          |          |             |             | wattdepot=CTc/postgres
+    (4 rows)
+    postgres=# \q
+	$
 
 # 2. Installation
 
