@@ -74,11 +74,11 @@
 </div>
 
 <div class="container">
-  <h1>Installing the system</h1>
+  <h1 id="installing-the-system">Installing the system</h1>
 
 <p>This document explains how to install the WattDepot server on a local computer server.</p>
 
-<h2>Requirements</h2>
+<h2 id="requirements">Requirements</h2>
 
 <p>To run the WattDepot server, you just need a computer running Java 1.7 or later. If you do not
 already have Java installed, you can download it. Java is not included on Mac OS X 10.7 (Lion), so
@@ -88,11 +88,11 @@ initiate this by typing <code>java -version</code> in a Terminal window.</p>
 <p>You can run the WattDepot server from your own account, but you may want to create a separate
 wattdepot account and run it from that, to keep things separate.</p>
 
-<h2>Download WattDepot</h2>
+<h2 id="download-wattdepot">Download WattDepot</h2>
 
 <p>Download the latest release of WattDepot from the <a href="https://github.com/wattdepot/wattdepot/releases">releases</a> page.</p>
 
-<h2>Set up WattDepot server home directory</h2>
+<h2 id="set-up-wattdepot-server-home-directory">Set up WattDepot server home directory</h2>
 
 <p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em>
 directory in your home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set
@@ -106,7 +106,7 @@ different subdirectory. Create this directory:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">mkdir ~/.wattdepot3
 mkdir ~/.wattdepot3/server
 </code></pre></div>
-<h2>Customize the wattdepot-server.properties</h2>
+<h2 id="customize-the-wattdepot-server.properties">Customize the wattdepot-server.properties</h2>
 
 <p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server
 subdirectory. A default properties file can be found in the wattdepot files you downloaded as
@@ -118,7 +118,7 @@ subdirectory (~/.wattdepot3/server if you are using the defaults), and rename it
 any lines you want. At a minimum, you will want to change the default administrator username and
 password.</p>
 
-<h2>Run the server</h2>
+<h2 id="run-the-server">Run the server</h2>
 
 <p>Change to the top level of the wattdepot distribution you downloaded. Run the server:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ java -cp wattdepot-*version*.jar org.wattdepot.server.WattDepotServer

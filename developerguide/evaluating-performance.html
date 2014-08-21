@@ -74,9 +74,9 @@
 </div>
 
 <div class="container">
-  <h1>Performance Evaluation</h1>
+  <h1 id="performance-evaluation">Performance Evaluation</h1>
 
-<h2>Goals</h2>
+<h2 id="goals">Goals</h2>
 
 <p>There are several goals for WattDepot performance evaluation. We want to answer the following questions.</p>
 
@@ -88,7 +88,7 @@
 <li><p>What are the answers to all of these questions on different platform installations (local machine, Mopsa, Heroku, ...)?</p></li>
 </ol>
 
-<h2>Performance Evaluation Tools</h2>
+<h2 id="performance-evaluation-tools">Performance Evaluation Tools</h2>
 
 <p>We have provided several tools to help evaluate WattDepot&#39;s performance for several low level operations. These operations are:</p>
 
@@ -114,7 +114,7 @@ FindGetValueDateDateThroughput
 
 <ul>
 <li><p>-s <server URI>
-: The URI to the WattDepot server. e.g. http://server.wattdepot.org:8192/</p></li>
+: The URI to the WattDepot server. e.g. <a href="http://server.wattdepot.org:8192/">http://server.wattdepot.org:8192/</a></p></li>
 <li><p>-u <username>
 : The User Id of a defined WattDepot user.</p></li>
 <li><p>-p <password>
@@ -127,7 +127,7 @@ FindGetValueDateDateThroughput
 
 <p>The programs start a monitoring thread that wakes up every <em>numSeconds</em> and checks the average time it took to perform the operation. The monitoring thread then calculates a new rate for the number of operations per second. The new rate is the average of the previous average times. Since it is an average of averages, the rate should slowly converge on the maximum rate possible. The monitoring thread then starts up the new rate worker threads that perform the operation once a second.</p>
 
-<h3>Using the tools</h3>
+<h3 id="using-the-tools">Using the tools</h3>
 
 <ol>
 <li>Install WattDepot following the <a href="installationguide/installation">installation instructions</a>. You need to install version 3.0.0-M9 or above.</li>
@@ -167,17 +167,17 @@ Setting rate to 59
 
 <p>Record your results.</p>
 
-<h2>Real World Scenarios</h2>
+<h2 id="real-world-scenarios">Real World Scenarios</h2>
 
 <p>We&#39;ve used WattDepot in two distinct real world situations.  Supporting the Kukui Cup at University of Hawaii, Manoa and Hawaii Pacific University. <link to documentation?></p>
 
-<h3>Kukui Cup: University of Hawaii, Manoa</h3>
+<h3 id="kukui-cup:-university-of-hawaii,-manoa">Kukui Cup: University of Hawaii, Manoa</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
 <p>40 Sensors producing two measurements, power and energy, every 15 seconds (20 measurements/second).</p>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
 <p>Makahiki status page generates queries about the latest measurement for each Lounge every 10 seconds. There are 20 Lounges (3.333 queries/second). The JavaScript calls <em>server_url + &quot;/depository/power/value/gviz/?sensor=&quot; + source + &quot;&amp;latest=true&quot;;</em> for each lounge.</p>
 
@@ -188,13 +188,13 @@ PowerMeter calls <em>server_url + &quot;/depository/power/value/gviz/?sensor=&qu
 
 <p>Approximately 350 players times X % who do the activities equals N queries in a typical two week challenge. Based upon the 2014 Kukui Cup there were 61, 22, 21, 44 = 148 players who completed the activities.</p>
 
-<h3>Kukui Cup: Hawaii Pacific University</h3>
+<h3 id="kukui-cup:-hawaii-pacific-university">Kukui Cup: Hawaii Pacific University</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
 <p>6 Sensors producing two measurements, power and energy, every 10 seconds (2 measurements/second).</p>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
 <p>Makahiki status page generates queries about the latest measurement for each Team every 10 seconds. There are 6 teams (1 query/second). </p>
 
@@ -203,13 +203,13 @@ PowerMeter calls <em>server_url + &quot;/depository/power/value/gviz/?sensor=&qu
 <p>Heat Map, Hot Spot, and Visualizer calls   <em>host_uri + &#39;/depository/&#39; + dataType + &#39;/values/gviz/?sensor=&#39; + source[i] +&#39;&amp;start=&#39; + startTime + &#39;&amp;end=&#39; + endTime + &#39;&amp;interval=&#39;+interval</em>
 PowerMeter calls <em>server_url + &quot;/depository/power/value/gviz/?sensor=&quot; + source + &quot;&amp;latest=true&quot;;</em></p>
 
-<h3>Aarhus University</h3>
+<h3 id="aarhus-university">Aarhus University</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
-<h2>Results</h2>
+<h2 id="results">Results</h2>
 
 <p><a href="developerguide/results-mopsa">Feb 12th 2014 Mopsa Server</a></p>
 

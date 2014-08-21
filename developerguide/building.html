@@ -74,7 +74,7 @@
 </div>
 
 <div class="container">
-  <h1>Building WattDepot</h1>
+  <h1 id="building-wattdepot">Building WattDepot</h1>
 
 <p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven 3</a> as a build system. Maven is configured with the pom.xml file found at the root of the WattDepot source directory. Maven has a number of lifecycle phases - the most useful in this project are clean, compile, test, package, verify, and site.</p>
 
@@ -110,7 +110,7 @@
 <p>This can be a great time saver if you&#39;ve just run the test phase and now want to package. These properties can also affect the running of WattDepot. Say you want to test multiple configurations without changing the wattdepot-server.properties file between each test. Try:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn test -Dwattdepot-server.db.username=test
 </code></pre></div>
-<h2>Creating a Distribution</h2>
+<h2 id="creating-a-distribution">Creating a Distribution</h2>
 
 <p>To create a distribution, run <code>mvn package</code>. It will create a jar file under the &quot;target&quot; directory.</p>
 

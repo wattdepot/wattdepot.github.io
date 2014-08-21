@@ -74,17 +74,17 @@
 </div>
 
 <div class="container">
-  <h1>Release process</h1>
+  <h1 id="release-process">Release process</h1>
 
 <p>The release process consists of several steps.</p>
 
-<h2>Entry conditions</h2>
+<h2 id="entry-conditions">Entry conditions</h2>
 
 <p>Before starting the release process the <code>develop</code> branch must be 
 ready for release, all unit tests, checkstyle, findbugs, pmd, etc. pass 
 <a href="https://travis-ci.org/">TravisCI</a>.</p>
 
-<h2>Step 1 Create release branch in Github and merge it into the master branch.</h2>
+<h2 id="step-1-create-release-branch-in-github-and-merge-it-into-the-master-branch.">Step 1 Create release branch in Github and merge it into the master branch.</h2>
 
 <ol>
 <li><p>Create a release branch from the <code>develop</code> branch. Release branches support preparation of a 
@@ -118,7 +118,7 @@ new wattdepot-<em>version number</em>.jar file.</p></li>
 <li><p>Check that continuous integration passes <a href="https://travis-ci.org/">TravisCI</a>.</p></li>
 </ol>
 
-<h2>Step 2 Upload the Release&#39;s Javadocs to GitHub.</h2>
+<h2 id="step-2-upload-the-release&#39;s-javadocs-to-github.">Step 2 Upload the Release&#39;s Javadocs to GitHub.</h2>
 
 <ol>
 <li><p>Move the <code>target/site/apidocs</code> to a safe place (e.g. Your home directory).</p></li>
@@ -141,10 +141,10 @@ $ mkdir 3.0.1</p></li>
 <p>$ git checkout master </p></li>
 <li><p>Edit the docs/api/javadoc.md file to include a link to the javadoc files.</p>
 
-<p>[Release 3.0.1](http://wattdepot.github.io/wattdepot/javadoc/3.0.1/)</p></li>
+<p>[Release 3.0.1](<a href="http://wattdepot.github.io/wattdepot/javadoc/3.0.1/">http://wattdepot.github.io/wattdepot/javadoc/3.0.1/</a>)</p></li>
 </ol>
 
-<h2>Step 3 Create a GitHub release.</h2>
+<h2 id="step-3-create-a-github-release.">Step 3 Create a GitHub release.</h2>
 
 <ol>
 <li><p>Create a zip file, named wattdepot-<version>-bin.zip, with the wattdepot-<version>.jar file, wattdepot-client.properties, wattdepot-server.properties, and a README.txt file.  </p></li>

@@ -74,11 +74,11 @@
 </div>
 
 <div class="container">
-  <h1>Deploying WattDepot to Heroku</h1>
+  <h1 id="deploying-wattdepot-to-heroku">Deploying WattDepot to Heroku</h1>
 
 <p>This document explains how to deploy the WattDepot server to Heroku.</p>
 
-<h2>Requirements</h2>
+<h2 id="requirements">Requirements</h2>
 
 <p>You will need to install Heroku toolbelt and set up your Heroku account.</p>
 
@@ -90,9 +90,9 @@ This involves:
   * Logging in to Heroku.</p>
 
 <p>You must tell Heroku about your SSH keys. Follow
-https://devcenter.heroku.com/articles/keys to upload your keys to Heroku.</p>
+<a href="https://devcenter.heroku.com/articles/keys">https://devcenter.heroku.com/articles/keys</a> to upload your keys to Heroku.</p>
 
-<h2>Download the Wattdepot source</h2>
+<h2 id="download-the-wattdepot-source">Download the Wattdepot source</h2>
 
 <p>To download the Wattdepot source, type the following::</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git clone git://github.com/wattdepot/wattdepot.git
@@ -100,20 +100,20 @@ https://devcenter.heroku.com/articles/keys to upload your keys to Heroku.</p>
 <p>This will create a directory called &quot;wattdepot&quot; containing the source code
 for the system.</p>
 
-<h2>Create the Heroku application</h2>
+<h2 id="create-the-heroku-application">Create the Heroku application</h2>
 
 <p>Once the wattdepot source is downloaded, you can create a Heroku app for wattdepot:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ cd wattdepot
 $ heroku create &lt;wattdepot_app_name&gt;
 </code></pre></div>
-<h2>Setup environment variables</h2>
+<h2 id="setup-environment-variables">Setup environment variables</h2>
 
 <p>To deploy Wattdepot on Heroku, you must define several environment variables that will be
 used by the instance on Heroku:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ heroku config:set WATTDEPOT_ADMIN_NAME=&lt;admin name&gt;
 $ heroku config:set WATTDEPOT_ADMIN_PASSWORD=&lt;admin password&gt;
 </code></pre></div>
-<h2>Deploy to Heroku</h2>
+<h2 id="deploy-to-heroku">Deploy to Heroku</h2>
 
 <p>Here is the command to deploy to Heroku:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git push heroku master
@@ -122,12 +122,12 @@ $ heroku config:set WATTDEPOT_ADMIN_PASSWORD=&lt;admin password&gt;
 to run initialization again (This step may be removed in the future release):</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ heroku config:set WATTDEPOT_DB_UPDATE=update
 </code></pre></div>
-<h2>Access the server admin interface</h2>
+<h2 id="access-the-server-admin-interface">Access the server admin interface</h2>
 
 <p>You can access the server by using your browser to open the url of your Heroku app: </p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">http://[wattdepot_app_name].herokuapp.com/wattdepot/admin
 </code></pre></div>
-<h2>Update the Heroku instance</h2>
+<h2 id="update-the-heroku-instance">Update the Heroku instance</h2>
 
 <p>You can update the deployed Heroku instance by running the following command:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git push heroku

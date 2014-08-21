@@ -87,15 +87,15 @@
     <div id="nav"></div>
   </div>
   <div class="col-xs-12 col-sm-9">
-     <h1>Prerequisites</h1>
+     <h1 id="prerequisites">Prerequisites</h1>
 
-<h2>Operating System</h2>
+<h2 id="operating-system">Operating System</h2>
 
 <p>The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms 
 should be fine for development. We do not recommend Windows, instead use <a href="http://www.vagrantup.com/">Vagrant</a> to provide 
 a good development environment.</p>
 
-<h2>Java</h2>
+<h2 id="java">Java</h2>
 
 <p>WattDepot requires <a href="http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html">Java Platform Standard Edition</a> 
 version 1.7 or above. If do not have Java installed you can get it from the previous link. Note that you will want the 
@@ -106,7 +106,7 @@ java version &quot;1.7.0_40&quot;
 Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
 Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)
 </code></pre></div>
-<h2>Maven</h2>
+<h2 id="maven">Maven</h2>
 
 <p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven3</a> as the build system. If you don&#39;t have Maven installed you 
 can download it from the previous link. To check the version of Maven installed type <code>mvn -version</code> from the command line.</p>
@@ -118,11 +118,11 @@ Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: &quot;mac os x&quot;, version: &quot;10.9&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;
 </code></pre></div>
-<h2>Integrated Development Environment</h2>
+<h2 id="integrated-development-environment">Integrated Development Environment</h2>
 
 <p>It is strongly recommended that you have a good Java IDE.</p>
 
-<h2>PostgreSQL</h2>
+<h2 id="postgresql">PostgreSQL</h2>
 
 <p>Currently, WattDepot is using Hibernate for the persistence layer and the <a href="http://www.postgresql.org/">PostgreSQL</a> 
 database for storage. We recommend version 9.1 or higher. You can configure Hibernate to use other database backends, 
@@ -133,7 +133,7 @@ psql (9.2.4)
 </code></pre></div>
 <p>This actually checks the version of the PostgreSQL client.</p>
 
-<h2>Git</h2>
+<h2 id="git">Git</h2>
 
 <p>WattDepot uses Git and GitHub for our version control. You can install Git from <a href="http://git-scm.com/downloads">git-scm.com</a>. 
 To check the version of git you have installed type <code>git --version</code> from the command line.</p>
@@ -144,23 +144,23 @@ git version 1.8.3.4 (Apple Git-47)
 <a href="http://windows.github.com/">Windows</a> that can make your life easier. Since WattDepot is hosted at GitHub, the graphical 
 GitHub client makes it very easy to work with Git and is highly recommended.</p>
 
-<h1>Downloading Sources</h1>
+<h1 id="downloading-sources">Downloading Sources</h1>
 
 <p>The WattDepot source code and documentation are hosted on <a href="http://github.com/">GitHub</a>, and are managed using 
 <a href="http://git-scm.com/">Git</a>, which you should have installed as part of the <a href="#Prerequisites">Prerequisites</a>. 
 You can clone the repository to your local system using either the command line or a GUI tool:</p>
 
-<h2>Command line</h2>
+<h2 id="command-line">Command line</h2>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git clone git@github.com:wattdepot/wattdepot.git
 </code></pre></div>
-<h2>GUI and IDE</h2>
+<h2 id="gui-and-ide">GUI and IDE</h2>
 
 <p>WattDepot&#39;s Git repository may be accessed using many different <a href="http://git-scm.com/downloads">client programs and plug-ins</a>. As mentioned above, we like the free clients provided by GitHub: 
 <a href="http://mac.github.com/">GitHub for OS X</a> and <a href="http://windows.github.com/">GitHub for Windows</a>. 
 On the <a href="http://github.com/wattdepot/wattdepot">WattDepot project page</a> there is a button labeled &quot;Clone in 
 Desktop&quot; that will automatically launch your GitHub client and start the clone operation.</p>
 
-<h2>Contributing to WattDepot</h2>
+<h2 id="contributing-to-wattdepot">Contributing to WattDepot</h2>
 
 <p>If you plan to submit changes back to WattDepot, rather than cloning the WattDepot repository, you should first fork the 
 repository on GitHub, and then clone it to your local system. This way, you can submit pull requests for bugs or new 
@@ -168,7 +168,7 @@ features that you add. First you will need to <a href="https://github.com/signup
 already, and then follow the wonderful <a href="https://help.github.com/articles/fork-a-repo">GitHub forking tutorial</a>. You can 
 read more about <a href="https://help.github.com/articles/using-pull-requests">pull requests at GitHub</a>.</p>
 
-<h1>Building the System</h1>
+<h1 id="building-the-system">Building the System</h1>
 
 <p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven 3</a> as a build system. Maven is configured with the pom.xml 
 file found at the root of the WattDepot source directory. Maven has a number of lifecycle phases - the most useful in 
@@ -214,14 +214,14 @@ affect the running of WattDepot. Say you want to test multiple configurations wi
 wattdepot-server.properties file between each test. Try:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn test -Dwattdepot-server.db.username=test
 </code></pre></div>
-<h1>WattDepot Branching Model</h1>
+<h1 id="wattdepot-branching-model">WattDepot Branching Model</h1>
 
-<h2>Centralized &quot;truth&quot; repository</h2>
+<h2 id="centralized-&quot;truth&quot;-repository">Centralized &quot;truth&quot; repository</h2>
 
 <p>There is one central &quot;truth&quot; repository, origin, which is located at <a href="http://github.com/wattdepot/wattdepot">http://github.com/wattdepot/wattdepot</a>. It is the central push-pull location. Developers can of course clone their 
 own repository and do whatever they want locally, but our model controls the structure of this repo. </p>
 
-<h2>Two main branches: master and develop</h2>
+<h2 id="two-main-branches:-master-and-develop">Two main branches: master and develop</h2>
 
 <p>There are two main branches:</p>
 
@@ -237,35 +237,35 @@ all of the changes should be merged back into master somehow and then tagged wit
 
 <p>See <a href="branching.html">Branching Details</a> for more information.</p>
 
-<h1>Making a Release</h1>
+<h1 id="making-a-release">Making a Release</h1>
 
 <p>Most implementation effort should be committed to the develop branch.  When appropriate, 
 the develop branch will be merged into master and a release will be made.  This procedure is documented <a href="release.html">here</a>.  For the time being, Cam is the only one who will make releases. </p>
 
-<h1>Deploying to Heroku</h1>
+<h1 id="deploying-to-heroku">Deploying to Heroku</h1>
 
 <p>We are thinking about using the <a href="https://blog.heroku.com/archives/2014/8/7/heroku-button">Heroku Button</a> for 
 deploying to Heroku. This should be implemented soon. Check back often to see when we complete this work.  </p>
 
-<h1>Writing Collector Processes</h1>
+<h1 id="writing-collector-processes">Writing Collector Processes</h1>
 
 <p>TBW</p>
 
-<h1>Writing Clients</h1>
+<h1 id="writing-clients">Writing Clients</h1>
 
 <p>TBW</p>
 
-<h2>Developing an HTML Dashboard</h2>
+<h2 id="developing-an-html-dashboard">Developing an HTML Dashboard</h2>
 
 <p>TBW</p>
 
-<h1>Implementing Persistence</h1>
+<h1 id="implementing-persistence">Implementing Persistence</h1>
 
 <p>TBW</p>
 
-<h1>Evaluating Performance</h1>
+<h1 id="evaluating-performance">Evaluating Performance</h1>
 
-<h2>Goals</h2>
+<h2 id="goals">Goals</h2>
 
 <p>There are several goals for WattDepot performance evaluation. We want to answer the following questions.</p>
 
@@ -277,7 +277,7 @@ deploying to Heroku. This should be implemented soon. Check back often to see wh
 <li><p>What are the answers to all of these questions on different platform installations (local machine, Mopsa, Heroku, ...)?</p></li>
 </ol>
 
-<h2>Performance Evaluation Tools</h2>
+<h2 id="performance-evaluation-tools">Performance Evaluation Tools</h2>
 
 <p>We have provided several tools to help evaluate WattDepot&#39;s performance for several low level operations. These operations are:</p>
 
@@ -303,7 +303,7 @@ FindGetValueDateDateThroughput
 
 <ul>
 <li><p>-s <server URI>
-: The URI to the WattDepot server. e.g. http://server.wattdepot.org:8192/</p></li>
+: The URI to the WattDepot server. e.g. <a href="http://server.wattdepot.org:8192/">http://server.wattdepot.org:8192/</a></p></li>
 <li><p>-u <username>
 : The User Id of a defined WattDepot user.</p></li>
 <li><p>-p <password>
@@ -316,7 +316,7 @@ FindGetValueDateDateThroughput
 
 <p>The programs start a monitoring thread that wakes up every <em>numSeconds</em> and checks the average time it took to perform the operation. The monitoring thread then calculates a new rate for the number of operations per second. The new rate is the average of the previous average times. Since it is an average of averages, the rate should slowly converge on the maximum rate possible. The monitoring thread then starts up the new rate worker threads that perform the operation once a second.</p>
 
-<h3>Using the tools</h3>
+<h3 id="using-the-tools">Using the tools</h3>
 
 <ol>
 <li>Install WattDepot following the <a href="installationguide/installation">installation instructions</a>. You need to install version 3.0.0-M9 or above.</li>
@@ -356,17 +356,17 @@ Setting rate to 59
 
 <p>Record your results.</p>
 
-<h2>Real World Scenarios</h2>
+<h2 id="real-world-scenarios">Real World Scenarios</h2>
 
 <p>We&#39;ve used WattDepot in two distinct real world situations.  Supporting the Kukui Cup at University of Hawaii, Manoa and Hawaii Pacific University. <link to documentation?></p>
 
-<h3>Kukui Cup: University of Hawaii, Manoa</h3>
+<h3 id="kukui-cup:-university-of-hawaii,-manoa">Kukui Cup: University of Hawaii, Manoa</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
 <p>40 Sensors producing two measurements, power and energy, every 15 seconds (20 measurements/second).</p>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
 <p>Makahiki status page generates queries about the latest measurement for each Lounge every 10 seconds. There are 20 Lounges (3.333 queries/second). The JavaScript calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?sensor=&quot; + source + &quot;&amp;latest=true&quot;;</em> for each lounge.</p>
 
@@ -377,13 +377,13 @@ PowerMeter calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?se
 
 <p>Approximately 350 players times X % who do the activities equals N queries in a typical two week challenge. Based upon the 2014 Kukui Cup there were 61, 22, 21, 44 = 148 players who completed the activities.</p>
 
-<h3>Kukui Cup: Hawaii Pacific University</h3>
+<h3 id="kukui-cup:-hawaii-pacific-university">Kukui Cup: Hawaii Pacific University</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
 <p>6 Sensors producing two measurements, power and energy, every 10 seconds (2 measurements/second).</p>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
 <p>Makahiki status page generates queries about the latest measurement for each Team every 10 seconds. There are 6 teams (1 query/second). </p>
 
@@ -395,13 +395,13 @@ PowerMeter calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?se
 <p>PowerMeter calls </p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">&lt;server_url&gt;/depository/&lt;depository_id&gt;/value/gviz/?sensor=&lt;sensor_id&gt;&amp;latest=true
 </code></pre></div>
-<h3>Aarhus University</h3>
+<h3 id="aarhus-university">Aarhus University</h3>
 
-<h4>Measurement Generation</h4>
+<h4 id="measurement-generation">Measurement Generation</h4>
 
-<h4>WattDepot Queries</h4>
+<h4 id="wattdepot-queries">WattDepot Queries</h4>
 
-<h2>Results</h2>
+<h2 id="results">Results</h2>
 
 <p><a href="results-mopsa.html">Feb 12th 2014 Mopsa Server</a></p>
 

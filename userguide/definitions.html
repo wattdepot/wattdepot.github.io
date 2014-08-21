@@ -74,7 +74,7 @@
 </div>
 
 <div class="container">
-  <h1>Defining the WattDepot Domain Model</h1>
+  <h1 id="defining-the-wattdepot-domain-model">Defining the WattDepot Domain Model</h1>
 
 <p>Once a WattDepot server is installed and running, the next step is to login to the server&#39;s web interface and define the 
 <a href="overview/domainmodel">domain model</a>.</p>
@@ -87,7 +87,7 @@
 
 <p>Enter your user name and password.</p>
 
-<h2>Define Users and User Groups (Admin only)</h2>
+<h2 id="define-users-and-user-groups-(admin-only)">Define Users and User Groups (Admin only)</h2>
 
 <p>If you logged in as an administrator you will see the admin user interface.</p>
 
@@ -118,7 +118,7 @@ or just navigate to the UserGroup Admin UI <strong>/wattdepot/{group-id}/</stron
 
 <p><em>Note</em> The group you are logged in under is displayed on the right-hand side of the Navigation Bar. </p>
 
-<h2>Define Depositories</h2>
+<h2 id="define-depositories">Define Depositories</h2>
 
 <p>WattDepot Depositories hold Measurements of a single MeasurementType. To define the Depositories you 
 are interested in Click on the Depositories tab. To create a new Depository, click the Add Depository 
@@ -134,13 +134,13 @@ button. You will see the Add/Edit Depository Dialog.</p>
 <img width="400" src="https://raw.github.com/wattdepot/wattdepot/master/docs/userguide/DepositoryDefined.png">
 </a></p>
 
-<h2>Define Sensors</h2>
+<h2 id="define-sensors">Define Sensors</h2>
 
 <p>Sensors represent physical sensors in the environment that collect measurements about the environment. 
 They have SensorLocations, where they are located in the environment and SensoModels, what kind of 
 sensor they are.</p>
 
-<h3>Define the Locations</h3>
+<h3 id="define-the-locations">Define the Locations</h3>
 
 <p>The first step to defining a Sensor is to define its location. Click on the Sensor Locations label to open
 the Sensor Locations table.  All the defined locations are shown in the table. To add a new Location click
@@ -152,7 +152,7 @@ the Add a Sensor Location button. </p>
 
 <p>Provide a good name, the location&#39;s latitude, longitude and altitude, a description of the location. Press Save.</p>
 
-<h3>Optionally, Define new Sensor Models</h3>
+<h3 id="optionally,-define-new-sensor-models">Optionally, Define new Sensor Models</h3>
 
 <p>WattDepot has some pre-defined Sensor Models. If you need to define your own new Sensor Model use the Add Sensor Model button.</p>
 
@@ -173,7 +173,7 @@ in the Sensors table.</p>
 <img width="400" src="https://raw.github.com/wattdepot/wattdepot/master/docs/userguide/SensorDefined.png">
 </a></p>
 
-<h2>Define Collector Process Definition</h2>
+<h2 id="define-collector-process-definition">Define Collector Process Definition</h2>
 
 <p>Collector Process Definition tells the Collector processes which sensor to poll, how often to poll the sensor 
 and which depository to store the measurements in. </p>

@@ -87,11 +87,11 @@
     <div id="nav"></div>
   </div>
   <div class="col-xs-12 col-sm-9">
-     <h1>Domain model</h1>
+     <h1 id="domain-model">Domain model</h1>
 
 <p>A WattDepot server implements its capabilities through the following domain model.</p>
 
-<h1>Administrator</h1>
+<h1 id="administrator">Administrator</h1>
 
 <p>Every WattDepot server installation requires the definition of a single administrator (whose name by default is &quot;root&quot; 
 but which can be changed by the installer or when the server is run) and associated password (with no default value, and 
@@ -104,7 +104,7 @@ the ability to:</p>
 <li>add and delete users</li>
 </ul>
 
-<h1>Organization</h1>
+<h1 id="organization">Organization</h1>
 
 <p>Users, sensors, sensor groups, collectors, depositories, and measurements all belong to a single &quot;organization&quot;.<br>
 Organizations create a namespace for WattDepot entities. For example, a single WattDepot server might hold data from two 
@@ -119,7 +119,7 @@ the University of Hawaii repositories, you might invoke:</p>
 <p>In general, you can only manipulate entities created within your organization. There is one exception: the pre-defined 
 organization with the id &quot;public&quot; which defines &quot;global&quot; entities such as measurement types and sensor models. </p>
 
-<h1>User</h1>
+<h1 id="user">User</h1>
 
 <p>To use a WattDepot server, begin by requesting a user name and password from the server&#39;s administrator. You must also 
 indicate if you are joining an existing organization or if you wish a new organization to be created on the server. Once 
@@ -137,7 +137,7 @@ you have obtained these credentials, you can:</p>
 
 <p>All of these manipulations occur within your organization.</p>
 
-<h1>Sensor</h1>
+<h1 id="sensor">Sensor</h1>
 
 <p>Sensors represent a device that measures (or predicts) a physical phenomena. Sensors have the following properties:</p>
 
@@ -151,7 +151,7 @@ measurement(s) made by this sensor. </li>
 <p>Note that some physical devices can measure multiple phenomena (such as energy from multiple floors, or both energy and 
 power, or energy and temperature).  In these cases, the physical device will be represented by multiple Sensors. </p>
 
-<h1>Sensor Group</h1>
+<h1 id="sensor-group">Sensor Group</h1>
 
 <p>Users often find it convenient to request aggregations of sensor data. For example, a user might wish to know the 
 energy consumed by a building, which might involve aggregating the energy measurements associated with Sensors located 
@@ -161,7 +161,7 @@ on each floor of the building.</p>
 
 <p>All Sensors in a Sensor Group must collect data of the same Measurement Type.</p>
 
-<h1>Collector</h1>
+<h1 id="collector">Collector</h1>
 
 <p>Collectors are processes that contact a Sensor, obtain Measurements from it, then store this data in a WattDepot server.</p>
 
@@ -183,7 +183,7 @@ associated with a Collector in the server explicitly as process definition, the 
 capabilities to users. For example, a server can now understand how frequently to receive data from a Collector, and 
 signal the user if data is not being received as expected.</p>
 
-<h1>Measurement Type</h1>
+<h1 id="measurement-type">Measurement Type</h1>
 
 <p>WattDepot provides all the units of measurement provided by the <a href="http://www.unitsofmeasurement.org/">JScience API</a>. 
 Supported units include both <a href="http://jscience.org/api/javax/measure/unit/SI.html">SI Units</a> and 
@@ -194,14 +194,14 @@ to the source code and rebuilding of the system.</p>
 
 <p>Measurement Types are members of the &quot;public&quot; organization, which makes them visible to all users of a server.</p>
 
-<h1>Depository</h1>
+<h1 id="depository">Depository</h1>
 
 <p>Depositories store measurements made by Sensors and collected by Collectors.</p>
 
 <p>Depositories can store Measurements made by different Sensors and different Collectors, but all Measurements must be of 
 one and only one Measurement Type.</p>
 
-<h1>Measurement</h1>
+<h1 id="measurement">Measurement</h1>
 
 <p>Measurements are made by Sensors and collected by Collectors.  A Measurement includes the following information:</p>
 
@@ -216,7 +216,7 @@ one and only one Measurement Type.</p>
 measurements for phenomena with a timestamp in the future.  It is the responsibility of users to check the sensor 
 associated with a measurement to determine its validity and meaning.</p>
 
-<h1>Interpolated Value</h1>
+<h1 id="interpolated-value">Interpolated Value</h1>
 
 <p>Interpolated Values are different from Measurements. Measurements are the &quot;raw data&quot; in WattDepot.  For example, a 
 Collector may obtain a power measurement from a Sensor every 10 seconds.</p>
@@ -229,7 +229,7 @@ power being consumed by a building every hour on the hour.</p>
 WattDepot will interpolate in the cases where there does not exist a Measurement corresponding to the precise timestamp 
 requested by the user. (In real life, this is the case virtually all of the time).</p>
 
-<h2>Kinds of Interpolated Values</h2>
+<h2 id="kinds-of-interpolated-values">Kinds of Interpolated Values</h2>
 
 <p>WattDepot supports two kinds of Interpolated Values: point values and difference values. </p>
 
@@ -244,7 +244,7 @@ the difference.</p>
 <p>It is the responsibility of the user to assess the validity of Interpolated Values returned by WattDepot. WattDepot will 
 return the type of Interpolated Value the user requests even if it makes no physical sense.</p>
 
-<h1>Measurement Pruning Definitions</h1>
+<h1 id="measurement-pruning-definitions">Measurement Pruning Definitions</h1>
 
 <p>WattDepot will store all the measurements collected. However the number of measurements can grow quickly. It is often 
 the case that the user is not interested in old fine grained data, so we created the concept of Measurement Pruning. 

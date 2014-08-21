@@ -87,17 +87,17 @@
     <div id="nav"></div>
   </div>
   <div class="col-xs-12 col-sm-9">
-     <h1>0. Introduction</h1>
+     <h1 id="0.-introduction">0. Introduction</h1>
 
 <p>This Quick Start guide will lead you through the process of downloading, configuring, and running WattDepot to collect sensor data. If you are interested in modifying or extending WattDepot, check out the <a href="/developerguide/developerguide.html">Developer Guide</a>.</p>
 
-<h1>1. Prerequisites</h1>
+<h1 id="1.-prerequisites">1. Prerequisites</h1>
 
-<h2>Operating System</h2>
+<h2 id="operating-system">Operating System</h2>
 
 <p>The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms should be able to run WattDepot.</p>
 
-<h2>Java</h2>
+<h2 id="java">Java</h2>
 
 <p>WattDepot requires <a href="http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html">Java Platform Standard Edition</a> 
 version 1.7 or above. If do not have Java installed, you can get it from the previous link. Oracle provides both a JRE (Java Runtime Environment) and a
@@ -109,7 +109,7 @@ java version &quot;1.7.0_40&quot;
 Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
 Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)
 </code></pre></div>
-<h2>PostgreSQL</h2>
+<h2 id="postgresql">PostgreSQL</h2>
 
 <p>Currently, WattDepot is using <a href="http://hibernate.org/">Hibernate</a> for the persistence layer and the 
 <a href="http://www.postgresql.org/">PostgreSQL</a> database for storage. You can configure Hibernate to use other database 
@@ -132,7 +132,7 @@ connections on Unix domain socket &quot;/var/pgsql_socket/.s.PGSQL.5432&quot;?
 </code></pre></div>
 <p>In this case, you should <a href="http://www.postgresql.org/download/">download PostgreSQL</a> to get the server as well.</p>
 
-<h3>Creating WattDepot PostgreSQL user and database</h3>
+<h3 id="creating-wattdepot-postgresql-user-and-database">Creating WattDepot PostgreSQL user and database</h3>
 
 <p>Once you have PostgreSQL installed, you will need to create a <code>wattdepot</code> user and database so that WattDepot can store things in PostgreSQL. You can do this by connecting to the database as the <code>postgres</code> superuser with the <code>psql</code> command line tool:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ psql -U postgres
@@ -172,13 +172,13 @@ postgres=# \l
 postgres=# \q
 $
 </code></pre></div>
-<h1>2. Installation</h1>
+<h1 id="2.-installation">2. Installation</h1>
 
-<h2>Download WattDepot</h2>
+<h2 id="download-wattdepot">Download WattDepot</h2>
 
 <p>Download the latest release of WattDepot from the <a href="https://github.com/wattdepot/wattdepot/releases">releases</a> page.</p>
 
-<h2>Set up WattDepot server home directory</h2>
+<h2 id="set-up-wattdepot-server-home-directory">Set up WattDepot server home directory</h2>
 
 <p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em> directory in your 
 home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set the <code>wattdepot.user.home</code> Java 
@@ -190,7 +190,7 @@ WattDepot server instances to run in parallel, each writing to a different subdi
 <div class="highlight"><pre><code class="language-text" data-lang="text">mkdir ~/.wattdepot3
 mkdir ~/.wattdepot3/server
 </code></pre></div>
-<h2>Customize the wattdepot-server.properties</h2>
+<h2 id="customize-the-wattdepot-server.properties">Customize the wattdepot-server.properties</h2>
 
 <p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server subdirectory. A 
 default properties file can be found in the wattdepot files you downloaded as 
@@ -200,14 +200,14 @@ if you are using the defaults), and rename it to <code>wattdepot-server.properti
 <p>After the file is copied into place, open it in your favorite text editor and change or uncomment any lines you want. 
 At a minimum, you will want to change the default administrator username and password.</p>
 
-<h2>Run the server</h2>
+<h2 id="run-the-server">Run the server</h2>
 
 <p>Change to the top level of the wattdepot distribution you downloaded. Run the server:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ java -cp wattdepot-*version*.jar org.wattdepot.server.WattDepotServer
 </code></pre></div>
-<h1>3. Administration</h1>
+<h1 id="3.-administration">3. Administration</h1>
 
-<h2>A. Log in to WattDepot as administrator</h2>
+<h2 id="a.-log-in-to-wattdepot-as-administrator">A. Log in to WattDepot as administrator</h2>
 
 <p>Once the WattDepot Server is running, point your browser to the Wattdepot administration page.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">http://&lt;WattDepot_server_url&gt;/wattdepot/admin/
@@ -221,7 +221,7 @@ and users.</p>
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/wattdepot-admin-start.png"  class="center-block img-responsive"></p>
 
-<h3>I. Create an Organization</h3>
+<h3 id="i.-create-an-organization">I. Create an Organization</h3>
 
 <p>To create a new organization click the plus button on the right side of the screen. You will see the Add Organization
  dialog box.</p>
@@ -232,7 +232,7 @@ and users.</p>
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/uhm-defined.png"  class="center-block img-responsive"></p>
 
-<h3>II. Create a User</h3>
+<h3 id="ii.-create-a-user">II. Create a User</h3>
 
 <p>Switch over to the Users tab to start defining users.</p>
 
@@ -247,11 +247,11 @@ the users their passwords. Remember to select the organization for your new user
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/cmoore-defined.png"  class="center-block img-responsive"></p>
 
-<h3>III. Log out as adminstrator</h3>
+<h3 id="iii.-log-out-as-adminstrator">III. Log out as adminstrator</h3>
 
 <p>Close your browser to log out from WattDepot. </p>
 
-<h2>B. Log in as User</h2>
+<h2 id="b.-log-in-as-user">B. Log in as User</h2>
 
 <p>Restart your browser and go to your organizations administration page.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">http://&lt;WattDepot_server_url&gt;/wattdepot/&lt;organization_id&gt;/
@@ -271,7 +271,7 @@ depository, National Oceanic and Atmospheric Administration web sensor, and a Co
 temperature data. The reason for this is you can follow the steps for your own installation and start collecting data
  without having your own smart meters installed. </p>
 
-<h3>I. Create a Depository</h3>
+<h3 id="i.-create-a-depository">I. Create a Depository</h3>
 
 <p>Depositories hold measurements of a given <a href="measurementtypes.html">Measurement Type</a>. To create a depository click the
  blue plus symbol. </p>
@@ -283,7 +283,7 @@ depository. Once you hit &quot;Save Changes&quot; you will see the defined depos
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/temperature-defined.png"  class="center-block img-responsive"></p>
 
-<h3>II. Create a Sensor</h3>
+<h3 id="ii.-create-a-sensor">II. Create a Sensor</h3>
 
 <p>Switch to the &quot;Sensors&quot; tab to define our NOAA Weather Sensor.</p>
 
@@ -302,7 +302,7 @@ We choose the NOAA Weather sensor model. For this sensor we do not need to suppl
 
 <p>In this guide we will not be creating any Sensor Groups. Sensor Groups are used to aggregate measurements together.</p>
 
-<h3>III. Create a Collection Process Definition</h3>
+<h3 id="iii.-create-a-collection-process-definition">III. Create a Collection Process Definition</h3>
 
 <p>We need to create a Collector Process Definition to tell our collectors:</p>
 
@@ -332,7 +332,7 @@ collector process that we are interested in values from that XML field in the XM
 
 <p><img style="margin-top: 5px; margin-bottom: 5px" src="/images/hono-temp-defined.png"  class="center-block img-responsive"></p>
 
-<h3>IV. Start the collector</h3>
+<h3 id="iv.-start-the-collector">IV. Start the collector</h3>
 
 <p>We now need to start the collector process.  WattDepot comes with a Java program that will query a WattDepot server 
 and start all the Collectors for a given Organization.</p>
@@ -340,7 +340,7 @@ and start all the Collectors for a given Organization.</p>
 <p>Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see
  the command line options for the AllOrganizationCollectors program.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">10:59 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
+<div class="highlight"><pre><code class="bash">10:59 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
 usage: AllOrganizationCollectors
  -d,--debug                  Displays debugging information.
  -h                          Usage: AllOrganizationCollectors -s &lt;server uri&gt; -u
@@ -355,7 +355,7 @@ usage: AllOrganizationCollectors
 <p>To start the collector processes we need to supply:</p>
 
 <ul>
-<li>The WattDepot Server&#39;s URL, in our example it is http://wattdepot-test-deploy.herokuapp.com/.</li>
+<li>The WattDepot Server&#39;s URL, in our example it is <a href="http://wattdepot-test-deploy.herokuapp.com/">http://wattdepot-test-deploy.herokuapp.com/</a>.</li>
 <li>The user&#39;s id, in this case cmoore.</li>
 <li>The user&#39;s password, hidden.</li>
 <li>The user&#39;s organization id, in this case uhm</li>
@@ -363,13 +363,13 @@ usage: AllOrganizationCollectors
 
 <p>The following is an example of starting the processes.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">11:08 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
+<div class="highlight"><pre><code class="bash">11:08 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
 All Organization Collectors:
     WattDepotServer: http://wattdepot-test-deploy.herokuapp.com/
     Username: cmoore
     OrganizationId: uhm
     Password: ********
-Aug 14, <span class="m">2014</span> 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
+Aug 14, 2014 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
 INFO: Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
 Starting the Apache HTTP client
 Stopping the HTTP client
@@ -411,7 +411,7 @@ Measurement <span class="o">[</span><span class="nv">id</span><span class="o">=<
 <p>As long as you are running this Java program it will collect measurements from all the organization&#39;s defined 
 collector process definitions and send those measurements to the WattDepot Server.</p>
 
-<h3>V. View the data</h3>
+<h3 id="v.-view-the-data">V. View the data</h3>
 
 <p>There are two ways to see if WattDepot is collecting measurements.</p>
 

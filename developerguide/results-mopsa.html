@@ -74,9 +74,9 @@
 </div>
 
 <div class="container">
-  <h1>WattDepot 3.0.0-M9 Running on Mopsa Performance Evaluation</h1>
+  <h1 id="wattdepot-3.0.0-m9-running-on-mopsa-performance-evaluation">WattDepot 3.0.0-M9 Running on Mopsa Performance Evaluation</h1>
 
-<h2>MacBook Pro Laptop at University of Hawaii, Manoa</h2>
+<h2 id="macbook-pro-laptop-at-university-of-hawaii,-manoa">MacBook Pro Laptop at University of Hawaii, Manoa</h2>
 
 <p>On February 12th 2014 I started WattDepot server version 3.0.0-M9 on Mopsa.ics.hawaii.edu with out any logging. I then 
 started the performance tools on my laptop, a MacBook Pro with a 2.7 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 
@@ -84,53 +84,165 @@ memory. My laptop was connected to the UHM wireless network.</p>
 
 <p>The first runs were just a single performance tool running alone.</p>
 
-<p>| Performance Tool       | Average operations / second |
-| ---------------------- | --------------------------- |
-| Put Measurement        | 26.3 puts / second.         |
-| Get Value (date)       | 35.6 gets / second.         |
-| Get Value (date, date) | 22.4 gets / second.         |
-| Get Earliest Value     | 30.5 gets / second.         |
-| Get Latest Value       | 30.8 gets / second.         |</p>
+<table><thead>
+<tr>
+<th>Performance Tool</th>
+<th>Average operations / second</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Put Measurement</td>
+<td>26.3 puts / second.</td>
+</tr>
+<tr>
+<td>Get Value (date)</td>
+<td>35.6 gets / second.</td>
+</tr>
+<tr>
+<td>Get Value (date, date)</td>
+<td>22.4 gets / second.</td>
+</tr>
+<tr>
+<td>Get Earliest Value</td>
+<td>30.5 gets / second.</td>
+</tr>
+<tr>
+<td>Get Latest Value</td>
+<td>30.8 gets / second.</td>
+</tr>
+</tbody></table>
 
 <p>The second runs were with the Put Measurements running and a single Get tool running at the same time.</p>
 
-<p>| Performance Tool       | Average operations / second |
-| ---------------------- | --------------------------- |
-| Get Value (date)       | 22.6 gets / second.         |
-| Get Value (date, date) | 13.2 gets / second.         |
-| Get Earliest Value     | 22.6 gets / second.         |
-| Get Latest Value       | 21.4 gets / second.         |
-| Put Measurement        | 24.7 puts / second.         |</p>
+<table><thead>
+<tr>
+<th>Performance Tool</th>
+<th>Average operations / second</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Get Value (date)</td>
+<td>22.6 gets / second.</td>
+</tr>
+<tr>
+<td>Get Value (date, date)</td>
+<td>13.2 gets / second.</td>
+</tr>
+<tr>
+<td>Get Earliest Value</td>
+<td>22.6 gets / second.</td>
+</tr>
+<tr>
+<td>Get Latest Value</td>
+<td>21.4 gets / second.</td>
+</tr>
+<tr>
+<td>Put Measurement</td>
+<td>24.7 puts / second.</td>
+</tr>
+</tbody></table>
 
-<h2>Windows 7 desktop at Kailua Hawaii.</h2>
+<h2 id="windows-7-desktop-at-kailua-hawaii.">Windows 7 desktop at Kailua Hawaii.</h2>
 
 <p>The second set of tests were run from my Windows PC at home in Kailua. It is a Windows 7 Home Premium machine with a 
 Intel Core i7-3770 3.4 GHz CPU with 16 GB Ram. My desktop is connected to RoadRunner cable Internet.</p>
 
 <p>The test I ran were just single performance tools running alone.</p>
 
-<p>| Performance Tool       | Average operations / second |
-| ---------------------- | --------------------------- |
-| Put Measurement        | 14.4 puts / second.         |
-| Get Value (date)       | 15.2 gets / second.         |
-| Get Value (date, date) | 13.6 gets / second.         |
-| Get Earliest Value     | 14.2 gets / second.         |
-| Get Latest Value       | 15.4 gets / second.         |</p>
+<table><thead>
+<tr>
+<th>Performance Tool</th>
+<th>Average operations / second</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Put Measurement</td>
+<td>14.4 puts / second.</td>
+</tr>
+<tr>
+<td>Get Value (date)</td>
+<td>15.2 gets / second.</td>
+</tr>
+<tr>
+<td>Get Value (date, date)</td>
+<td>13.6 gets / second.</td>
+</tr>
+<tr>
+<td>Get Earliest Value</td>
+<td>14.2 gets / second.</td>
+</tr>
+<tr>
+<td>Get Latest Value</td>
+<td>15.4 gets / second.</td>
+</tr>
+</tbody></table>
 
 <p>On February 16th 2014 I started collecting the power and energy data from Hale Aloha, 80 collector processes running at 
 15 second sample intervals. This results in approximately 20 measurement puts per second.</p>
 
-<p>| Run | Date | Operation | Number of Measurements in DB |
-| --- | ----- | --------- | ---------------------------- |
-|  1  | 12/19/2014 | Get DateValue (45.9 / sec) | 1,600,000 |
-|     |            | Get IntervalValue (36.7 / sec) |      |
-|     |            | Get Earliest Value (47.4 / sec) | |
-|     |            | Get Latest Value (1 / sec) | |
-| --- | ---------- | -------------------------- | ------ |
-|  2  | 12/20/2014 | Get DateValue (34.7 / sec) | 2,111,806 |
-|     |            | Get IntervalValue (31.7 / sec) |      |
-|     |            | Get Earliest Value (35.0 / sec) | |
-|     |            | Get Latest Value (1 / sec) | |</p>
+<table><thead>
+<tr>
+<th>Run</th>
+<th>Date</th>
+<th>Operation</th>
+<th>Number of Measurements in DB</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>12/19/2014</td>
+<td>Get DateValue (45.9 / sec)</td>
+<td>1,600,000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get IntervalValue (36.7 / sec)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get Earliest Value (47.4 / sec)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get Latest Value (1 / sec)</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>----------</td>
+<td>--------------------------</td>
+<td>------</td>
+</tr>
+<tr>
+<td>2</td>
+<td>12/20/2014</td>
+<td>Get DateValue (34.7 / sec)</td>
+<td>2,111,806</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get IntervalValue (31.7 / sec)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get Earliest Value (35.0 / sec)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Get Latest Value (1 / sec)</td>
+<td></td>
+</tr>
+</tbody></table>
 
 </div>
 

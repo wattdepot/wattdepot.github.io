@@ -74,13 +74,13 @@
 </div>
 
 <div class="container">
-  <h1>Prerequisites</h1>
+  <h1 id="prerequisites">Prerequisites</h1>
 
-<h2>Operating System</h2>
+<h2 id="operating-system">Operating System</h2>
 
 <p>The core development team has developed and run WattDepot on OS X, Windows 7, and Linux, so any of those platforms should be fine for development.</p>
 
-<h2>Java</h2>
+<h2 id="java">Java</h2>
 
 <p>WattDepot requires <a href="http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html">Java Platform Standard Edition</a> version 1.7 or above. If do not have Java installed you can get it from the previous link. Note that you will want the JDK (Java Development Kit) rather than the JRE (Java Runtime Environment) since you will be developing. To check the version of Java installed on your computer type <code>java -version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ java -version
@@ -88,7 +88,7 @@ java version &quot;1.7.0_40&quot;
 Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
 Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)
 </code></pre></div>
-<h2>Maven</h2>
+<h2 id="maven">Maven</h2>
 
 <p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven3</a> as the build system. If you don&#39;t have Maven installed you can download it from the previous link. To check the version of Maven installed type <code>mvn -version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ mvn -version
@@ -99,11 +99,11 @@ Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: &quot;mac os x&quot;, version: &quot;10.9&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;
 </code></pre></div>
-<h2>Eclipse</h2>
+<h2 id="eclipse">Eclipse</h2>
 
 <p>We strongly recommend you use the Eclipse IDE for WattDepot development. You can install it from <a href="http://www.eclipse.org/">www.eclipse.org</a>. You should get the Eclipse IDE for Java EE Developers since it has support for JPA and Web applications. You could also use the Eclipse Standard Edition.</p>
 
-<h2>PostgreSQL</h2>
+<h2 id="postgresql">PostgreSQL</h2>
 
 <p>Currently, WattDepot is using Hibernate for the persistence layer and the <a href="http://www.postgresql.org/">PostgreSQL</a> database for storage. We recommend version 9.1 or higher. You can configure Hibernate to use other database backends, but we do not have experience with other backends at this time. To check the version of PostgreSQL type <code>psql -version</code> at the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ psql --version
@@ -111,7 +111,7 @@ psql (9.2.4)
 </code></pre></div>
 <p>This actually checks the version of the PostgreSQL client.</p>
 
-<h2>Git</h2>
+<h2 id="git">Git</h2>
 
 <p>WattDepot uses Git and GitHub for our version control. You can install Git from <a href="http://git-scm.com/downloads">git-scm.com</a>. To check the version of git you have installed type <code>git --version</code> from the command line.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git --version

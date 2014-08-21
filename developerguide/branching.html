@@ -74,18 +74,18 @@
 </div>
 
 <div class="container">
-  <h1>The branching model</h1>
+  <h1 id="the-branching-model">The branching model</h1>
 
 <p>A &quot;branching model&quot; defines how, when, and where developers commit the changes. </p>
 
 <p>The WattDepot branch model is a simplified version of the <a href="http://nvie.com/posts/a-successful-git-branching-model/">nvie branch model</a>.</p>
 
-<h2>Centralized &quot;truth&quot; repository</h2>
+<h2 id="centralized-&quot;truth&quot;-repository">Centralized &quot;truth&quot; repository</h2>
 
 <p>There is one central &quot;truth&quot; repository, origin, which is located at <a href="http://github.com/wattdepot/wattdepot">http://github.com/wattdepot/wattdepot</a>. It is the central push-pull location. Developers can of course clone their 
 own repository and do whatever they want locally, but our model controls the structure of this repo. </p>
 
-<h2>Two main branches: master and develop</h2>
+<h2 id="two-main-branches:-master-and-develop">Two main branches: master and develop</h2>
 
 <p>There are two main branches:</p>
 
@@ -99,12 +99,12 @@ the latest delivered development changes for the next release.</p></li>
 <p>When the source code in the develop branch reaches a stable point and is ready to be released, 
 all of the changes should be merged back into master somehow and then tagged with a release number.</p>
 
-<h2>Making releases</h2>
+<h2 id="making-releases">Making releases</h2>
 
 <p>Most non-documentation implementation effort should be committed to the develop branch.  When appropriate, 
 the develop branch will be merged into master and a release will be made.  This procedure is documented <a href="release.html">here</a>.  For the time being, Cam is the only one who will make releases. </p>
 
-<h2>Optional branches</h2>
+<h2 id="optional-branches">Optional branches</h2>
 
 <p>There are three other possible branch types that you can choose to use if you want: feature, release and hotfix. </p>
 
@@ -135,7 +135,7 @@ release, albeit unplanned. They arise from the necessity to act immediately upon
 production version. Hotfix branches are named <strong>hotfix-&lt;bug number&gt;</strong>. Where &lt;bug number&gt; is the number 
 of the github issue describing the problem being fixed.</p>
 
-<h2>Continuous integration</h2>
+<h2 id="continuous-integration">Continuous integration</h2>
 
 <p>Both the master and develop branches are under <a href="http://travis-ci%0A.org/wattdepot/wattdepot">continuous integration control using Travis-CI</a>. </p>
 
