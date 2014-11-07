@@ -7,12 +7,27 @@
     <atom:link href="http://wattdepot.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>WattDepot Version 3.0.0</title>
+        <description>&lt;p&gt;The WattDepot team is delighted to announce the release of WattDepot 3.0.0!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wattdepot/wattdepot/releases/tag/3.0.0&quot;&gt;Download the code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.org/wattdepot/javadoc/latest/&quot;&gt;Read the JavaDocs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.org/developerguide/developerguide.html&quot;&gt;Read the Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 09 Nov 2014 03:29:39 +1300</pubDate>
+        <link>http://wattdepot.github.io/2014/11/09/version3-release.html</link>
+        <guid isPermaLink="true">http://wattdepot.github.io/2014/11/09/version3-release.html</guid>
+      </item>
+    
+      <item>
         <title>WattDepot and Kukui Cup</title>
         <description>&lt;p&gt;We are pleased to announce that a pre-release version of WattDepot 3 has been integrated with &lt;a href=&quot;http://makahiki.io&quot;&gt;Makahiki&lt;/a&gt; and used to support a &lt;a href=&quot;http://kukuicup.org&quot;&gt;Kukui Cup challenge&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 04 Feb 2014 04:29:39 -1000</pubDate>
-        <link>http://wattdepot.github.io/2014/02/04/kukuicup.html</link>
-        <guid isPermaLink="true">http://wattdepot.github.io/2014/02/04/kukuicup.html</guid>
+        <pubDate>Wed, 05 Feb 2014 03:29:39 +1300</pubDate>
+        <link>http://wattdepot.github.io/2014/02/05/kukuicup.html</link>
+        <guid isPermaLink="true">http://wattdepot.github.io/2014/02/05/kukuicup.html</guid>
       </item>
     
       <item>
@@ -21,9 +36,9 @@
 
 &lt;p&gt;These news items reflect only WattDepot 3 development. For older news concerning WattDepot, see the &lt;a href=&quot;https://groups.google.com/forum/#!forum/wattdepot-users&quot;&gt;WattDepot Users newsgroup&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 01 Sep 2013 04:29:39 -1000</pubDate>
-        <link>http://wattdepot.github.io/2013/09/01/version3.html</link>
-        <guid isPermaLink="true">http://wattdepot.github.io/2013/09/01/version3.html</guid>
+        <pubDate>Mon, 02 Sep 2013 02:29:39 +1200</pubDate>
+        <link>http://wattdepot.github.io/2013/09/02/version3.html</link>
+        <guid isPermaLink="true">http://wattdepot.github.io/2013/09/02/version3.html</guid>
       </item>
     
   </channel>
