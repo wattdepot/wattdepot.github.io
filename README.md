@@ -3,4 +3,4 @@ wattdepot.github.io
 
 The home page for the wattdepot system (wattdepot.org). 
 
-See the scripts repo for helpful tools for managing this site.
+This website is maintained using Jekyll, so the master branch should not be edited directly. See the [scripts repo](https://github.com/wattdepot/scripts) for instructions on how to manage this site.
