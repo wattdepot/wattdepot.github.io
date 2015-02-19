@@ -94,21 +94,22 @@ read more about [pull requests at GitHub](https://help.github.com/articles/using
 # Building the System
 
 WattDepot uses [Maven 3](http://maven.apache.org/index.html) as a build system. Maven is configured with the pom.xml 
-file found at the root of the WattDepot source directory. Maven has a number of lifecycle phases - the most useful in 
-this project are clean, compile, test, package, verify, and site.
+file found at the root of the WattDepot source directory. We defined three profiles in the POM, *dev*, *rel*, and *heroku*. The default profile is *dev*, which runs all the QA goals, but does not build the release .tar.gz, .tar.bz2, or .zip distribution files. The *rel* profile should be used for creating releases, since it runs all the QA goals and builds the .tar.gz, .tar.bz2, and .zip distribution files.  The *heroku* profile is for deploying WattDepot to Heroku and doesn't run any of the QA goals.
+
+Maven has a number of lifecycle phases - the most useful in this project are clean, compile, test, package, verify, and site.
 
   * `mvn clean` will delete the target directory.
   * `mvn compile` will compile the project.
-  * `mvn test` will compile the project, then run JUnit and QA tests. (Note: the postgres storage implementation 
-  requires you to setup the wattdepot-server.properties file in order to supply the wattdepot-server.db.username 
-  property.)
+  * `mvn test` will compile the project, then run JUnit and QA tests.
     * FindBugs
     * Checkstyle 
     * PMD
     * JavaDocs are created
-  * `mvn package` will compile the project, run the tests, and then create .jar for a distribution
+
+    (Note: Running tests requires you to setup the wattdepot-server.properties file in order to supply the wattdepot-server.db.username property.)
+  * `mvn package` will compile the project, run the tests, and then create a .jar file for a distribution
     * The .jar file
-    * The POM zips everything into a distribution
+    * The POM zips everything into a distribution. (This step is only done if you use the *rel* profile. `mvn -P rel package`)
   * `mvn verify` runs the compile, test and package phases and ensures the result is valid
   * `mvn site` executes FindBugs, Checkstyle, PMD, and JavaDocs, then presents the results in an easy to read website 
   (located in target/site)

@@ -5,7 +5,7 @@ title: HTTP API
 # HTTP API
 
 WattDepot provides a language-independent interface to its server using HTTP. To understand this interface,
-it helps to be familiar with the [WattDepot Domain Model](http://wattdepot.viewdocs.io/wattdepot/overview/domainmodel).
+it helps to be familiar with the [WattDepot Domain Model](../userguide/userguide.html).
 
 Path elements that have '{}' surrounding them are variables.  They are generally substituted with an ID for the type. For example {org-id} should be replaced with a valid organization id. The URLs below do not include the WattDepot server's address.
 
@@ -17,7 +17,7 @@ Path elements that have '{}' surrounding them are variables.  They are generally
 ---------------
 ## Organization
 
-See the [Organization domain model description](overview/domainmodel#organization) for details about this concept.
+See the [Organization domain model description](../userguide/userguide.html#organization) for details about this concept.
 
 Organization operations require administrator credentials.
 
@@ -52,7 +52,7 @@ Retrieve the web interface for managing an organization associated with a WattDe
 -------------
 ## User
 
-See the [User domain model description](overview/domainmodel#user) for details about this concept.
+See the [User domain model description](../userguide/userguide.html#user) for details about this concept.
 
 ### GET /wattdepot/admin/users/
 
@@ -81,7 +81,7 @@ Delete this representation of a user. Only administrators can do this. Deleting 
 ---------
 ## Sensor
 
-See the [Sensor domain model description](overview/domainmodel#sensor) for details about this concept.
+See the [Sensor domain model description](../userguide/userguide.html#sensor) for details about this concept.
 
 ### GET /wattdepot/{org-id}/sensor/{sensor-id}
 
@@ -106,7 +106,7 @@ Delete this sensor. Members of the organization can do this. All measurements cr
 ----------
 ## Sensor Group
 
-See the [Sensor Group domain model description](overview/domainmodel#sensor-group) for details about this concept.
+See the [Sensor Group domain model description](../userguide/userguide.html#sensor-group) for details about this concept.
 
 ### GET /wattdepot/{org-id}/sensor-group/{sensor-group-id}
 
@@ -127,7 +127,7 @@ Delete this sensor group. Members of the organization may do this. Deleting a se
 -----------
 ## Sensor Model
 
-See the [Sensor domain model description](overview/domainmodel#sensor) for details about sensor models, which are part of the Sensor description.
+See the [Sensor domain model description](../userguide/userguide.html#sensor) for details about sensor models, which are part of the Sensor description.
 
 Note that Sensor Models are always defined in the *public* group.
 
@@ -157,7 +157,7 @@ Delete this representation of a sensor model.
 -----------
 ## Collector
 
-See the [Collector domain model description](overview/domainmodel#collector) for details about this concept.
+See the [Collector domain model description](../userguide/userguide.html#collector) for details about this concept.
 
 *(Do we want to call this "collector-process-definition", or just "collector"? Which is less confusing?)*
 
@@ -185,7 +185,7 @@ Delete this process definition representation. Members of the organization can d
 -------------
 ## Depository
 
-See the [Depository domain model description](overview/domainmodel#depository) for details about this concept.
+See the [Depository domain model description](../userguide/userguide.html#depository) for details about this concept.
 
 ### GET /wattdepot/{org-id}/depository/{depository-id}
 
@@ -206,7 +206,7 @@ Delete this repository. Members of the organization can do this. All measurement
 --------------
 ## Measurement
 
-See the [Measurement domain model description](overview/domainmodel#measurement) for details about this concept.
+See the [Measurement domain model description](../userguide/userguide.html#measurement) for details about this concept.
 
 ### GET /wattdepot/{org-id}/depository/{depository-id}/measurement/{measurement-id}
 
@@ -240,7 +240,7 @@ Delete this measurement. Members of the organization can do this.
 ----------
 ## Interpolated Value
 
-See the [Interpolated Value domain model description](overview/domainmodel#interpolated-value) for details about this concept.
+See the [Interpolated Value domain model description](../userguide/userguide.html#interpolated-value) for details about this concept.
 
 ### GET /wattdepot/{org-id}/depository/{depository-id}/value/?sensor={sensor-id}&start={start-timestamp}&end={end-timestamp}&timestamp={timestamp}&gap={gapSeconds}
 
@@ -258,10 +258,16 @@ Retrieve the measured value in Google Visualization format. This is a complicate
 * If start and end are supplied then returns the difference between the interpolated value at end and the interpolated value at start.
 * If gap is supplied, then the call checks to see that the measurements used to interpolate the value(s) are less than gap seconds apart. If they are not then an HTTP Status of 417 Client Error is return with the text explaining what the problem is.
 
+### GET /wattdepot/{org-id}/depository/{depository-id}/values/?sensor={sensor-id}&start={start-timestamp}&end={end-timestamp}&interval={interval-minutes}&value-type={"point" | "difference"}
+
+Calculate and return a list of interpolated values for the given sensor or sensor group from {start-timestamp} to {end-timestamp} at a sample period of {interval-minutes}. The value-type field indicates which type of Interpolated Value to return, point or difference. If {sensor-id} is a sensor group id then the values are summed for all the sensors in the group.
+
+
+
 ---------------
 ## Measurement Type
 
-See the [Measurement Type domain model description](overview/domainmodel#measurement-type) for details about this concept.
+See the [Measurement Type domain model description](../userguide/userguide.html#measurement-type) for details about this concept.
 
 ### GET /wattdepot/public/measurement-type/{measurement-type-id}
 
