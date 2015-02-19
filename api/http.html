@@ -90,7 +90,7 @@
      <h1 id="http-api">HTTP API</h1>
 
 <p>WattDepot provides a language-independent interface to its server using HTTP. To understand this interface,
-it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot/overview/domainmodel">WattDepot Domain Model</a>.</p>
+it helps to be familiar with the <a href="../userguide/userguide.html">WattDepot Domain Model</a>.</p>
 
 <p>Path elements that have &#39;{}&#39; surrounding them are variables.  They are generally substituted with an ID for the type. For example {org-id} should be replaced with a valid organization id. The URLs below do not include the WattDepot server&#39;s address.</p>
 
@@ -102,7 +102,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="organization">Organization</h2>
 
-<p>See the <a href="overview/domainmodel#organization">Organization domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#organization">Organization domain model description</a> for details about this concept.</p>
 
 <p>Organization operations require administrator credentials.</p>
 
@@ -138,7 +138,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="user">User</h2>
 
-<p>See the <a href="overview/domainmodel#user">User domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#user">User domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/admin/users/">GET /wattdepot/admin/users/</h3>
 
@@ -168,7 +168,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="sensor">Sensor</h2>
 
-<p>See the <a href="overview/domainmodel#sensor">Sensor domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#sensor">Sensor domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/{org-id}/sensor/{sensor-id}">GET /wattdepot/{org-id}/sensor/{sensor-id}</h3>
 
@@ -194,7 +194,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="sensor-group">Sensor Group</h2>
 
-<p>See the <a href="overview/domainmodel#sensor-group">Sensor Group domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#sensor-group">Sensor Group domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/{org-id}/sensor-group/{sensor-group-id}">GET /wattdepot/{org-id}/sensor-group/{sensor-group-id}</h3>
 
@@ -216,7 +216,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="sensor-model">Sensor Model</h2>
 
-<p>See the <a href="overview/domainmodel#sensor">Sensor domain model description</a> for details about sensor models, which are part of the Sensor description.</p>
+<p>See the <a href="../userguide/userguide.html#sensor">Sensor domain model description</a> for details about sensor models, which are part of the Sensor description.</p>
 
 <p>Note that Sensor Models are always defined in the <em>public</em> group.</p>
 
@@ -246,7 +246,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="collector">Collector</h2>
 
-<p>See the <a href="overview/domainmodel#collector">Collector domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#collector">Collector domain model description</a> for details about this concept.</p>
 
 <p><em>(Do we want to call this &quot;collector-process-definition&quot;, or just &quot;collector&quot;? Which is less confusing?)</em></p>
 
@@ -274,7 +274,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="depository">Depository</h2>
 
-<p>See the <a href="overview/domainmodel#depository">Depository domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#depository">Depository domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/{org-id}/depository/{depository-id}">GET /wattdepot/{org-id}/depository/{depository-id}</h3>
 
@@ -296,7 +296,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="measurement">Measurement</h2>
 
-<p>See the <a href="overview/domainmodel#measurement">Measurement domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#measurement">Measurement domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/{org-id}/depository/{depository-id}/measurement/{measurement-id}">GET /wattdepot/{org-id}/depository/{depository-id}/measurement/{measurement-id}</h3>
 
@@ -330,7 +330,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 
 <h2 id="interpolated-value">Interpolated Value</h2>
 
-<p>See the <a href="overview/domainmodel#interpolated-value">Interpolated Value domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#interpolated-value">Interpolated Value domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/{org-id}/depository/{depository-id}/value/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;timestamp={timestamp}&amp;gap={gapseconds}">GET /wattdepot/{org-id}/depository/{depository-id}/value/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;timestamp={timestamp}&amp;gap={gapSeconds}</h3>
 
@@ -352,11 +352,15 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
 <li>If gap is supplied, then the call checks to see that the measurements used to interpolate the value(s) are less than gap seconds apart. If they are not then an HTTP Status of 417 Client Error is return with the text explaining what the problem is.</li>
 </ul>
 
+<h3 id="get-/wattdepot/{org-id}/depository/{depository-id}/values/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;interval={interval-minutes}&amp;value-type={&quot;point&quot;-|-&quot;difference&quot;}">GET /wattdepot/{org-id}/depository/{depository-id}/values/?sensor={sensor-id}&amp;start={start-timestamp}&amp;end={end-timestamp}&amp;interval={interval-minutes}&amp;value-type={&quot;point&quot; | &quot;difference&quot;}</h3>
+
+<p>Calculate and return a list of interpolated values for the given sensor or sensor group from {start-timestamp} to {end-timestamp} at a sample period of {interval-minutes}. The value-type field indicates which type of Interpolated Value to return, point or difference. If {sensor-id} is a sensor group id then the values are summed for all the sensors in the group.</p>
+
 <hr>
 
 <h2 id="measurement-type">Measurement Type</h2>
 
-<p>See the <a href="overview/domainmodel#measurement-type">Measurement Type domain model description</a> for details about this concept.</p>
+<p>See the <a href="../userguide/userguide.html#measurement-type">Measurement Type domain model description</a> for details about this concept.</p>
 
 <h3 id="get-/wattdepot/public/measurement-type/{measurement-type-id}">GET /wattdepot/public/measurement-type/{measurement-type-id}</h3>
 
@@ -400,7 +404,7 @@ it helps to be familiar with the <a href="http://wattdepot.viewdocs.io/wattdepot
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>05 Dec 2014</span></p>
+      <p>Last update on: <span>19 Feb 2015</span></p>
     </div>
   </footer>
 </div>

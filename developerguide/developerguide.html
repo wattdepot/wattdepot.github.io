@@ -171,31 +171,32 @@ read more about <a href="https://help.github.com/articles/using-pull-requests">p
 <h1 id="building-the-system">Building the System</h1>
 
 <p>WattDepot uses <a href="http://maven.apache.org/index.html">Maven 3</a> as a build system. Maven is configured with the pom.xml 
-file found at the root of the WattDepot source directory. Maven has a number of lifecycle phases - the most useful in 
-this project are clean, compile, test, package, verify, and site.</p>
+file found at the root of the WattDepot source directory. We defined three profiles in the POM, <em>dev</em>, <em>rel</em>, and <em>heroku</em>. The default profile is <em>dev</em>, which runs all the QA goals, but does not build the release .tar.gz, .tar.bz2, or .zip distribution files. The <em>rel</em> profile should be used for creating releases, since it runs all the QA goals and builds the .tar.gz, .tar.bz2, and .zip distribution files.  The <em>heroku</em> profile is for deploying WattDepot to Heroku and doesn&#39;t run any of the QA goals.</p>
+
+<p>Maven has a number of lifecycle phases - the most useful in this project are clean, compile, test, package, verify, and site.</p>
 
 <ul>
 <li><code>mvn clean</code> will delete the target directory.</li>
 <li><code>mvn compile</code> will compile the project.</li>
-<li><code>mvn test</code> will compile the project, then run JUnit and QA tests. (Note: the postgres storage implementation 
-requires you to setup the wattdepot-server.properties file in order to supply the wattdepot-server.db.username 
-property.)
+<li><p><code>mvn test</code> will compile the project, then run JUnit and QA tests.</p>
 
 <ul>
 <li>FindBugs</li>
 <li>Checkstyle </li>
 <li>PMD</li>
 <li>JavaDocs are created</li>
-</ul></li>
-<li><code>mvn package</code> will compile the project, run the tests, and then create .jar for a distribution
+</ul>
+
+<p>(Note: Running tests requires you to setup the wattdepot-server.properties file in order to supply the wattdepot-server.db.username property.)</p></li>
+<li><p><code>mvn package</code> will compile the project, run the tests, and then create a .jar file for a distribution</p>
 
 <ul>
 <li>The .jar file</li>
-<li>The POM zips everything into a distribution</li>
+<li>The POM zips everything into a distribution. (This step is only done if you use the <em>rel</em> profile. <code>mvn -P rel package</code>)</li>
 </ul></li>
-<li><code>mvn verify</code> runs the compile, test and package phases and ensures the result is valid</li>
-<li><code>mvn site</code> executes FindBugs, Checkstyle, PMD, and JavaDocs, then presents the results in an easy to read website 
-(located in target/site)</li>
+<li><p><code>mvn verify</code> runs the compile, test and package phases and ensures the result is valid</p></li>
+<li><p><code>mvn site</code> executes FindBugs, Checkstyle, PMD, and JavaDocs, then presents the results in an easy to read website 
+(located in target/site)</p></li>
 </ul>
 
 <p>Rather than executing a whole phase, you can also run an individual goal. For example, to run FindBugs without doing 
@@ -425,7 +426,7 @@ PowerMeter calls <em>&lg;server_url&gt; + &quot;/depository/power/value/gviz/?se
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>05 Dec 2014</span></p>
+      <p>Last update on: <span>19 Feb 2015</span></p>
     </div>
   </footer>
 </div>

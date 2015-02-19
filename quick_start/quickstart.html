@@ -340,7 +340,7 @@ and start all the Collectors for a given Organization.</p>
 <p>Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see
  the command line options for the AllOrganizationCollectors program.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">10:59 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
+<div class="highlight"><pre><code class="bash">10:59 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
 usage: AllOrganizationCollectors
  -d,--debug                  Displays debugging information.
  -h                          Usage: AllOrganizationCollectors -s &lt;server uri&gt; -u
@@ -363,13 +363,13 @@ usage: AllOrganizationCollectors
 
 <p>The following is an example of starting the processes.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">11:08 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
+<div class="highlight"><pre><code class="bash">11:08 <span class="o">[</span>~/wattdepot<span class="o">]</span> <span class="nv">$ </span>java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
 All Organization Collectors:
     WattDepotServer: http://wattdepot-test-deploy.herokuapp.com/
     Username: cmoore
     OrganizationId: uhm
     Password: ********
-Aug 14, <span class="m">2014</span> 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
+Aug 14, 2014 11:08:19 AM org.wattdepot.client.ClientProperties initializeProperties
 INFO: Loading Client properties from: /Users/carletonmoore/.wattdepot3/client/wattdepot-client.properties
 Starting the Apache HTTP client
 Stopping the HTTP client
@@ -472,7 +472,7 @@ large time windows with small sample frequency can lead to very many samples and
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>05 Dec 2014</span></p>
+      <p>Last update on: <span>19 Feb 2015</span></p>
     </div>
   </footer>
 </div>
