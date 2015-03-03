@@ -40,7 +40,7 @@ new wattdepot-*version number*.jar file.
 
 6. Ensure that the `master` branch passes all unit tests, checkstyle, findbugs, pmd, etc.
 
-    $ mvn package
+    $ mvn package site
 
 7. (Optional) Delete the old release branch.
 
@@ -52,23 +52,14 @@ new wattdepot-*version number*.jar file.
     
 9. Check that continuous integration passes [TravisCI](https://travis-ci.org/).
   
-## Step 2 Upload the Release's Javadocs to GitHub.
+## Step 2 Upload the Release's Maven `site` directory to GitHub.
     
-1. Move the `target/site/apidocs` to a safe place (e.g. Your home directory).
+1. Move the `target/site` to a safe place (e.g. Your home directory).
 
 2. Checkout the `gh-pages` branch.
     
-3. Create a new directory under the `javadoc/` subdirectory with the number of your release.
-    
-    $ cd javadoc/
-    $ mkdir 3.0.1
-        
-4. Move the contents of the saved `apidocs` directory into the new directory.
+3. Replace the old `site` directory with the updated `target/site` directory you saved.
 
-4. Move the contents of the saved `apidocs` directory into the `javadoc/latest` directory.
-    
-5. Edit the `index.html` file to add the new directory to the list of Release Javadocs.
-    
 6. Add all the changes to the `gh-branch`.
     
     $ git commit -a -m "Javadoc for 3.0.1"
@@ -80,11 +71,6 @@ new wattdepot-*version number*.jar file.
 8. Switch back the `master` branch.
     
     $ git checkout master 
-    
-9. Edit the docs/api/javadoc.md file to include a link to the javadoc files.
-
-    \[Release 3.0.1\](http://wattdepot.github.io/wattdepot/javadoc/3.0.1/)
-    
     
 ## Step 3 Create a GitHub release.
 
