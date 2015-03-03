@@ -16,4 +16,4 @@ The WattDepot server is written in Java. You can consult the Javadocs for more d
 
 ## JavaDocs
 
-[Latest release](http://wattdepot.github.io/wattdepot/javadoc/latest/)
+[Latest release](http://wattdepot.github.io/wattdepot/site/apidocs/)
