@@ -58,6 +58,7 @@
             <li><a href="/api/http.html">HTTP API</a></li>
             <li><a href="/api/java.html">Java API</a></li>
             <li><a href="/api/javascript.html">Javascript API</a></li>
+            <li><a href="http://wattdepot.github.io/wattdepot/site/project-info.html">Maven Project Info</a></li>
             <li class="divider"></li>
             <li><a href="https://github.com/wattdepot/wattdepot/blob/master/LICENSE.md">License</a></li>
           </ul>
@@ -108,7 +109,7 @@ new wattdepot-<em>version number</em>.jar file.</p></li>
 <p>$ git merge --no-ff release-3.0.1</p></li>
 <li><p>Ensure that the <code>master</code> branch passes all unit tests, checkstyle, findbugs, pmd, etc.</p>
 
-<p>$ mvn package</p></li>
+<p>$ mvn package site</p></li>
 <li><p>(Optional) Delete the old release branch.</p>
 
 <p>$ git branch -d release-3.0.1</p></li>
@@ -118,18 +119,12 @@ new wattdepot-<em>version number</em>.jar file.</p></li>
 <li><p>Check that continuous integration passes <a href="https://travis-ci.org/">TravisCI</a>.</p></li>
 </ol>
 
-<h2 id="step-2-upload-the-release&#39;s-javadocs-to-github.">Step 2 Upload the Release&#39;s Javadocs to GitHub.</h2>
+<h2 id="step-2-upload-the-release&#39;s-maven-site-directory-to-github.">Step 2 Upload the Release&#39;s Maven <code>site</code> directory to GitHub.</h2>
 
 <ol>
-<li><p>Move the <code>target/site/apidocs</code> to a safe place (e.g. Your home directory).</p></li>
+<li><p>Move the <code>target/site</code> to a safe place (e.g. Your home directory).</p></li>
 <li><p>Checkout the <code>gh-pages</code> branch.</p></li>
-<li><p>Create a new directory under the <code>javadoc/</code> subdirectory with the number of your release.</p>
-
-<p>$ cd javadoc/
-$ mkdir 3.0.1</p></li>
-<li><p>Move the contents of the saved <code>apidocs</code> directory into the new directory.</p></li>
-<li><p>Move the contents of the saved <code>apidocs</code> directory into the <code>javadoc/latest</code> directory.</p></li>
-<li><p>Edit the <code>index.html</code> file to add the new directory to the list of Release Javadocs.</p></li>
+<li><p>Replace the old <code>site</code> directory with the updated <code>target/site</code> directory you saved.</p></li>
 <li><p>Add all the changes to the <code>gh-branch</code>.</p>
 
 <p>$ git commit -a -m &quot;Javadoc for 3.0.1&quot;</p></li>
@@ -139,9 +134,6 @@ $ mkdir 3.0.1</p></li>
 <li><p>Switch back the <code>master</code> branch.</p>
 
 <p>$ git checkout master </p></li>
-<li><p>Edit the docs/api/javadoc.md file to include a link to the javadoc files.</p>
-
-<p>[Release 3.0.1](<a href="http://wattdepot.github.io/wattdepot/javadoc/3.0.1/">http://wattdepot.github.io/wattdepot/javadoc/3.0.1/</a>)</p></li>
 </ol>
 
 <h2 id="step-3-create-a-github-release.">Step 3 Create a GitHub release.</h2>
@@ -175,7 +167,7 @@ this release by dropping them here.&quot; box.</p></li>
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>19 Feb 2015</span></p>
+      <p>Last update on: <span>03 Mar 2015</span></p>
     </div>
   </footer>
 </div>
