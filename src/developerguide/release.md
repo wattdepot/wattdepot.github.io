@@ -74,7 +74,13 @@ new wattdepot-*version number*.jar file.
     
 ## Step 3 Create a GitHub release.
 
-1. Create a zip file, named wattdepot-<version>-bin.zip, with the wattdepot-<version>.jar file, wattdepot-client.properties, wattdepot-server.properties, and a README.txt file.  
+1. Create the three WattDepot release files by running the following command.
+
+{% highlight bash %}
+$ mvn package -P rel
+{% endhighlight %}
+
+  This will create WattDepot-&lt;version&gt;.tar.bz2, WattDepot-&lt;version&gt;.tar.gz and WattDepot-&lt;version&gt;.zip files in the `target` directory.
 
 2. Go to the [WattDepot GitHub page](https://github.com/wattdepot/wattdepot).
 
@@ -89,8 +95,7 @@ new wattdepot-*version number*.jar file.
 
 7. Fill in the description of the release.
 
-8. Drag the wattdepot-<version>-bin.zip file to the "Attach binaries for
-this release by dropping them here." box.
+8. Drag the WattDepot-&lt;version&gt;.tar.bz2, WattDepot-&lt;version&gt;.tar.gz and WattDepot-&lt;version&gt;.zip files to the "Attach binaries for this release by dropping them here." box.
 
 9. Click the "This is a pre-release" checkbox if it is.
 
