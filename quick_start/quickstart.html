@@ -135,24 +135,24 @@ connections on Unix domain socket &quot;/var/pgsql_socket/.s.PGSQL.5432&quot;?
 
 <h3 id="creating-wattdepot-postgresql-user-and-database">Creating WattDepot PostgreSQL user and database</h3>
 
-<p>Once you have PostgreSQL installed, you will need to create a <code>wattdepot</code> user and database so that WattDepot can store things in PostgreSQL. You can do this by connecting to the database as the <code>postgres</code> superuser with the <code>psql</code> command line tool:</p>
+<p>Once you have PostgreSQL installed, you will need to create a user and database so that WattDepot can store things in PostgreSQL. You can do this by connecting to the database as the <code>postgres</code> superuser with the <code>psql</code> command line tool:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ psql -U postgres
 
 psql (9.3.4)
 Type &quot;help&quot; for help.
 
-postgres=# CREATE USER wattdepot WITH PASSWORD &#39;put-your-password-here&#39;;
+postgres=# CREATE USER &#39;your-user-name&#39; WITH PASSWORD &#39;put-your-password-here&#39;;
 CREATE ROLE
 postgres=# CREATE DATABASE wattdepot;
 CREATE DATABASE
-postgres=# GRANT ALL PRIVILEGES ON DATABASE wattdepot to wattdepot;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE wattdepot to &#39;your-user-name&#39;;
 GRANT
 postgres=# \q
 </code></pre></div>
 <p>Note that by default, PostgreSQL will only allow connections from the local host, but will allow connections to any PostgreSQL user without a password (<code>trust</code> authentication mode). This is probably acceptable for experimenting with WattDepot, but for a production instance you would probably want to turn on password authentication.</p>
 
-<p>You can test that the <code>wattdepot</code> user and database has been created properly by connecting to it. Note that we do not need to specify a password since we are using trust authentication from the local system:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ psql -U wattdepot
+<p>You can test that the new user and database has been created properly by connecting to it. Note that we do not need to specify a password since we are using trust authentication from the local system:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ psql -U &#39;your-user-name&#39;
 
 psql (9.3.4)
 Type &quot;help&quot; for help.
@@ -166,9 +166,7 @@ postgres=# \l
            |          |          |             |             | postgres=CTc/postgres
  template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres           +
            |          |          |             |             | postgres=CTc/postgres
- wattdepot | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres          +
-           |          |          |             |             | postgres=CTc/postgres +
-           |          |          |             |             | wattdepot=CTc/postgres
+ wattdepot | your-user| UTF8     | en_US.UTF-8 | en_US.UTF-8 |
 (4 rows)
 postgres=# \q
 $
@@ -181,25 +179,90 @@ $
 
 <h2 id="set-up-wattdepot-server-home-directory">Set up WattDepot server home directory</h2>
 
-<p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em> directory in your 
-home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set the <code>wattdepot.user.home</code> Java 
-property to the desired parent directory. The name <em>.wattdepot3</em> directory name itself is not configurable.</p>
+<p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em> directory in your home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set the <code>wattdepot.user.home</code> Java property to the desired parent directory. The name <em>.wattdepot3</em> directory name itself is not configurable.</p>
 
-<p>Within the server home directory are subdirectories that store all the data for a particular server instance. The 
-default subdirectory is server, but this can be changed on the command line with the -d argument. This allows multiple 
-WattDepot server instances to run in parallel, each writing to a different subdirectory. Create this directory:</p>
+<p>Within the server home directory are subdirectories that store all the data for a particular server instance. The default subdirectory is server, but this can be changed on the command line with the -d argument. This allows multiple WattDepot server instances to run in parallel, each writing to a different subdirectory. Create this directory:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">mkdir ~/.wattdepot3
 mkdir ~/.wattdepot3/server
 </code></pre></div>
 <h2 id="customize-the-wattdepot-server.properties">Customize the wattdepot-server.properties</h2>
 
-<p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server subdirectory. A 
-default properties file can be found in the wattdepot files you downloaded as 
-<code>src/main/resources/wattdepot-server.properties</code>. Copy that file to your new server subdirectory (~/.wattdepot3/server 
-if you are using the defaults), and rename it to <code>wattdepot-server.properties</code>.</p>
+<p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server subdirectory. A default properties file can be found in the wattdepot release file you downloaded as <code>wattdepot-server.properties</code>. Copy that file to your new server subdirectory (~/.wattdepot3/server if you are using the defaults), and rename it to <code>wattdepot-server.properties</code>.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># wattdepot-server.properties This file is part of WattDepot.</span>
+<span class="c">#</span>
+<span class="c"># Copyright (C) 2013  Cam Moore</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="c">## WattDepot server properties files. WattDepot looks for this file in</span>
+<span class="c">## the directory &lt;wattdepot-server.homedir&gt;/.wattdepot3/server/. Copy this file to that</span>
+<span class="c">## directory and edit the properties to match your installation.</span>
+
+<span class="c">## homedir is where the .wattdepot3 directory is. This directory holds the properties and log files.</span>
+<span class="c">## Defaults to current user&#39;s home directory.</span>
+<span class="c">#wattdepot-server.homedir=/home/user/</span>
+
+<span class="c">## Administrator account, has full access to all WattDepot data</span>
+<span class="c">## Change these to someting unique and secure!</span>
+wattdepot-server.admin.name<span class="o">=</span>admin
+wattdepot-server.admin.password<span class="o">=</span>nimda
+
+<span class="c">## Backend storage implementation.</span>
+<span class="c">#wattdepot-server.wattdepot.impl=org.wattdepot.server.depository.impl.hibernate.WattDepotPersistenceImpl</span>
+
+<span class="c">## TCP port used for incoming connections defaults to 8192</span>
+<span class="c">#wattdepot-server.port=8192</span>
+
+<span class="c">## TCP port used for testing defaults to 8194</span>
+<span class="c">#wattdepot-server.test.port=8194</span>
+
+<span class="c">## Database connection driver. Default to org.postgresql.Driver</span>
+wattdepot-server.db.connection.driver<span class="o">=</span>org.postgresql.Driver
+
+<span class="c">## WattDepot database uri. format postgres://&lt;db.username&gt;:&lt;db.password&gt;@&lt;database-host&gt;:&lt;database-port&gt;/&lt;database-name&gt;</span>
+wattdepot-server.database.url<span class="o">=</span>postgres://myuser:secret@localhost:5432/wattdepot
+
+
+<span class="c">## show the sql statements</span>
+<span class="c">#wattdepot-server.db.show.sql=false</span>
+
+<span class="c">## Automatically validates or exports schema DDL to the database when</span>
+<span class="c">## the SessionFactory is created. With create-drop, the database schema</span>
+<span class="c">## will be dropped when the SessionFactory is closed explicitly.</span>
+<span class="c">## Valid values are validate | update | create | create-drop</span>
+<span class="c">## defaults to update.</span>
+<span class="c">#wattdepot-server.db.update=update</span>
+
+<span class="c">## Enable logging. Defaults to true.</span>
+<span class="c">#wattdepot-server.enable.logging=true</span>
+
+<span class="c">## Set the logging level. Defaults to INFO.</span>
+<span class="c">#wattdepot-server.logging.level=INFO</span></code></pre></div>
 
 <p>After the file is copied into place, open it in your favorite text editor and change or uncomment any lines you want. 
-At a minimum, you will want to change the default administrator username and password.</p>
+At a minimum, you must change:</p>
+
+<ul>
+<li>The <code>wattdepot-server.admin.name</code>, you can change this value in the wattdepot-server.properties file or create the environment variable <code>WATTDEPOT_ADMIN_NAME</code>.</li>
+<li>The <code>wattdepot-server.admin.password</code>, you can change this value in the wattdepot-server.properties file or create the environment variable <code>WATTDEPOT_ADMIN_PASSWORD</code>.</li>
+<li>and the <code>wattdepot-server.database.url</code>, you must change this url to use the psql user and password you created in PostgreSQL. Replace &lt;myuser&gt; with the user name and &lt;secret&gt; with the user&#39;s password. You can create the environment variable <code>WATTDEPOT_DATABASE_URL</code>.</li>
+</ul>
+
+<p>The environment variables will override the values in the <code>wattdepot-server.properties</code> file.</p>
+
+<p>If these three values are not defined WattDepot will not run.</p>
 
 <h2 id="run-the-server">Run the server</h2>
 
@@ -473,7 +536,7 @@ large time windows with small sample frequency can lead to very many samples and
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>03 Mar 2015</span></p>
+      <p>Last update on: <span>11 Mar 2015</span></p>
     </div>
   </footer>
 </div>

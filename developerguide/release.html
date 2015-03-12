@@ -139,7 +139,14 @@ new wattdepot-<em>version number</em>.jar file.</p></li>
 <h2 id="step-3-create-a-github-release.">Step 3 Create a GitHub release.</h2>
 
 <ol>
-<li><p>Create a zip file, named wattdepot-<version>-bin.zip, with the wattdepot-<version>.jar file, wattdepot-client.properties, wattdepot-server.properties, and a README.txt file.  </p></li>
+<li>Create the three WattDepot release files by running the following command.</li>
+</ol>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mvn package -P rel</code></pre></div>
+
+<p>This will create WattDepot-&lt;version&gt;.tar.bz2, WattDepot-&lt;version&gt;.tar.gz and WattDepot-&lt;version&gt;.zip files in the <code>target</code> directory.</p>
+
+<ol>
 <li><p>Go to the <a href="https://github.com/wattdepot/wattdepot">WattDepot GitHub page</a>.</p></li>
 <li><p>Click on the <code>release(s)</code> link in the toolbar.</p></li>
 <li><p>On the Releases page click the <code>Draft a new release</code> button.</p></li>
@@ -147,8 +154,7 @@ new wattdepot-<em>version number</em>.jar file.</p></li>
 <code>master</code>.</p></li>
 <li><p>Fill in the Release title (e.g. &#39;Release 3.0.1&#39;).</p></li>
 <li><p>Fill in the description of the release.</p></li>
-<li><p>Drag the wattdepot-<version>-bin.zip file to the &quot;Attach binaries for
-this release by dropping them here.&quot; box.</p></li>
+<li><p>Drag the WattDepot-&lt;version&gt;.tar.bz2, WattDepot-&lt;version&gt;.tar.gz and WattDepot-&lt;version&gt;.zip files to the &quot;Attach binaries for this release by dropping them here.&quot; box.</p></li>
 <li><p>Click the &quot;This is a pre-release&quot; checkbox if it is.</p></li>
 <li><p>Click the &quot;Publish release&quot; button.</p></li>
 </ol>
@@ -167,7 +173,7 @@ this release by dropping them here.&quot; box.</p></li>
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>03 Mar 2015</span></p>
+      <p>Last update on: <span>11 Mar 2015</span></p>
     </div>
   </footer>
 </div>

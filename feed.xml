@@ -7,6 +7,36 @@
     <atom:link href="http://wattdepot.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>WattDepot Version 3.0.2</title>
+        <description>&lt;p&gt;The WattDepot team is delighted to announce the release of WattDepot 3.0.2!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wattdepot/wattdepot/releases/tag/v3.0.2&quot;&gt;Download the code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.github.io/wattdepot/site/apidocs/&quot;&gt;Read the JavaDocs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.org/developerguide/developerguide.html&quot;&gt;Read the Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 11 Mar 2015 04:18:48 -1000</pubDate>
+        <link>http://wattdepot.github.io/2015/03/11/version302-release.html</link>
+        <guid isPermaLink="true">http://wattdepot.github.io/2015/03/11/version302-release.html</guid>
+      </item>
+    
+      <item>
+        <title>WattDepot Version 3.0.1</title>
+        <description>&lt;p&gt;The WattDepot team is delighted to announce the release of WattDepot 3.0.1!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wattdepot/wattdepot/releases/tag/v3.0.1&quot;&gt;Download the code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.github.io/wattdepot/site/apidocs/&quot;&gt;Read the JavaDocs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wattdepot.org/developerguide/developerguide.html&quot;&gt;Read the Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 03 Mar 2015 04:29:39 -1000</pubDate>
+        <link>http://wattdepot.github.io/2015/03/03/version301-release.html</link>
+        <guid isPermaLink="true">http://wattdepot.github.io/2015/03/03/version301-release.html</guid>
+      </item>
+    
+      <item>
         <title>WattDepot Version 3.0.0</title>
         <description>&lt;p&gt;The WattDepot team is delighted to announce the release of WattDepot 3.0.0!&lt;/p&gt;
 
