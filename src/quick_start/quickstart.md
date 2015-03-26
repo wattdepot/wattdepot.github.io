@@ -14,9 +14,7 @@ The core development team has developed and run WattDepot on OS X, Windows 7, an
 
 ## Java
 
-WattDepot requires [Java Platform Standard Edition] (http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html) 
-version 1.7 or above. If do not have Java installed, you can get it from the previous link. Oracle provides both a JRE (Java Runtime Environment) and a
-JDK (Java Development Kit). If you only want to run WattDepot, you can download the JRE. If you plan to do development on WattDepot, download the JDK.
+WattDepot requires [Java Platform Standard Edition] (http://www.oracle.com/us/technologies/java/standard-edition/overview/index.html) version 1.7 or above. If do not have Java installed, you can get it from the previous link. Oracle provides both a JRE (Java Runtime Environment) and a JDK (Java Development Kit). If you only want to run WattDepot, you can download the JRE. If you plan to do development on WattDepot, download the JDK.
 
 To check the version of Java installed on your computer type `java -version` from the command line. You should see something like this (but the version number will probably be higher):
 
@@ -27,21 +25,16 @@ To check the version of Java installed on your computer type `java -version` fro
 
 ## PostgreSQL
 
-Currently, WattDepot is using [Hibernate](http://hibernate.org/) for the persistence layer and the 
-[PostgreSQL] (http://www.postgresql.org/) database for storage. You can configure Hibernate to use other database 
-backends, but we do not have experience with other backends at this time.
+Currently, WattDepot is using [Hibernate](http://hibernate.org/) for the persistence layer and the [PostgreSQL] (http://www.postgresql.org/) database for storage. You can configure Hibernate to use other database backends, but we do not have experience with other backends at this time.
 
-If you do not have PostgreSQL installed already, you will have to 
-[download and install it](http://www.postgresql.org/download/) before running WattDepot. We recommend version 9.1 or 
-higher. If you only plan to use PostgreSQL with WattDepot, you might find the graphical installer to be the easiest option.
+If you do not have PostgreSQL installed already, you will have to [download and install it](http://www.postgresql.org/download/) before running WattDepot. We recommend version 9.1 or higher. If you only plan to use PostgreSQL with WattDepot, you might find the graphical installer to be the easiest option.
 
 If you already have PostgreSQL, one way to check the version is using the command line client tool `psql`:
 
     $ psql --version
     psql (9.2.4)
 
-However, it is possible to have the `psql` client installed without the actual database server (such as on OS X 
-Mountain Lion). In that case you might see an error like the following:
+However, it is possible to have the `psql` client installed without the actual database server (such as on OS X Mountain Lion). In that case you might see an error like the following:
 
     $ psql
     psql: could not connect to server: No such file or directory
@@ -236,7 +229,7 @@ the users their passwords. Remember to select the organization for your new user
 
 ### III. Log out as adminstrator
 
-Close your browser to log out from WattDepot. 
+Close your browser to log out from WattDepot. You have to exit your browser to reset the login information (username and password).
 
 ## B. Log in as User
 
@@ -252,23 +245,17 @@ The browser will ask you for your username and password. Use the user's id and p
 
 {% include responsive-img.html photo="org-admin.png" %}
 
-The organization id is in the upper right-hand corner. You have tabs for defining Depositories, Sensors, 
-SensorGroups, Collection Process Definitions, and Measurement Pruning Definitions.
+The organization id is in the upper right-hand corner. You have tabs for defining Depositories, Sensors, SensorGroups, Collection Process Definitions, and Measurement Pruning Definitions.
 
-Even though WattDepot is focused on energy and power, we are going to show you how to create a temperature 
-depository, National Oceanic and Atmospheric Administration web sensor, and a Collector Process Definition to gather 
-temperature data. The reason for this is you can follow the steps for your own installation and start collecting data
- without having your own smart meters installed. 
+Even though WattDepot is focused on energy and power, we are going to show you how to create a temperature depository, National Oceanic and Atmospheric Administration web sensor, and a Collector Process Definition to gather temperature data. The reason for this is you can follow the steps for your own installation and start collecting data without having your own smart meters installed. 
 
 ### I. Create a Depository
 
-Depositories hold measurements of a given [Measurement Type](measurementtypes.html). To create a depository click the
- blue plus symbol. 
+Depositories hold measurements of a given [Measurement Type](measurementtypes.html). To create a depository click the blue plus symbol. 
  
 {% include responsive-img.html photo="add-depository-dialog.png" %}
  
-We gave the depository a descriptive id and name and selected the Measurement Type "Temperature (F)" for this 
-depository. Once you hit "Save Changes" you will see the defined depository.
+We gave the depository a descriptive id and name and selected the Measurement Type "Temperature (F)" for this depository. Once you hit "Save Changes" you will see the defined depository.
 
 {% include responsive-img.html photo="temperature-defined.png" %}
 
@@ -282,10 +269,7 @@ Press the blue plus sign to bring up the Add Sensor Dialog Box.
 
 {% include responsive-img.html photo="add-sensor-dialog.png" %}
 
-The url for the sensor is the current observation XML page for the Honolulu Airport. If you go to [w1.weather
-.gov/xml/current_obs/](http://w1.weather.gov/xml/current_obs/) you can select the state and weather station you are 
-interested in.
-We choose the NOAA Weather sensor model. For this sensor we do not need to supply any properties.
+The url for the sensor is the current observation XML page for the Honolulu Airport. If you go to [w1.weather.gov/xml/current_obs/](http://w1.weather.gov/xml/current_obs/) you can select the state and weather station you are interested in. We choose the NOAA Weather sensor model. For this sensor we do not need to supply any properties.
 
 {% include responsive-img.html photo="noaa-sensor-defined.png" %}
 
@@ -309,25 +293,21 @@ And press the blue plus sign to open the Add Collector Process Definition dialog
 
 * We provide a descriptive id and name. 
 * Choose the sensor that we are going to collect from. In this example there is only one choice in our selection box. 
-* Enter the polling interval in seconds. NOAA updates their current observations once an hour so we will poll their 
-website once an hour or every 3600 seconds.
+* Enter the polling interval in seconds. NOAA updates their current observations once an hour so we will poll their website once an hour or every 3600 seconds.
 * Choose the depository to store the measurements in. In this example there is only one choice in our selection box.
-* Finally, provide the property name and value that we want to collect from. The property "registerName" tells the 
-collector process that we are interested in values from that XML field in the XML data.
+* Finally, provide the property name and value that we want to collect from. The property "registerName" tells the collector process that we are interested in values from that XML field in the XML data.
   
 {% include responsive-img.html photo="hono-temp-defined.png" %}
 
 
 ### IV. Start the collector
 
-We now need to start the collector process.  WattDepot comes with a Java program that will query a WattDepot server 
-and start all the Collectors for a given Organization.
+We now need to start the collector process.  WattDepot comes with a Java program that will query a WattDepot server and start all the Collectors for a given Organization.
 
-Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see
- the command line options for the AllOrganizationCollectors program.
+Open a command prompt and change directory to where you have the WattDepot jar file. Run the following command to see the command line options for the AllOrganizationCollectors program.
 
 {% highlight bash %}
-10:59 [~/wattdepot] $ java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
+10:59 [~/wattdepot] $ java -cp wattdepot-*version*.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -h
 usage: AllOrganizationCollectors
  -d,--debug                  Displays debugging information.
  -h                          Usage: AllOrganizationCollectors -s <server uri> -u
@@ -350,7 +330,7 @@ To start the collector processes we need to supply:
 The following is an example of starting the processes.
 
 {% highlight bash %}
-11:08 [~/wattdepot] $ java -cp wattdepot-3.0.0-RC2.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
+11:08 [~/wattdepot] $ java -cp wattdepot-*version*.jar org.wattdepot.client.http.api.collector.AllOrganizationCollectors -s http://wattdepot-test-deploy.herokuapp.com/ -u cmoore -p ****** -o uhm -d
 All Organization Collectors:
     WattDepotServer: http://wattdepot-test-deploy.herokuapp.com/
     Username: cmoore
@@ -397,16 +377,13 @@ Measurement [id= honolulu-noaa1408050505868°f, sensorId=honolulu-noaa, timestam
 
 {% endhighlight %}
 
-As long as you are running this Java program it will collect measurements from all the organization's defined 
-collector process definitions and send those measurements to the WattDepot Server.
+As long as you are running this Java program it will collect measurements from all the organization's defined collector process definitions and send those measurements to the WattDepot Server.
 
 ### V. View the data
 
 There are two ways to see if WattDepot is collecting measurements.
 
-1. Go to the summary page. It shows a row for each Depository, Sensor combination that is reporting data. The top 
-line of the page shows the number of depositories and sensors that are collecting measurements. It also shows the 
-total number of measurements stored in WattDepot.
+1. Go to the summary page. It shows a row for each Depository, Sensor combination that is reporting data. The top line of the page shows the number of depositories and sensors that are collecting measurements. It also shows the total number of measurements stored in WattDepot.
 
 {% include responsive-img.html photo="summary-page.png" %}
 
@@ -416,20 +393,15 @@ total number of measurements stored in WattDepot.
 
 {% include responsive-img.html photo="chart-page.png" %}
 
-  * Select the depository then the sensor. This will update the start time and end time choices indicating the 
-  earliest and latest data available for that depository-sensor combination.
+  * Select the depository then the sensor. This will update the start time and end time choices indicating the earliest and latest data available for that depository-sensor combination.
   * Choose the start time and end time.
   * Choose the type if interpreted value you want to view.
   
     * **Point Values**: Give you the interpolated value at the sample times.
-    * **Interval Values**: Give you the change in value at the sample times. (e.g. The end of sample interval value -
-     start of sample interval value)
-  * Choose the sample frequency. The sample frequency determines the number of samples to take. Be careful, 
-  large time windows with small sample frequency can lead to very many samples and very slow performance.
+    * **Interval Values**: Give you the change in value at the sample times. (e.g. The end of sample interval value - start of sample interval value)
+  * Choose the sample frequency. The sample frequency determines the number of samples to take. Be careful, large time windows with small sample frequency can lead to very many samples and very slow performance.
   
-  Press the Visualize button to see the graph. If you want to graph more than one set of measurements press the blue 
-  plus sign. This will give you another row to select the measurements, time range, type of value, 
-  and sample frequency. 
+  Press the Visualize button to see the graph. If you want to graph more than one set of measurements press the blue plus sign. This will give you another row to select the measurements, time range, type of value, and sample frequency. 
   
 {% include responsive-img.html photo="temperature-graph.png" %}
 
