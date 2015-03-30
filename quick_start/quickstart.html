@@ -175,8 +175,18 @@ $
 
 <h2 id="download-wattdepot">Download WattDepot</h2>
 
-<p>Download the latest release of WattDepot from the <a href="https://github.com/wattdepot/wattdepot/releases">releases</a> page.</p>
-
+<p>Download the latest release of WattDepot from the <a href="https://github.com/wattdepot/wattdepot/releases">releases</a> page. Be sure to choose one of the compressed WattDepot-&lt;version&gt;.tar.bz2, or WattDepot-&lt;version&gt;.tar.gz, or WattDepot-&lt;version&gt;.zip files. Uncompress the file somewhere on your hard drive. The directory structure will look like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">bin/
+   client/
+         wattdepot-client.properties
+   server/
+         wattdepot-server.properties
+javadoc/
+       api/         JavaDoc files
+       testapi/     Test JavaDoc files
+lib/
+   wattdepot-&lt;version&gt;.jar
+</code></pre></div>
 <h2 id="set-up-wattdepot-server-home-directory">Set up WattDepot server home directory</h2>
 
 <p>WattDepot stores all its files in a server home directory. By default, this will be a <em>.wattdepot3</em> directory in your home directory. If you want to create the <em>.wattdepot3</em> directory elsewhere, set the <code>wattdepot.user.home</code> Java property to the desired parent directory. The name <em>.wattdepot3</em> directory name itself is not configurable.</p>
@@ -187,7 +197,7 @@ mkdir ~/.wattdepot3/server
 </code></pre></div>
 <h2 id="customize-the-wattdepot-server.properties">Customize the wattdepot-server.properties</h2>
 
-<p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server subdirectory. A default properties file can be found in the wattdepot release file you downloaded as <code>wattdepot-server.properties</code>. Copy that file to your new server subdirectory (~/.wattdepot3/server if you are using the defaults), and rename it to <code>wattdepot-server.properties</code>.</p>
+<p>The server reads properties on launch from a file named <code>wattdepot-server.properties</code> in the server subdirectory. A default properties file can be found in the wattdepot release file you downloaded as <code>bin/server/wattdepot-server.properties</code>. Copy that file to your new server subdirectory (~/.wattdepot3/server if you are using the defaults), and rename it to <code>wattdepot-server.properties</code>.</p>
 
 <div class="highlight"><pre><code class="bash"><span class="c"># wattdepot-server.properties This file is part of WattDepot.</span>
 <span class="c">#</span>
@@ -232,7 +242,7 @@ wattdepot-server.admin.password<span class="o">=</span>nimda
 wattdepot-server.db.connection.driver<span class="o">=</span>org.postgresql.Driver
 
 <span class="c">## WattDepot database uri. format postgres://&lt;db.username&gt;:&lt;db.password&gt;@&lt;database-host&gt;:&lt;database-port&gt;/&lt;database-name&gt;</span>
-wattdepot-server.database.url<span class="o">=</span>postgres://myuser:secret@localhost:5432/wattdepot
+wattdepot-server.database.url<span class="o">=</span>postgres://dbuser:secret@localhost:5432/wattdepot
 
 
 <span class="c">## show the sql statements</span>
@@ -266,9 +276,43 @@ At a minimum, you must change:</p>
 
 <h2 id="run-the-server">Run the server</h2>
 
-<p>Change to the top level of the wattdepot distribution you downloaded. Run the server:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ java -cp wattdepot-*version*.jar org.wattdepot.server.WattDepotServer
-</code></pre></div>
+<p>Change to the top level of the wattdepot distribution you downloaded and uncompressed. Run the server:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>java -cp lib/wattdepot-&lt;version&gt;.jar org.wattdepot.server.WattDepotServer</code></pre></div>
+
+<p>You should see something like the following with your values.</p>
+
+<div class="highlight"><pre><code class="bash">Starting WattDepot server.
+Host: http://localhost:8192/wattdepot/
+Server Properties:
+                wattdepot-server.admin.name <span class="o">=</span> admin
+                wattdepot-server.admin.password <span class="o">=</span> <span class="o">((</span>hidden<span class="o">))</span>
+                wattdepot-server.check.sessions <span class="o">=</span> <span class="nb">false</span>
+<span class="nb">                </span>wattdepot-server.context.root <span class="o">=</span> wattdepot
+                wattdepot-server.database.url <span class="o">=</span> <span class="o">((</span>hidden<span class="o">))</span>
+                wattdepot-server.db.connection.driver <span class="o">=</span> org.postgresql.Driver
+                wattdepot-server.db.connection.url <span class="o">=</span> jdbc:postgresql://localhost:5432/wattdepot
+                wattdepot-server.db.password <span class="o">=</span> <span class="o">((</span>hidden<span class="o">))</span>
+                wattdepot-server.db.show.sql <span class="o">=</span> <span class="nb">false</span>
+<span class="nb">                </span>wattdepot-server.db.update <span class="o">=</span> update
+                wattdepot-server.db.username <span class="o">=</span> dbuser
+                wattdepot-server.enable.logging <span class="o">=</span> <span class="nb">true</span>
+<span class="nb">                </span>wattdepot-server.enable.timing <span class="o">=</span> <span class="nb">false</span>
+<span class="nb">                </span>wattdepot-server.heroku <span class="o">=</span> <span class="nb">false</span>
+<span class="nb">                </span>wattdepot-server.homedir <span class="o">=</span> /Users/carletonmoore/.wattdepot3/server
+                wattdepot-server.hostname <span class="o">=</span> localhost
+                wattdepot-server.logging.level <span class="o">=</span> INFO
+                wattdepot-server.port <span class="o">=</span> 8192
+                wattdepot-server.test.heroku <span class="o">=</span> <span class="nb">false</span>
+<span class="nb">                </span>wattdepot-server.test.port <span class="o">=</span> 8194
+                wattdepot-server.test.wattdepot.impl <span class="o">=</span> org.wattdepot.server.depository.impl.hibernate.WattDepotPersistenceImpl
+                wattdepot-server.wattdepot.impl <span class="o">=</span> org.wattdepot.server.depository.impl.hibernate.WattDepotPersistenceImpl
+
+Starting the Apache HTTP client
+2015-03-30 13:37:42.753:INFO:oejs.Server:jetty-7.x.y-SNAPSHOT
+2015-03-30 13:37:42.777:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8192
+WattDepot server now running.</code></pre></div>
+
 <h1 id="3.-administration">3. Administration</h1>
 
 <h2 id="a.-log-in-to-wattdepot-as-administrator">A. Log in to WattDepot as administrator</h2>
@@ -536,7 +580,7 @@ large time windows with small sample frequency can lead to very many samples and
         Department of Information and Computer Sciences<br>
         University of Hawaii, Honolulu, HI USA</p>
 
-      <p>Last update on: <span>11 Mar 2015</span></p>
+      <p>Last update on: <span>30 Mar 2015</span></p>
     </div>
   </footer>
 </div>
